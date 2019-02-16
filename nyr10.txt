@@ -1,0 +1,166 @@
+Start: 35158992 100%
+Shadow: 26369244 75%
+PS1: 23732320 67.5%
+PS2: 15821546 45%
+PS3: 8789478 25%
+FR: 1757950 5%
+HP cap: 351589 1%
+
+Pod skill has 32 sec CD
+Filth skill has 18 sec CD
+Fist is basic attack, no CD
+
+P1 pod starts at 48 sec
+P1 filth starts at 0 sec
+P3 pod starts at 32 sec
+P3 filth starts at 0 sec
+
+Skills takes 6 sec each in P1 and may take 4-5-6-7 seconds in P3 (??? could not find the pattern)
+If neither pod and filth is on CD it's random which follows
+Filth can be followed by pod but if pod is cast first there must be a following up fist (or other mechanics) before filth (so pod target don't get filth circle)
+
+Shadows in P3 are timed. They are cast at 60 sec, 162 sec, 274 sec after start of P3.
+Shadows are delayed if pod was cast (there must be at least 16(18?) sec between pod and shadow)
+
+
+
+STFU:
+
+P1:
+    start:
+    filth: 0 18 36 61
+    pod: 48
+    shadow: 66
+
+    (bird killed at 236)
+
+P2:
+    start: 246
+    filth: 250 273 300 328 346 372 396
+    pod: 278 316 350 384 (38 34 34)
+    shadow: 306 408
+
+Blah:
+
+P1:
+    start:
+    filth: 0 18 36 61 ...
+    pod: 48
+    shadow: 82
+
+    (bird killed at 241)
+
+P3:
+    start: 252
+    filth: 252 f 
+    pod: 284 ~300 390 429 470 484 504 542
+    shadow: 312 414 526 (60, 102, 112)
+
+
+P3 pods: 32 70 104 138 177 218 252 290 (32 38 34 34 39 41 34 38)
+P3 shadows: 60 162 274 (60, 102, 112)
+
+4:20 filth
+4:25 ps (not affected by global cd lol)
+4:31 fist
+4:37 fist
+4:43 filth
+
+00 filth
+06 fist
+12 fist
+18 filth
+24 fist
+30 fist
+36 filth
+42 fist
+48 pod
+53 fist
+59 filth
+65 fist
+71 fist
+77 filth
+83 pod?
+
+Check shadow timings in case of all videos. No pattern??
+
+- Uta Madre for MorionR ???
+
+6:35 pod
+6:39 fist
+6:45 filth
+6:51 fist
+6:57 shadow
+
+7:08 filth
+7:13 pod
+7:17 fist
+7:24 fist
+7:30 filth
+7:36 fist
+7:42 fist
+7:49 PS
+7:53 pod
+7:59 fist
+8:05 filth
+
+4:27
+5:28
+7:20
+9:02
+
+61,173,281
+
+60 sec, 162 sec, 274 sec
+
+4:27
+
+
+
+
+
+
+P1 start:
+DynelSubscribed: 50000:234545|The Unutterable Lurker
+CommandStarted: 50000:234545|Pure Filth
+LockedToTarget: 50000:234545|57016:133735|undefined
+
+P2 start:
+InvisibleBuffAdded: 50000:234545|7944284|XX_Summon All Filth Loop
+StatChanged: 50000:234545|1050|5
+
+Titan:
+DynelSubscribed: 50000:234574|Zero-Point Titan
+CharacterDied: 50000:234574
+DynelUnsubscribed: 50000:234574
+
+Birdy:
+DynelSubscribed: 50000:234575|Eldritch Guardian
+CommandStarted: 50000:234575|Occult Singularity
+CharacterDied: 50000:234575
+DynelUnsubscribed: 50000:234575
+
+NO UNSUB FROM LURKER WHEN WIPE AT 2ND PHASE (char type is 5)
+
+P3 start:
+BuffRemoved: 50000:234584|7944284|0|XX_Summon All Filth Loop
+StatChanged: 50000:234584|1050|3
+
+CommandStarted: 50000:234584|Personal Space
+CommandStarted: 50000:234584|Pure Filth
+CommandStarted: 50000:234584|From Beneath You, It Devours
+DynelSubscribed: 50000:234638|Mouths of Montauk
+CharacterDied: 50000:234638
+
+CommandStarted: 50000:234584|Shadow Out Of Time
+DynelSubscribed: 50000:234642|Zero-Point Titan
+
+
+Respawn:
+DynelSubscribed: 50000:234725|The Unutterable Lurker
+BuffAdded: 50000:234725|8258346|Immune to CC
+StatChanged: 50000:234725|1050|5
+StatChanged: 50000:234725|2000700|0
+BuffUpdated: 50000:234725|8258346|Immune to CC
+StatChanged: 50000:234725|2000700|0
+StatChanged: 50000:234725|1050|3
