@@ -19,7 +19,7 @@ last_date = datetime.min
 tts_engine = None
 announcement_queue = queue.PriorityQueue()
 
-log_line_pattern = re.compile(r'\[(?P<date_string>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})Z.+?\].*?Scaleform\.EventLogger - (?P<event_type>\w+)(: (?P<params>.+))?')
+log_line_pattern = re.compile(r'\[(?P<date_string>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})Z.+?\].*?Scaleform\.Nyr10Caller - (?P<event_type>\w+)(: (?P<params>.+))?')
 
 game_state = None
 is_nyr10_active = False
@@ -110,26 +110,26 @@ def event_stat_changed(character_id, stat_id, value):
     if character_id == lurker_id:
         if stat_id == '27':
             new_hp = int(value)
-            if game_state['lurker_hp'] <= new_hp:
+            if game_state['lurker_hp'] < new_hp:
                 reset_game_state()
             if not game_state['shadow1_call'] and new_hp < 26569244: # 26369244
                 game_state['shadow1_call'] = True
                 say("Shadow out of time soon!", True)
-            if not game_state['ps1_call'] and new_hp < 24032320: # 23732320
+            if not game_state['ps1_call'] and new_hp < 24132320: # 23732320
                 game_state['ps1_call'] = True
                 say("Personal space soon!", True)
-            if not game_state['ps2_call'] and new_hp < 16121546: # 15821546
+            if not game_state['ps2_call'] and new_hp < 16221546: # 15821546
                 game_state['ps2_call'] = True
                 say("Personal space soon!", True)
-            if not game_state['ps3_call'] and new_hp < 9089478: # 8789478
+            if not game_state['ps3_call'] and new_hp < 9189478: # 8789478
                 game_state['ps3_call'] = True
                 say("Personal space soon!", True)
-            if not game_state['fr_call'] and new_hp < 2057950: # 1757950
+            if not game_state['fr_call'] and new_hp < 2157950: # 1757950
                 game_state['fr_call'] = True
                 say("Final resort soon!", True)
 
             if not game_state['shadow1_stop_dps_call']:
-                if new_hp < 27200000 and not game_state['last_pod']:
+                if new_hp < 27400000 and not game_state['last_pod']:
                     say("Stop DPS and wait for pod", True)
                     game_state['shadow1_stop_dps_call'] = True
 
@@ -306,7 +306,8 @@ def main():
     reset_game_state()
     log_file = next((x.split('=', 1)[1] for x  in sys.argv[1:] if x.startswith('log=')), os.path.join('..', 'ClientLog.txt'))
     log = follow(log_file if os.path.isabs(log_file) else os.path.join(os.path.dirname(os.path.abspath(__file__)), log_file))
-    Thread(target=tts_loop, daemon=True).start()
+    if not rewind_mode:
+        Thread(target=tts_loop, daemon=True).start()
 
     try:
         for line in log:
