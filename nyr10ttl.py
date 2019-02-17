@@ -49,7 +49,11 @@ def reset_game_state():
         'number_of_downfalls': 0,
 
         'lurker_became_targetable_at': None,
-        'last_pod': None
+        'last_pod': None,
+        'needs_to_report_filth': True,
+
+        'command_ends': 0,
+        'command_starts': 0
     }
 
 def get_phase():
@@ -184,17 +188,24 @@ def event_command_started(character_id, command_name):
     dynels[character_id]['command'] = (last_date, command_name)
 
     if lurker_id == character_id:
-        if command_name == 'Pure Filth':
-            say("Filth")
+        game_state['command_starts'] += 1
+
+        if command_name == 'Pure Filth' and game_state['needs_to_report_filth']:
+            say("Filth is out")
+            game_state['needs_to_report_filth'] = False
         elif command_name == 'Shadow Out Of Time':
+            game_state['needs_to_report_filth'] = True
             if get_phase() == 3 and game_state['lurker_became_targetable_at']:
                 say("Shadow out of time")
                 print(last_date.isoformat(), 'DEBUG', 'Last pod timedelta is ' + str((last_date - game_state['last_pod']).total_seconds()))
                 print(last_date.isoformat(), 'DEBUG', 'Shadow out of time P3 timedelta is ' + str((last_date - game_state['lurker_became_targetable_at']).total_seconds()))
-
+                print(last_date.isoformat(), 'DEBUG', 'number of command ends: ', game_state['command_ends'])
+                print(last_date.isoformat(), 'DEBUG', 'number of command starts: ', game_state['command_starts'])
         elif command_name.startswith('From Beneath'):
             say("Pod")
             game_state['last_pod'] = last_date
+        elif command_name == 'Personal Space' or command_name == 'Final Resort':
+            game_state['needs_to_report_filth'] = True
 
     if command_name == 'Downfall' and game_state['number_of_birds'] == 3:
         game_state['number_of_downfalls'] += 1
@@ -206,6 +217,9 @@ def event_command_started(character_id, command_name):
 
 
 def event_command_ended(character_id):
+    if lurker_id == character_id:
+        game_state['command_ends'] += 1
+
     if character_id not in dynels or not dynels[character_id]['command']:
         return
 
@@ -296,6 +310,17 @@ def tts_loop():
                 break
         else:
             print('ERROR', 'Could not find CABLE Input (VB-Audio Virtual Cable) audio device, playing to Default device')
+
+    name = next((x.split('=', 1)[1] for x  in sys.argv[1:] if x.startswith('voice=')), None)
+    print(name)
+    if name:
+        voices = tts.GetVoices(f"Name = {name}")
+        if voices.Count > 0:
+            tts.Voice = voices.Item(0)
+
+    speed = next((x.split('=', 1)[1] for x  in sys.argv[1:] if x.startswith('speed=')), None)
+    if speed:
+        tts.Rate = int(speed)
 
     tts.Speak("Text-to-speach engine test.")
     while True:
