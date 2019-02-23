@@ -301,7 +301,7 @@ def say(text, priority=False):
         announcement_queue.put((0 if priority else 1, last_date, text))
 
 def tts_loop():
-    pythoncom.CoInitialize()
+    pythoncom.CoInitialize() # pylint: disable=no-member
     tts = win32com.client.Dispatch('SAPI.SPVoice')
 
     if 'redirectOutput' in sys.argv[1:]:
