@@ -107,7 +107,6 @@ def event_dynel_unsubscribed(character_id):
     global lurker_id
 
     if character_id == lurker_id:
-        # lurker_id = None
         pass
 
     if character_id in dynels:
