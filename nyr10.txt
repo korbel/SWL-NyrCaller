@@ -1,3 +1,9 @@
+TODO:
+priority speech
+DPS based calls
+P1 & P3 DPS stop detection
+
+------------------------------
 Start: 35158992 100%
 Shadow: 26369244 75%
 PS1: 23732320 67.5%

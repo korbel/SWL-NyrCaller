@@ -8,7 +8,7 @@ import win32com.client
 import pythoncom
 
 from threading import Thread
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 
@@ -25,6 +25,7 @@ game_state = None
 is_nyr10_active = False
 dynels = {}
 lurker_id = None
+number_of_players = 0
 
 def reset_game_state():
     global game_state
@@ -49,11 +50,15 @@ def reset_game_state():
         'number_of_downfalls': 0,
 
         'lurker_became_targetable_at': None,
+        'start_time': None,
         'last_pod': None,
         'needs_to_report_filth': True,
 
         'command_ends': 0,
-        'command_starts': 0
+        'command_starts': 0,
+
+        'players_died': 0,
+        'dps': None
     }
 
 def get_phase():
@@ -65,6 +70,19 @@ def get_phase():
         return 2
     else:
         return 3
+
+def is_player(dynel_id):
+    return int(dynel_id.split(':')[1]) >= 1<<24
+
+def dps_factor():
+    if not game_state['dps']:
+        return None
+    return game_state['dps'] * (number_of_players - game_state['players_died'] - 2) / (number_of_players - 2)
+
+
+#######################
+## Events start here ##
+#######################
 
 def event_play_field_changed(playfield_id, playfield_name):
     global is_nyr10_active
@@ -85,12 +103,16 @@ def event_play_field_changed(playfield_id, playfield_name):
     
 def event_dynel_subscribed(character_id, character_name):
     global lurker_id
+    global number_of_players
 
     if character_name == 'The Unutterable Lurker':
         if lurker_id and lurker_id != character_id:
             reset_game_state()
         lurker_id = character_id
         print(last_date.isoformat(), 'DEBUG', 'Lurker subscribed with ID ' + lurker_id)
+
+    if is_player(character_id):
+        number_of_players += 1
 
     dynels[character_id] = {
         'name': character_name,
@@ -104,10 +126,10 @@ def event_dynel_subscribed(character_id, character_name):
             say("Third bird")
 
 def event_dynel_unsubscribed(character_id):
-    global lurker_id
+    global number_of_players
 
-    if character_id == lurker_id:
-        pass
+    if is_player(character_id):
+        number_of_players -= 1
 
     if character_id in dynels:
         del dynels[character_id]
@@ -116,28 +138,44 @@ def event_stat_changed(character_id, stat_id, value):
     if character_id == lurker_id:
         if stat_id == '27':
             new_hp = int(value)
+
+            if not game_state['dps'] and new_hp < 30000000: #
+                damage = 35158992 - new_hp
+                seconds = (last_date - game_state['start_time']).total_seconds()
+                game_state['dps'] = damage / seconds
+                print(last_date.isoformat(), 'DEBUG', f'DPS calculated in {seconds}: ' + str(game_state['dps']))
+                
+            factor = dps_factor()
+
             if game_state['lurker_hp'] < new_hp:
                 reset_game_state()
-            if not game_state['shadow1_call'] and new_hp < 26569244: # 26369244
-                game_state['shadow1_call'] = True
-                say("Shadow out of time soon!", True)
-            if not game_state['ps1_call'] and new_hp < 24132320: # 23732320
-                game_state['ps1_call'] = True
-                say("Personal space soon!", True)
-            if not game_state['ps2_call'] and new_hp < 16221546: # 15821546
-                game_state['ps2_call'] = True
-                say("Personal space soon!", True)
-            if not game_state['ps3_call'] and new_hp < 9189478: # 8789478
-                game_state['ps3_call'] = True
-                say("Personal space soon!", True)
-            if not game_state['fr_call'] and new_hp < 2157950: # 1757950
-                game_state['fr_call'] = True
-                say("Final resort soon!", True)
 
-            if not game_state['shadow1_stop_dps_call']:
-                if new_hp < 27400000 and not game_state['last_pod']:
-                    say("Stop DPS and wait for pod", True)
-                    game_state['shadow1_stop_dps_call'] = True
+            if factor:
+                if not game_state['shadow1_call'] and new_hp < 26569244: # 26369244
+                    game_state['shadow1_call'] = True
+                    say("Shadow out of time soon!", True)
+                if not game_state['ps1_call'] and new_hp < 24132320: # 23732320
+                    game_state['ps1_call'] = True
+                    say("Personal space soon!", True)
+                if not game_state['ps2_call'] and new_hp < 16221546: # 15821546
+                    game_state['ps2_call'] = True
+                    say("Personal space soon!", True)
+                if not game_state['ps3_call'] and new_hp < 9189478: # 8789478
+                    game_state['ps3_call'] = True
+                    say("Personal space soon!", True)
+                if not game_state['fr_call'] and new_hp < 2157950: # 1757950
+                    game_state['fr_call'] = True
+                    say("Final resort soon!", True)
+                if not game_state['shadow1_stop_dps_call'] and game_state['start_time']:
+                    last_pod = game_state['last_pod'] if game_state['last_pod'] else game_state['start_time'] + timedelta(seconds=16)
+                    seconds_till_next_pod = 32 - (last_date - last_pod).total_seconds()
+
+                    if new_hp < 27400000:
+                        if seconds_till_next_pod < 10:
+                            say("Stop DPS and wait for pod", True)
+                        else:
+                            say("Push it")
+                        game_state['shadow1_stop_dps_call'] = True
 
             game_state['lurker_hp'] = new_hp
         
@@ -147,16 +185,20 @@ def event_stat_changed(character_id, stat_id, value):
                 game_state['lurker_targetable'] = True
                 if get_phase() == 3:
                     game_state['lurker_became_targetable_at'] = last_date
+                    game_state['last_pod'] = last_date
 
             elif value == '5':
                 print(last_date.isoformat(), 'DEBUG', 'Lurker became untargetable')
                 game_state['lurker_targetable'] = False
 
 def event_character_died(character_id):
-    pass
+    if is_player(character_id) and character_id in dynels:
+        game_state['players_died'] += 1
+
 
 def event_character_alive(character_id):
-    pass
+    if not game_state['start_time']:
+        game_state['players_died'] = max(game_state['players_died'] - 1, 0)
 
 def event_buff_added(character_id, buff_id, buff_name):
     if buff_name == 'Inevitable Doom':
@@ -195,6 +237,8 @@ def event_command_started(character_id, command_name):
         if command_name == 'Pure Filth' and game_state['needs_to_report_filth']:
             say("Filth is out")
             game_state['needs_to_report_filth'] = False
+            if not game_state['last_pod']:
+                game_state['start_time'] = last_date + timedelta(seconds=-1)
         elif command_name == 'Shadow Out Of Time':
             game_state['needs_to_report_filth'] = True
             if get_phase() == 3 and game_state['lurker_became_targetable_at']:
