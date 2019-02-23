@@ -87,6 +87,8 @@ def event_dynel_subscribed(character_id, character_name):
     global lurker_id
 
     if character_name == 'The Unutterable Lurker':
+        if lurker_id and lurker_id != character_id:
+            reset_game_state()
         lurker_id = character_id
         print(last_date.isoformat(), 'DEBUG', 'Lurker subscribed with ID ' + lurker_id)
 
@@ -105,7 +107,8 @@ def event_dynel_unsubscribed(character_id):
     global lurker_id
 
     if character_id == lurker_id:
-        lurker_id = None
+        # lurker_id = None
+        pass
 
     if character_id in dynels:
         del dynels[character_id]
@@ -312,7 +315,6 @@ def tts_loop():
             print('ERROR', 'Could not find CABLE Input (VB-Audio Virtual Cable) audio device, playing to Default device')
 
     name = next((x.split('=', 1)[1] for x  in sys.argv[1:] if x.startswith('voice=')), None)
-    print(name)
     if name:
         voices = tts.GetVoices(f"Name = {name}")
         if voices.Count > 0:
