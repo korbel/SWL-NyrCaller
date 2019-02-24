@@ -1,7 +1,7 @@
 TODO:
 priority speech
-DPS based calls
-P1 & P3 DPS stop detection
+P3 DPS stop detection
+crash detection? disable on playfield change without user dying?
 
 ------------------------------
 Start: 35158992 100%
