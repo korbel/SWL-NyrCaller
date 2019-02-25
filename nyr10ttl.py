@@ -83,8 +83,25 @@ def get_call_hp(stop_dps = False):
     dps_factor = game_state['dps'] * 1
     stop_dps_factor = 6 if stop_dps else 1
     phase_factor = 1 if get_phase() < 3 else 2.5
-    player_number_factor = (number_of_players - game_state['players_died']*1.2) / (number_of_players - 2)
+    player_number_factor = calculate_player_number_factor()
     return stop_dps_factor * phase_factor * player_number_factor * dps_factor
+
+def calculate_player_number_factor():
+    players_died = game_state['players_died']
+    if players_died == 0:
+        return 1
+
+    number_of_non_dps = 3
+    number_of_dps = number_of_players - number_of_non_dps
+
+    non_dps_factor = 0.3 
+    
+    dps_factor_total = number_of_dps + number_of_non_dps * non_dps_factor
+
+    if players_died <= number_of_dps:
+        return (dps_factor_total - players_died) / dps_factor_total
+    else:
+        return (number_of_players - players_died) * non_dps_factor
 
 
 #######################
@@ -97,7 +114,7 @@ def event_play_field_changed(playfield_id, playfield_name):
     global lurker_id
 
     if playfield_id == '5715' and not is_nyr10_active:
-        say('Welcome to New York raid E 10! The current local time is mid-afternoon.')
+        say('Welcome to New York raid E 10!')
         is_nyr10_active = True
         print(last_date.isoformat(), 'DEBUG', 'Entered NYR E10')
     elif playfield_id != '5715' and is_nyr10_active:
@@ -181,7 +198,7 @@ def event_stat_changed(character_id, stat_id, value):
                     seconds_till_next_pod = 32 - (last_date - last_pod).total_seconds()
 
                     if new_hp < 26369244 + get_call_hp(True):
-                        if seconds_till_next_pod < 8: # call HP should cover around 6 seconds, +3 sec should be safe ... maybe
+                        if seconds_till_next_pod < 9: # call HP should cover around 6 seconds, +3 sec should be safe ... maybe
                             say("Stop DPS and wait for pod", True)
                         elif seconds_till_next_pod < 12:
                             say("Push it")
