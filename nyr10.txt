@@ -1,8 +1,8 @@
 TODO:
 priority speech
-P3 DPS stop detection
-P3 - do we need filth is out announcement after every PS? maybe we should check if filth was directly followed by PS/Shadow and if not ignore it
-crash detection? disable on playfield change without user dying?
+P3 - stop dps calls
+P3 - wait for filth calls
+crash detection? disable speech until reset ?
 
 ------------------------------
 Start: 35158992 100%
