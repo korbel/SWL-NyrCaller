@@ -29,10 +29,11 @@ number_of_players = 0
 
 def reset_game_state():
     global game_state
-    print(last_date.isoformat(), 'DEBUG', 'Reset')
+    debug('Reset')
     game_state = {
         'lurker_hp': 35158992,
         'lurker_targetable': True,
+        'phase': 1,
 
         'shadow1_call': False,
         'early_ps_call': False,
@@ -53,6 +54,7 @@ def reset_game_state():
         'lurker_became_targetable_at': None,
         'start_time': None,
         'last_pod': None,
+        'last_filth': None,
         'needs_to_report_filth': True,
 
         'command_ends': 0,
@@ -61,16 +63,6 @@ def reset_game_state():
         'players_died': 0,
         'dps': None
     }
-
-def get_phase():
-    if not game_state or not game_state['lurker_hp']:
-        return 0
-    elif game_state['lurker_hp'] > 26369244:
-        return 1
-    elif not game_state['lurker_targetable']:
-        return 2
-    else:
-        return 3
 
 def is_player(dynel_id):
     return int(dynel_id.split(':')[1]) >= 1<<24
@@ -82,7 +74,7 @@ def get_call_hp(stop_dps = False):
     # P3 DPS should be around 2.5 times of P1 DPS
     dps_factor = game_state['dps'] * 1
     stop_dps_factor = 6 if stop_dps else 1
-    phase_factor = 1 if get_phase() < 3 else 2.5
+    phase_factor = 1 if game_state['phase'] < 3 else 2.5
     player_number_factor = calculate_player_number_factor()
     return stop_dps_factor * phase_factor * player_number_factor * dps_factor
 
@@ -116,13 +108,13 @@ def event_play_field_changed(playfield_id, playfield_name):
     if playfield_id == '5715' and not is_nyr10_active:
         say('Welcome to New York raid E 10!')
         is_nyr10_active = True
-        print(last_date.isoformat(), 'DEBUG', 'Entered NYR E10')
+        debug('Entered NYR E10')
     elif playfield_id != '5715' and is_nyr10_active:
         reset_game_state()
         is_nyr10_active = False
         dynels = {}
         lurker_id = None
-        print(last_date.isoformat(), 'DEBUG', 'Left NYR E10')
+        debug('Left NYR E10')
 
     
 def event_dynel_subscribed(character_id, character_name):
@@ -133,7 +125,7 @@ def event_dynel_subscribed(character_id, character_name):
         if lurker_id and lurker_id != character_id:
             reset_game_state()
         lurker_id = character_id
-        print(last_date.isoformat(), 'DEBUG', 'Lurker subscribed with ID ' + lurker_id)
+        debug('Lurker subscribed with ID ' + lurker_id)
 
     if is_player(character_id):
         number_of_players += 1
@@ -145,7 +137,7 @@ def event_dynel_subscribed(character_id, character_name):
 
     if character_name == 'Eldritch Guardian':
         game_state['number_of_birds'] += 1
-        print(last_date.isoformat(), 'DEBUG', "Bird count since last reset: " + str(game_state['number_of_birds']))
+        debug("Bird count since last reset: " + str(game_state['number_of_birds']))
         if game_state['number_of_birds'] == 3:
             say("Third bird")
 
@@ -167,13 +159,13 @@ def event_stat_changed(character_id, stat_id, value):
                 damage = 35158992 - new_hp
                 seconds = (last_date - game_state['start_time']).total_seconds()
                 game_state['dps'] = damage / seconds
-                print(last_date.isoformat(), 'DEBUG', f'DPS calculated in {seconds} seconds: ' + str(game_state['dps']))
+                debug(f'DPS calculated in {seconds} seconds: ' + str(game_state['dps']))
 
             if game_state['lurker_hp'] < new_hp:
                 reset_game_state()
 
             if game_state['dps']:
-                if not game_state['shadow1_call'] and new_hp < 26369244 + get_call_hp() if not game_state['shadow1_stop_dps_call'] else 0:
+                if not game_state['shadow1_call'] and new_hp < 26369244 + (get_call_hp() if not game_state['shadow1_stop_dps_call'] else 0):
                     game_state['shadow1_call'] = True
                     say("Shadow out of time soon!", True)
                 if not game_state['ps1_call'] and new_hp < 23732320 + get_call_hp() * 0.4:
@@ -208,14 +200,16 @@ def event_stat_changed(character_id, stat_id, value):
         
         elif stat_id == '1050':
             if value == '3':
-                print(last_date.isoformat(), 'DEBUG', 'Lurker became targetable')
+                debug('Lurker became targetable')
                 game_state['lurker_targetable'] = True
-                if get_phase() == 3:
+                if game_state['phase'] == 2:
+                    game_state['phase'] = 3
                     game_state['lurker_became_targetable_at'] = last_date
                     game_state['last_pod'] = last_date
+                    game_state['needs_to_report_filth'] = True
 
             elif value == '5':
-                print(last_date.isoformat(), 'DEBUG', 'Lurker became untargetable')
+                debug('Lurker became untargetable')
                 game_state['lurker_targetable'] = False
 
 def event_character_died(character_id):
@@ -232,11 +226,11 @@ def event_buff_added(character_id, buff_id, buff_name):
         name = dynels[character_id]['name'] if character_id in dynels else 'an unknown person'
         game_state['pod_targets'].append(name)
 
-        print(last_date.isoformat(), 'DEBUG', 'Pod target found: ' + character_id, name)
-        print(last_date.isoformat(), 'DEBUG', 'Current targets: ' + str(game_state['pod_targets']))
-        print(last_date.isoformat(), 'DEBUG', 'Current game phase: ' + str(get_phase()))
+        debug('Pod target found: ' + character_id, name)
+        debug('Current targets: ' + str(game_state['pod_targets']))
+        debug('Current game phase: ' + str(game_state['phase']))
 
-        if get_phase() == 1 or get_phase() == 3 and len(game_state['pod_targets']) >= 2:
+        if game_state['phase'] == 1 or game_state['phase'] == 3 and len(game_state['pod_targets']) >= 2:
             if len(game_state['pod_targets']) == 1:
                 say('Pod target is ' + game_state['pod_targets'][0])
             else:
@@ -261,29 +255,33 @@ def event_command_started(character_id, command_name):
     if lurker_id == character_id:
         game_state['command_starts'] += 1
 
-        if command_name == 'Pure Filth' and game_state['needs_to_report_filth']:
-            say("Filth is out")
-            game_state['needs_to_report_filth'] = False
-            if not game_state['last_pod']:
-                game_state['start_time'] = last_date + timedelta(seconds=-1)
+        if command_name == 'Pure Filth':
+            if not game_state['last_filth']:
+                game_state['start_time'] = last_date - timedelta(seconds=1)
+                debug("Start time: ", game_state['start_time'].isoformat())
+            if game_state['needs_to_report_filth']:
+                say("Filth is out")
+                game_state['needs_to_report_filth'] = False
+            game_state['last_filth'] = last_date
         elif command_name == 'Shadow Out Of Time':
-            game_state['needs_to_report_filth'] = True
-            if get_phase() == 3 and game_state['lurker_became_targetable_at']:
+            if game_state['phase'] == 1:
+                game_state['phase'] = 2
+
+            if game_state['phase'] == 3 and game_state['lurker_became_targetable_at']:
                 say("Shadow out of time")
-                print(last_date.isoformat(), 'DEBUG', 'Last pod timedelta is ' + str((last_date - game_state['last_pod']).total_seconds()))
-                print(last_date.isoformat(), 'DEBUG', 'Shadow out of time P3 timedelta is ' + str((last_date - game_state['lurker_became_targetable_at']).total_seconds()))
-                print(last_date.isoformat(), 'DEBUG', 'number of command ends: ', game_state['command_ends'])
-                print(last_date.isoformat(), 'DEBUG', 'number of command starts: ', game_state['command_starts'])
+                debug('Last pod timedelta is ' + str((last_date - game_state['last_pod']).total_seconds()))
+                debug('Shadow out of time P3 timedelta is ' + str((last_date - game_state['lurker_became_targetable_at']).total_seconds()))
+                debug('number of command ends: ', game_state['command_ends'])
+                debug('number of command starts: ', game_state['command_starts'])
         elif command_name.startswith('From Beneath'):
             say("Pod")
             game_state['last_pod'] = last_date
         elif command_name == 'Personal Space' or command_name == 'Final Resort':
-            game_state['needs_to_report_filth'] = True
-            print(last_date.isoformat(), 'DEBUG', command_name)
+            debug(command_name)
 
     if command_name == 'Downfall' and game_state['number_of_birds'] == 3:
         game_state['number_of_downfalls'] += 1
-        print(last_date.isoformat(), 'DEBUG', 'Downfall count: ' + str(game_state['number_of_downfalls']))
+        debug('Downfall count: ' + str(game_state['number_of_downfalls']))
         if game_state['number_of_downfalls'] == 3:
             say('Kill it')
         else:
@@ -297,8 +295,14 @@ def event_command_ended(character_id):
     if character_id not in dynels or not dynels[character_id]['command']:
         return
 
-    #(start_date, command_name) = dynels[character_id]['command']
-    # command ended
+    (start_date, command_name) = dynels[character_id]['command']
+    
+    # if lurker_id == character_id:
+    #    if command_name == 'Personal Space' or command_name == 'Final Resort':
+    #        if not game_state['needs_to_report_filth'] and game_state['last_filth'] and (last_date - game_state['last_filth']).total_seconds() >= 15:
+    #            game_state['needs_to_report_filth'] = True
+    #            say("Wait for filth")
+
     dynels[character_id]['command'] = None
 
 
@@ -317,8 +321,7 @@ def process(line):
     event = m.group('event_type')
     params = m.group('params').split('|')
 
-    if trace_mode:
-        print(last_date.isoformat(), 'TRACE', event, params)
+    trace(event, params)
 
     if event == 'PlayFieldChanged':
         event_play_field_changed(*params)
@@ -349,7 +352,7 @@ def process(line):
     elif event == 'CommandAborted':
         event_command_ended(*params)
     else:
-        print(last_date.isoformat(), 'ERROR', 'Unsupported event:', event)
+        error('Unsupported event:', event)
 
 def follow(file_path):
     with open(file_path, 'r') as f:
@@ -383,7 +386,7 @@ def tts_loop():
                 tts.AudioOutput = token
                 break
         else:
-            print('ERROR', 'Could not find CABLE Input (VB-Audio Virtual Cable) audio device, playing to Default device')
+            error('Could not find CABLE Input (VB-Audio Virtual Cable) audio device, playing to Default device')
 
     name = next((x.split('=', 1)[1] for x  in sys.argv[1:] if x.startswith('voice=')), None)
     if name:
@@ -399,6 +402,14 @@ def tts_loop():
     while True:
         (_, _, text) = announcement_queue.get()
         tts.Speak(text)
+
+def debug(*args):
+    print(last_date.isoformat(), 'DEBUG', *args)
+def error(*args):
+    print(last_date.isoformat(), 'ERROR', *args)
+def trace(*args):
+    if trace_mode:
+        print(last_date.isoformat(), 'TRACE', *args)
 
 def main():
     reset_game_state()
