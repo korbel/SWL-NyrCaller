@@ -6,6 +6,7 @@ import sys
 import queue
 import win32com.client
 import pythoncom
+import math
 
 from threading import Thread
 from datetime import datetime, timedelta
@@ -26,6 +27,7 @@ is_nyr10_active = False
 dynels = {}
 lurker_id = None
 number_of_players = 0
+ps_fr_hps = [23732320, 15821546, 8789478, 1757950]
 
 def reset_game_state():
     global game_state
@@ -36,16 +38,17 @@ def reset_game_state():
         'phase': 1,
 
         'shadow1_call': False,
+        'shadow1_stop_dps_call': False,
+        'early_ps': False,
         'early_ps_call': False,
         'ps1_call': False,
-        'ps2_call': False,
-        'ps3_call': False,
-        'fr_call': False,
-
-        'shadow1_stop_dps_call': False,
         'ps1_stop_dps_call': False,
+        'ps2_call': False,
         'ps2_stop_dps_call': False,
+        'ps3_call': False,
         'ps3_stop_dps_call': False,
+        'fr_call': False,
+        'fr_stop_dps_call': False,
 
         'pod_targets': [],
         'number_of_birds': 0,
@@ -55,10 +58,9 @@ def reset_game_state():
         'start_time': None,
         'last_pod': None,
         'last_filth': None,
+        'last_shadow': None,
+        'ps_counter': 0,
         'needs_to_report_filth': True,
-
-        'command_ends': 0,
-        'command_starts': 0,
 
         'players_died': 0,
         'dps': None
@@ -68,15 +70,29 @@ def is_player(dynel_id):
     return int(dynel_id.split(':')[1]) >= 1<<24
 
 def get_call_hp(stop_dps = False):
+    dps = get_normalized_dps()
+
+    if dps is None:
+        return None
+
+    # P1 call 1 sec early and Stop dps 6 sec early
+    stop_dps_factor = 6 if stop_dps else 1
+    dps_factor = 1
+
+    return stop_dps_factor * dps_factor * dps
+
+def get_normalized_dps():
     if not game_state['dps']:
         return None
-    # P1 call 1 sec early and Stop dps 6 sec early
-    # P3 DPS should be around 2.5 times of P1 DPS
-    dps_factor = game_state['dps'] * 1
-    stop_dps_factor = 6 if stop_dps else 1
+
+    phase_start_dps_modifier = 1
+    if game_state['phase'] == 3:
+        phase_start_dps_modifier = min((last_date - game_state['lurker_became_targetable_at']).total_seconds() / 7, 1)
+
     phase_factor = 1 if game_state['phase'] < 3 else 2.5
     player_number_factor = calculate_player_number_factor()
-    return stop_dps_factor * phase_factor * player_number_factor * dps_factor
+
+    return phase_factor * player_number_factor * phase_start_dps_modifier * game_state['dps']
 
 def calculate_player_number_factor():
     players_died = game_state['players_died']
@@ -85,9 +101,7 @@ def calculate_player_number_factor():
 
     number_of_non_dps = 3
     number_of_dps = number_of_players - number_of_non_dps
-
     non_dps_factor = 0.3 
-    
     dps_factor_total = number_of_dps + number_of_non_dps * non_dps_factor
 
     if players_died <= number_of_dps:
@@ -109,6 +123,7 @@ def event_play_field_changed(playfield_id, playfield_name):
         say('Welcome to New York raid E 10!')
         is_nyr10_active = True
         debug('Entered NYR E10')
+
     elif playfield_id != '5715' and is_nyr10_active:
         reset_game_state()
         is_nyr10_active = False
@@ -165,26 +180,60 @@ def event_stat_changed(character_id, stat_id, value):
                 reset_game_state()
 
             if game_state['dps']:
-                if not game_state['shadow1_call'] and new_hp < 26369244 + (get_call_hp() if not game_state['shadow1_stop_dps_call'] else 0):
-                    game_state['shadow1_call'] = True
-                    say("Shadow out of time soon!", True)
-                if not game_state['ps1_call'] and new_hp < 23732320 + get_call_hp() * 0.4:
-                    if not game_state['lurker_became_targetable_at']:
-                        if not game_state['early_ps_call']:
-                            game_state['early_ps_call'] = True
-                            say("Personal space will be early")
-                    elif (last_date - game_state['lurker_became_targetable_at']).total_seconds() > 7:    
+                dps = get_normalized_dps()
+
+                if game_state['phase'] < 3 and (new_hp - 23732320) / dps < 4:
+                    game_state['early_ps'] = True
+
+                if game_state['phase'] == 3:
+
+                    phase_started = (last_date - game_state['lurker_became_targetable_at']).total_seconds() if game_state['lurker_became_targetable_at'] else math.inf
+
+                    last_pod = (last_date - game_state['last_pod']).total_seconds() if game_state['last_pod'] else -math.inf
+                    last_shadow = (last_date - game_state['last_shadow']).total_seconds() if game_state['last_shadow'] else -math.inf
+                    # last_filth = (last_date - game_state['last_filth']).total_seconds() if game_state['last_filth'] else -math.inf
+
+                    next_pod = 32 - last_pod if last_pod < phase_started else 32 - phase_started
+                    next_shadow = max(100 - last_shadow if last_shadow < phase_started else 60 - phase_started, 20 - last_pod)
+                    next_ps_fr = (new_hp - ps_fr_hps[game_state['ps_counter']]) / dps if game_state['ps_counter'] < 4 else math.inf
+                    # next_filth = max(18 - last_filth if last_filth < phase_started else phase_started, 10 - last_pod)
+
+                    # Should think about it more and refactor
+                    if (next_shadow < 6) and next_ps_fr < 8 and next_shadow - next_ps_fr < 3:
+                        if not game_state['ps1_stop_dps_call'] and game_state['ps_counter'] == 0:
+                            say("Stop DPS before PS1", True)
+                            debug("next_pod", next_pod, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
+                            game_state['ps1_stop_dps_call'] = True
+                        if not game_state['ps2_stop_dps_call'] and game_state['ps_counter'] == 1:
+                            say("Stop DPS before PS2", True)
+                            debug("next_pod", next_pod, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
+                            game_state['ps2_stop_dps_call'] = True
+                        if not game_state['ps3_stop_dps_call'] and game_state['ps_counter'] == 2:
+                            say("Stop DPS before PS3", True)
+                            debug("next_pod", next_pod, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
+                            game_state['ps3_stop_dps_call'] = True
+                        if not game_state['fr_stop_dps_call'] and game_state['ps_counter'] == 3:
+                            say("Stop DPS before FR", True)
+                            debug("next_pod", next_pod, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
+                            game_state['fr_stop_dps_call'] = True
+
+                    if not game_state['ps1_call'] and new_hp < ps_fr_hps[0] + (get_call_hp() if not game_state['ps1_stop_dps_call'] else 0): 
                         game_state['ps1_call'] = True
                         say("Personal space soon!", True)
-                if not game_state['ps2_call'] and new_hp < 15821546 + get_call_hp():
-                    game_state['ps2_call'] = True
-                    say("Personal space soon!", True)
-                if not game_state['ps3_call'] and new_hp < 8789478 + get_call_hp():
-                    game_state['ps3_call'] = True
-                    say("Personal space soon!", True)
-                if not game_state['fr_call'] and new_hp < 1757950 + get_call_hp():
-                    game_state['fr_call'] = True
-                    say("Final resort soon!", True)
+                    if not game_state['ps2_call'] and new_hp < ps_fr_hps[1] + (get_call_hp() if not game_state['ps2_stop_dps_call'] else 0):
+                        game_state['ps2_call'] = True
+                        say("Personal space soon!", True)
+                    if not game_state['ps3_call'] and new_hp < ps_fr_hps[2] + (get_call_hp() if not game_state['ps3_stop_dps_call'] else 0):
+                        game_state['ps3_call'] = True
+                        say("Personal space soon!", True)
+                    if not game_state['fr_call'] and new_hp < ps_fr_hps[3] + (get_call_hp() if not game_state['fr_stop_dps_call'] else 0):
+                        game_state['fr_call'] = True
+                        say("Final resort soon!", True)
+
+
+
+
+
                 if not game_state['shadow1_stop_dps_call'] and game_state['start_time']:
                     last_pod = game_state['last_pod'] if game_state['last_pod'] else game_state['start_time'] + timedelta(seconds=16)
                     seconds_till_next_pod = 32 - (last_date - last_pod).total_seconds()
@@ -195,6 +244,10 @@ def event_stat_changed(character_id, stat_id, value):
                         elif seconds_till_next_pod < 12:
                             say("Push it")
                         game_state['shadow1_stop_dps_call'] = True
+
+                if not game_state['shadow1_call'] and new_hp < 26369244 + (get_call_hp() if not game_state['shadow1_stop_dps_call'] else 0):
+                    game_state['shadow1_call'] = True
+                    say("Shadow out of time soon!", True)
 
             game_state['lurker_hp'] = new_hp
         
@@ -213,8 +266,12 @@ def event_stat_changed(character_id, stat_id, value):
                 game_state['lurker_targetable'] = False
 
 def event_character_died(character_id):
-    if is_player(character_id) and character_id in dynels:
-        game_state['players_died'] += 1
+    if character_id in dynels:
+        if is_player(character_id):
+            game_state['players_died'] += 1
+        if game_state['number_of_birds'] == 3 and dynels[character_id]['name'] == 'Eldritch Guardian' and game_state['early_ps'] and not game_state['early_ps_call']:
+            game_state['early_ps_call'] = True
+            say("Personal space will be early")
 
 
 def event_character_alive(character_id):
@@ -253,7 +310,7 @@ def event_command_started(character_id, command_name):
     dynels[character_id]['command'] = (last_date, command_name)
 
     if lurker_id == character_id:
-        game_state['command_starts'] += 1
+        debug('Lurker command started:', command_name)
 
         if command_name == 'Pure Filth':
             if not game_state['last_filth']:
@@ -266,18 +323,14 @@ def event_command_started(character_id, command_name):
         elif command_name == 'Shadow Out Of Time':
             if game_state['phase'] == 1:
                 game_state['phase'] = 2
-
             if game_state['phase'] == 3 and game_state['lurker_became_targetable_at']:
                 say("Shadow out of time")
-                debug('Last pod timedelta is ' + str((last_date - game_state['last_pod']).total_seconds()))
-                debug('Shadow out of time P3 timedelta is ' + str((last_date - game_state['lurker_became_targetable_at']).total_seconds()))
-                debug('number of command ends: ', game_state['command_ends'])
-                debug('number of command starts: ', game_state['command_starts'])
+            game_state['last_shadow'] = last_date
         elif command_name.startswith('From Beneath'):
             say("Pod")
             game_state['last_pod'] = last_date
         elif command_name == 'Personal Space' or command_name == 'Final Resort':
-            debug(command_name)
+            pass
 
     if command_name == 'Downfall' and game_state['number_of_birds'] == 3:
         game_state['number_of_downfalls'] += 1
@@ -289,13 +342,15 @@ def event_command_started(character_id, command_name):
 
 
 def event_command_ended(character_id):
-    if lurker_id == character_id:
-        game_state['command_ends'] += 1
-
     if character_id not in dynels or not dynels[character_id]['command']:
         return
 
     (start_date, command_name) = dynels[character_id]['command']
+
+    if lurker_id == character_id:
+        if command_name == 'Personal Space' or command_name == 'Final Resort':
+            if game_state['ps_counter'] < 4 and ps_fr_hps[game_state['ps_counter']] > game_state['lurker_hp']:
+                game_state['ps_counter'] += 1
     
     # if lurker_id == character_id:
     #    if command_name == 'Personal Space' or command_name == 'Final Resort':
