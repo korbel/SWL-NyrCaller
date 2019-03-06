@@ -2,4 +2,4 @@ dist/
 build/
 __pycache__/
 .vscode
-out.txt
+out*.txt

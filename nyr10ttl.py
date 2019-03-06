@@ -179,10 +179,10 @@ def event_stat_changed(character_id, stat_id, value):
             if game_state['lurker_hp'] < new_hp:
                 reset_game_state()
 
-            if game_state['dps']:
+            if game_state['dps'] and game_state['ps_counter'] < 4:
                 dps = get_normalized_dps()
 
-                if game_state['phase'] < 3 and (new_hp - 23732320) / dps < 4:
+                if game_state['phase'] < 3 and dps and (new_hp - 23732320) / dps < 4:
                     game_state['early_ps'] = True
 
                 if game_state['phase'] == 3:
@@ -195,11 +195,11 @@ def event_stat_changed(character_id, stat_id, value):
 
                     next_pod = 32 - last_pod if last_pod < phase_started else 32 - phase_started
                     next_shadow = max(100 - last_shadow if last_shadow < phase_started else 60 - phase_started, 20 - last_pod)
-                    next_ps_fr = (new_hp - ps_fr_hps[game_state['ps_counter']]) / dps if game_state['ps_counter'] < 4 else math.inf
+                    next_ps_fr = (new_hp - ps_fr_hps[game_state['ps_counter']]) / dps if dps else math.inf
                     # next_filth = max(18 - last_filth if last_filth < phase_started else phase_started, 10 - last_pod)
 
                     # Should think about it more and refactor
-                    if (next_shadow < 6) and next_ps_fr < 8 and next_shadow - next_ps_fr < 3:
+                    if next_ps_fr <= 6 and (game_state['ps_counter'] < 3 and next_shadow < 8) or (game_state['ps_counter'] == 3 and next_pod < 8):
                         if not game_state['ps1_stop_dps_call'] and game_state['ps_counter'] == 0:
                             say("Stop DPS before PS1", True)
                             debug("next_pod", next_pod, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
@@ -315,7 +315,7 @@ def event_command_started(character_id, command_name):
         if command_name == 'Pure Filth':
             if not game_state['last_filth']:
                 game_state['start_time'] = last_date - timedelta(seconds=1)
-                debug("Start time: ", game_state['start_time'].isoformat())
+                debug("Start time:", game_state['start_time'].isoformat())
             if game_state['needs_to_report_filth']:
                 say("Filth is out")
                 game_state['needs_to_report_filth'] = False
@@ -323,7 +323,7 @@ def event_command_started(character_id, command_name):
         elif command_name == 'Shadow Out Of Time':
             if game_state['phase'] == 1:
                 game_state['phase'] = 2
-            if game_state['phase'] == 3 and game_state['lurker_became_targetable_at']:
+            if game_state['phase'] == 3:
                 say("Shadow out of time")
             game_state['last_shadow'] = last_date
         elif command_name.startswith('From Beneath'):

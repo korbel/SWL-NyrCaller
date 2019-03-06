@@ -1,0 +1,33 @@
+The attacks of the lurker can be categorized into two groups: regular attacks and special attacks.
+
+Special attacks are those which are cast if a condition gets fulfilled, like Lurker's HP reaches a certain threshold:
+- Shadow Out Of Time in P1 and phase change to P2: 26369244 75%
+- Personal Space 1 in P3: 23732320 67.5%
+- Personal Space 2 in P3: 15821546 45%
+- Personal Space 3 in P3: 8789478 25%
+- Final Resort in P3: 1757950 5%
+
+Regular attacks work the same way the players use their skills: imagine lurker has a skill bar and he can use the following skills:
+- Fist: basic attack, no cooldown, takes 3 sec to perform
+- Pure filth: 18 sec CD, 3 sec cast time
+- From Beneath You, It Devours: pod for short, 32 sec CD, 3 sec cast time
+- Shadow Out Of Time: 100 sec CD, 8 sec cast time
+(for reference Personal Space and Final Resort both take 4 seconds)
+
+If filth, pod or shadow is off CD, Lurker will cast it, otherwise it will use fist. If multiple skills are off CD, Lurker will randomly choose one of them, and depending which one it chooses, the fight may get more interesting. However there are a few rules Lurker follows to make the fight more fair and easier:
+- Lurker don't use regular attacks in P2
+- Pod cannot be cast in the first 48 sec of P1 and in the first 32 sec in P3
+- Shadow cannot be cast in P1 at all and only after 60 sec in P3 
+- Filth cannot be cast immediately after pod, it has a 10 seconds long grace period, which is just enough for the player to get podded (it wouldn't be too fair if the same player would get both filth and pod at the same time)
+- Shadow cannot be cast immediately after pod, it has a 20 seconds long grace period which is just enough for the player to get podded and for the other players to free him or her
+- There's a GCD which is always 2 or 3 sec long in P1 and is between 1 sec and 4 sec in P3 (a skill cast usually takes 3 seconds)
+
+This means P1 will always be the same if we disregard the DPS:
+filth, fist, fist, filth, fist, fist, filth, fist, pod, fist, filth, fist, fist, filth ...
+In P3 there are much more variables, and even 1 second difference can make big changes. So much that there are fights where first shadow is triggered at around 60 sec while in other fights it's almost 30 sec late due to pod and personal space.
+
+// tanky things like aggro before P2 and fr, taunt gadget, when to swap aggro before PS and shadow
+// conjuctions about P2 birdy and shadows
+// hulks always follows shadows
+// reasons to srop DPS in P1 and P3
+// basic rotation of lurker in P1
