@@ -1,6 +1,5 @@
 TODO:
 priority speech
-P3 - stop dps calls
 P3 - wait for filth calls
 no stop dps after final resort ...
 crash detection? disable speech until reset ?
