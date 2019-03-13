@@ -202,27 +202,28 @@ def event_stat_changed(character_id, stat_id, value):
 
                     # Should think about it more and refactor
                     if next_ps_fr < stop_dps_call_timing:
-                        should_call = game_state['ps_counter'] < 3 and next_shadow < stop_dps_call_timing + 2 or game_state['ps_counter'] == 3 and next_pod < stop_dps_call_timing + 2
+                        should_call = game_state['ps_counter'] < 3 and (next_shadow < stop_dps_call_timing + 2 or last_shadow < 4) \
+                            or game_state['ps_counter'] == 3 and next_pod < stop_dps_call_timing + 2
 
                         if not game_state['ps1_stop_dps_call'] and game_state['ps_counter'] == 0:
                             if should_call:
                                 say("Stop DPS", True)
-                                debug("next_pod", next_pod, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
+                                debug("last_shadow", last_shadow, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
                             game_state['ps1_stop_dps_call'] = True
                         if not game_state['ps2_stop_dps_call'] and game_state['ps_counter'] == 1:
                             if should_call:
                                 say("Stop DPS", True)
-                                debug("next_pod", next_pod, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
+                                debug("last_shadow", last_shadow, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
                             game_state['ps2_stop_dps_call'] = True
                         if not game_state['ps3_stop_dps_call'] and game_state['ps_counter'] == 2:
                             if should_call:
                                 say("Stop DPS", True)
-                                debug("next_pod", next_pod, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
+                                debug("last_shadow", last_shadow, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
                             game_state['ps3_stop_dps_call'] = True
                         if not game_state['fr_stop_dps_call'] and game_state['ps_counter'] == 3:
                             if should_call:
-                                say("Stop DPS", True)
-                                debug("next_pod", next_pod, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
+                                say("Stop DPS and wait for pod", True)
+                                debug("next_pod", next_pod, "next_ps_fr", next_ps_fr)
                             game_state['fr_stop_dps_call'] = True
 
                     if next_ps_fr < call_timing:
