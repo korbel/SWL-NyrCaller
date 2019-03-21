@@ -30,8 +30,8 @@ number_of_players = 0
 
 shadow1_hp = 26369244
 ps_fr_hps = [23732320, 15821546, 8789478, 1757950]
-stop_dps_call_timing = 6
-call_timing = 1
+stop_dps_call_timing = 7
+call_timing = 2
 
 def reset_game_state():
     global game_state
@@ -201,9 +201,8 @@ def event_stat_changed(character_id, stat_id, value):
                     # next_filth = max(18 - last_filth if last_filth < phase_started else phase_started, 10 - last_pod)
 
                     # Should think about it more and refactor
-                    if next_ps_fr < stop_dps_call_timing:
-                        should_call = game_state['ps_counter'] < 3 and (next_shadow < stop_dps_call_timing + 2 or last_shadow < 4) \
-                            or game_state['ps_counter'] == 3 and next_pod < stop_dps_call_timing + 2
+                    if next_ps_fr < stop_dps_call_timing + 2:
+                        should_call = game_state['ps_counter'] < 3 and (next_shadow < stop_dps_call_timing + 4 or last_shadow < 4)
 
                         if not game_state['ps1_stop_dps_call'] and game_state['ps_counter'] == 0:
                             if should_call:
@@ -220,11 +219,12 @@ def event_stat_changed(character_id, stat_id, value):
                                 say("Stop DPS", True)
                                 debug("last_shadow", last_shadow, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
                             game_state['ps3_stop_dps_call'] = True
-                        if not game_state['fr_stop_dps_call'] and game_state['ps_counter'] == 3:
-                            if should_call:
-                                say("Stop DPS and wait for pod", True)
-                                debug("next_pod", next_pod, "next_ps_fr", next_ps_fr)
-                            game_state['fr_stop_dps_call'] = True
+
+                    if not game_state['fr_stop_dps_call'] and game_state['ps_counter'] == 3 and next_ps_fr < stop_dps_call_timing:
+                        if next_pod < stop_dps_call_timing + 2:
+                            say("Stop DPS and wait for pod", True)
+                            debug("next_pod", next_pod, "next_ps_fr", next_ps_fr)
+                        game_state['fr_stop_dps_call'] = True
 
                     if next_ps_fr < call_timing:
                         if not game_state['ps1_call'] and game_state['ps_counter'] == 0: 
@@ -249,9 +249,9 @@ def event_stat_changed(character_id, stat_id, value):
                     seconds_till_next_pod = 32 - (last_date - last_pod).total_seconds()
 
                     if get_hp_eta(shadow1_hp) < stop_dps_call_timing :
-                        if seconds_till_next_pod < stop_dps_call_timing + 3:
+                        if seconds_till_next_pod < stop_dps_call_timing + 2:
                             say("Stop DPS and wait for pod", True)
-                        elif seconds_till_next_pod < stop_dps_call_timing + 6:
+                        elif seconds_till_next_pod < stop_dps_call_timing + 5:
                             say("Push it")
                         game_state['shadow1_stop_dps_call'] = True
 
@@ -289,7 +289,7 @@ def event_character_alive(character_id):
         game_state['players_died'] = max(game_state['players_died'] - 1, 0)
 
 def event_buff_added(character_id, buff_id, buff_name):
-    if buff_name == 'Inevitable Doom':
+    if buff_name == 'Inevitable Doom' and game_state['ps_counter'] < 4:
         name = dynels[character_id]['name'] if character_id in dynels else 'an unknown person'
         game_state['pod_targets'].append(name)
 
@@ -319,7 +319,7 @@ def event_command_started(character_id, command_name):
 
     dynels[character_id]['command'] = (last_date, command_name)
 
-    if lurker_id == character_id:
+    if lurker_id == character_id and game_state['ps_counter'] < 4:
         debug('Lurker command started:', command_name)
 
         if command_name == 'Pure Filth':
