@@ -30,6 +30,7 @@ number_of_players = 0
 
 shadow1_hp = 26369244
 ps_fr_hps = [23732320, 15821546, 8789478, 1757950]
+lurker_max_hp = 35158992
 stop_dps_call_timing = 7
 call_timing = 2
 
@@ -37,7 +38,7 @@ def reset_game_state():
     global game_state
     debug('Reset')
     game_state = {
-        'lurker_hp': 35158992,
+        'lurker_hp': lurker_max_hp,
         'lurker_targetable': True,
         'phase': 1,
 
@@ -66,6 +67,8 @@ def reset_game_state():
         'ps_counter': 0,
         'needs_to_report_filth': True,
 
+        'hulk_spawned': False,
+
         'players_died': 0,
         'dps': None
     }
@@ -90,7 +93,8 @@ def get_normalized_dps():
 
     phase_start_dps_modifier = 1
     if game_state['phase'] == 3:
-        phase_start_dps_modifier = min((last_date - game_state['lurker_became_targetable_at']).total_seconds() / 7, 1)
+        start_time = (last_date - game_state['lurker_became_targetable_at']).total_seconds()
+        phase_start_dps_modifier = min(max(start_time - 4, 0) / 8, 1)
 
     phase_factor = 1 if game_state['phase'] < 3 else 2.5
     player_number_factor = calculate_player_number_factor()
@@ -159,6 +163,11 @@ def event_dynel_subscribed(character_id, character_name):
         if game_state['number_of_birds'] == 3:
             say("Third bird")
 
+    if character_name == 'Zero-Point Titan' and not game_state['hulk_spawned']:
+        game_state['hulk_spawned'] = True
+        if game_state['phase'] == 3:
+            say("Hulk has spawned")
+
 def event_dynel_unsubscribed(character_id):
     global number_of_players
 
@@ -173,7 +182,7 @@ def event_stat_changed(character_id, stat_id, value):
             new_hp = int(value)
 
             if not game_state['dps'] and new_hp < 30000000:
-                damage = 35158992 - new_hp
+                damage = lurker_max_hp - new_hp
                 seconds = (last_date - game_state['start_time']).total_seconds()
                 game_state['dps'] = damage / seconds
                 debug(f'DPS calculated in {seconds} seconds: ' + str(game_state['dps']))
@@ -184,7 +193,7 @@ def event_stat_changed(character_id, stat_id, value):
             if game_state['dps'] and game_state['ps_counter'] < 4:
                 dps = get_normalized_dps()
 
-                if game_state['phase'] < 3 and dps and (new_hp - 23732320) / dps < 4:
+                if game_state['phase'] < 3 and dps and get_hp_eta(ps_fr_hps[0]) < 4:
                     game_state['early_ps'] = True
 
                 if game_state['phase'] == 3:
@@ -230,6 +239,7 @@ def event_stat_changed(character_id, stat_id, value):
                         if not game_state['ps1_call'] and game_state['ps_counter'] == 0: 
                             game_state['ps1_call'] = True
                             say("Personal space soon!", True)
+                            debug("next_ps_fr", next_ps_fr, "phase_started", phase_started)
                         if not game_state['ps2_call'] and game_state['ps_counter'] == 1:
                             game_state['ps2_call'] = True
                             say("Personal space soon!", True)
@@ -253,11 +263,23 @@ def event_stat_changed(character_id, stat_id, value):
                             say("Stop DPS and wait for pod", True)
                         elif seconds_till_next_pod < stop_dps_call_timing + 5:
                             say("Push it")
+                        debug("seconds_till_next_pod", seconds_till_next_pod, "get_hp_eta(shadow1_hp)", get_hp_eta(shadow1_hp))
                         game_state['shadow1_stop_dps_call'] = True
 
                 if not game_state['shadow1_call'] and (game_state['shadow1_stop_dps_call'] and new_hp < shadow1_hp or get_hp_eta(shadow1_hp) < call_timing):
                     game_state['shadow1_call'] = True
                     say("Shadow out of time soon!", True)
+
+                if new_hp <= shadow1_hp < game_state['lurker_hp']:
+                    debug("Shadow1 HP reached")
+                elif new_hp <= ps_fr_hps[0] < game_state['lurker_hp']:
+                    debug("PS1 HP reached")
+                elif new_hp <= ps_fr_hps[1] < game_state['lurker_hp']:
+                    debug("PS2 HP reached")
+                elif new_hp <= ps_fr_hps[2] < game_state['lurker_hp']:
+                    debug("PS3 HP reached")
+                elif new_hp <= ps_fr_hps[3] < game_state['lurker_hp']:
+                    debug("FR HP reached")
 
             game_state['lurker_hp'] = new_hp
         
@@ -282,6 +304,8 @@ def event_character_died(character_id):
         if game_state['number_of_birds'] == 3 and dynels[character_id]['name'] == 'Eldritch Guardian' and game_state['early_ps'] and not game_state['early_ps_call']:
             game_state['early_ps_call'] = True
             say("Personal space will be early")
+        if game_state['phase'] == 3 and dynels[character_id]['name'] == 'Zero-Point Titan' and game_state['ps_counter'] < 4:
+            say("Hulk is dead")
 
 
 def event_character_alive(character_id):
@@ -302,6 +326,8 @@ def event_buff_added(character_id, buff_id, buff_name):
                 say('Pod target is ' + game_state['pod_targets'][0])
             else:
                 say('Pod targets are ' + ', '.join(game_state['pod_targets'][:-1]) + ' and ' + game_state['pod_targets'][-1])
+                if 'Mei Ling' in game_state['pod_targets']:
+                    say('Watch out for death trap')
             game_state['pod_targets'] = []
 
 def event_buff_updated(character_id, buff_id):
@@ -335,6 +361,7 @@ def event_command_started(character_id, command_name):
                 game_state['phase'] = 2
             if game_state['phase'] == 3 or game_state['phase'] == 2 and game_state['number_of_birds'] == 3:
                 say("Shadow out of time")
+            game_state['hulk_spawned'] = False
             game_state['last_shadow'] = last_date
         elif command_name.startswith('From Beneath'):
             say("Pod")

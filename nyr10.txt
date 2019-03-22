@@ -3,11 +3,6 @@ priority speech
 P3 - wait for filth calls
 crash detection? disable speech until reset (???)
 
-1st personal call is still too early
-check why stop dps instead of push sometimes
-check early personal
-mei ling death trap / focus on hulk?
-
 ------------------------------
 Start: 35158992 100%
 Shadow: 26369244 75%
