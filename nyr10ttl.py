@@ -349,7 +349,7 @@ def event_command_started(character_id, command_name):
 
     dynels[character_id]['command'] = (last_date, command_name)
 
-    if lurker_id == character_id and game_state['ps_counter'] < 4:
+    if lurker_id == character_id:
         debug('Lurker command started:', command_name)
 
         if command_name == 'Pure Filth':
