@@ -32,7 +32,7 @@ shadow1_hp = 26369244
 ps_fr_hps = [23732320, 15821546, 8789478, 1757950]
 lurker_max_hp = 35158992
 stop_dps_call_timing = 7
-call_timing = 2
+call_timing = 1
 
 def reset_game_state():
     global game_state
@@ -313,7 +313,10 @@ def event_character_alive(character_id):
         game_state['players_died'] = max(game_state['players_died'] - 1, 0)
 
 def event_buff_added(character_id, buff_id, buff_name):
-    if buff_name == 'Inevitable Doom' and game_state['ps_counter'] < 4:
+    if buff_name == 'Inevitable Doom':
+        if (last_date - game_state['last_pod']).total_seconds() > 5:
+            game_state['pod_targets'] = []
+
         name = dynels[character_id]['name'] if character_id in dynels else 'an unknown person'
         game_state['pod_targets'].append(name)
 
@@ -327,7 +330,8 @@ def event_buff_added(character_id, buff_id, buff_name):
             else:
                 say('Pod targets are ' + ', '.join(game_state['pod_targets'][:-1]) + ' and ' + game_state['pod_targets'][-1])
                 if 'Mei Ling' in game_state['pod_targets']:
-                    say('Watch out for death trap')
+                    pass
+                    # say('Watch out for death trap')
             game_state['pod_targets'] = []
 
 def event_buff_updated(character_id, buff_id):
