@@ -209,7 +209,6 @@ def event_stat_changed(character_id, stat_id, value):
                     next_ps_fr = get_hp_eta(ps_fr_hps[game_state['ps_counter']])
                     # next_filth = max(18 - last_filth if last_filth < phase_started else phase_started, 10 - last_pod)
 
-                    # Should think about it more and refactor
                     if next_ps_fr < stop_dps_call_timing + 2:
                         should_call = game_state['ps_counter'] < 3 and (next_shadow < stop_dps_call_timing + 4 or last_shadow < 4)
 
@@ -231,7 +230,7 @@ def event_stat_changed(character_id, stat_id, value):
 
                     if not game_state['fr_stop_dps_call'] and game_state['ps_counter'] == 3 and next_ps_fr < stop_dps_call_timing:
                         if next_pod < stop_dps_call_timing + 2:
-                            say("Stop DPS and wait for pod", True)
+                            # say("Stop DPS and wait for pod", True)
                             debug("next_pod", next_pod, "next_ps_fr", next_ps_fr)
                         game_state['fr_stop_dps_call'] = True
 
