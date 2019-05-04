@@ -104,7 +104,7 @@ You can also edit "start_locally.bat" and "start.bat" and change default setting
 - rewind: Disable voice and re-parse the whole ClientLog.txt for debugging purposes
 
 Example:
-".\New York Raid Elite 10 Bot.exe" "redirectOutput" "voice=Microsoft David Desktop" "speed=8" "log=C:\logs\01.txt" "trace" "rewind"
+".\New York Raid Elite 10 Bot.exe" "redirectOutput" "voice=Microsoft David Desktop" "speed=8" "log=C:\Games\Secret World Legends\OldLogs\ClientLog20190412002700.txt" "trace" "rewind"
 
 
 
