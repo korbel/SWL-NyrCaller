@@ -1,0 +1,111 @@
+##################
+## Installation ##
+##################
+
+Extract zip file into your SWL folder, check if have the following directories:
+
+- <SWL directory>\New York Raid Elite 10 Bot
+- <SWL directory>\Data\Gui\Custom\Flash\Nyr10Caller
+
+<SWL directory> is where the SecretWorldLegends.exe and SecretWorldLegendsDX11.exe files are located.
+
+Restart the game.
+
+You can use it locally or as a discord bot. If you want to use it as a discord bot there are additional things to set up before use. If you want to use it locally, skip to the USAGE section.
+
+Setting it up as a dircord bot:
+
+- To run it as a Discord bot, first you must install VBCable driver (it can be found in the "New York Raid Elite 10 Bot\VBCABLE_Driver_Pack43" directory), it will give the ability to the bot to connect its voice to a discord bot.
+- Next you must set up a discord bot. If you already have a discord bot set up, you can skip this step and manually edit the bot token in the config.json. To set up a bot, run "New York Raid Elite 10 Bot\Discord Audio Stream Bot\Discord Audio Stream Bot.exe" and follow the instructions. The admin of the target discord server must give access to the bot. This will generate you a config.json in the "Discord Audio Stream Bot" directory.
+- You may need to adjust the audio options (audioType, bitRate, bufferMillis). BitRate changes quality (the higher the better), but requires more buffer and network speed. The bigger the buffer is, the smoother the sound will be, but it will increase latency which may not be ideal for a caller bot.
+- It's recommended to set autoJoinVoiceChannels and proper userPermissions, most more details and troubleshooting visit https://github.com/BinkanSalaryman/Discord-Audio-Stream-Bot
+
+A common issue is:
+"If you get the error "NotSupportedException: An attempt was made to load an assembly from a network location which would have caused the assembly to be sandboxed in previous versions of the .NET Framework...", right click Commands.dll, go to properties>security and check the box to grant access. No worries the DLL is safe, it contains the command implementations for use in discord text chat."
+
+An example of the config.json should look like this:
+
+{
+  "general": {
+    "botToken": "NZc0MTc0MDE5OGM5NDY3MjY0.XM1jjw.MOhlYfxas3BhwyTpScnNqjA8J21"
+  },
+  "voice": {
+    "speak": {
+      "enabled": true,
+      "recordingDevice": "CABLE Output (VB-Audio Virtual Cable)",
+      "audioType": "Mixed",
+      "bitRate": 16000,
+      "bufferMillis": 100
+    },
+    "listen": {
+      "enabled": false,
+      "playbackDevice": null
+    },
+    "autoJoinVoiceChannels": {
+      "325693912386413077": 525441916123972106
+    }
+  },
+  "text": {
+    "commands": {
+      "botAgent": "tomoko",
+      "permissions": {
+        "defaultPermissions": "!bot.stop() !guild.leave() help.commands(path) !permissions.assign(user_or_role,permissions) utils.ping(host)",
+        "userPermissions": {
+          "246995195607455233": "*",
+          "310774568670490624": "*"
+        },
+        "rolePermissions": {}
+      }
+    }
+  }
+}
+
+IMPORTANT!
+Don't distribute the config.json as it contains the secret key to control your bot!
+To change the secret key (bot token) go to https://discordapp.com/developers/applications/
+
+
+###########
+## Usage ##
+###########
+
+To run it locally navigate to the "<SWL directory>\New York Raid Elite 10 Bot" directory and start the start_locally.bat file.
+
+IMPORTANT!
+The bot must be runninng when you enter NYR E10. Upon entering NYR you should hear the bot saying "Welcome to New York raid E10!" indicating that everything is set up and working correctly.
+If you forgot to start the bot then type /reset into the chat or press Ctrl + Shift + F1 (which is equivalent to /reset) before starting the fight. It will re-register all the raid participants and should say "Welcome to New York raid E10!" if it hasn't done so already.
+The bot is listening to in-game events so upon the unfortunate event of the game crashing, it may loose track of the fight and say weird things for the rest of the fight. Beware.
+
+
+If you set the dicord got up, run "New York Raid Elite 10 Bot\start.bat", it will both start the discord bot and the caller app.
+
+The AudioRouter is included to make you able to stream the sound of any apps to the discord bot: 
+- start music
+- open "New York Raid Elite 10 Bot\AudioRouter\Audio Router.exe"
+- click the arrow under the music player and click Route...
+- select CABLE Input (VB-Audio Virtual Cable)
+
+
+###########################################
+## Advanced settings and troubleshooting ##
+###########################################
+
+The bot uses the Microsoft Speech API and by default it tries to use Microsoft Zira's voice. If it cannot be found it uses the default one.
+
+To test different voices and settings press Windows Key + R and run the following command:
+rundll32.exe shell32.dll,Control_RunDLL C:\WINDOWS\system32\speech\speechux\sapi.cpl
+
+You can also edit "start_locally.bat" and "start.bat" and change default settings. The following arguments can be set:
+- voice: Name of the voice to be used. Run the following command in powershell to find other voices: (New-Object -ComObject SAPI.SPVoice).GetVoices() | % {$_.GetAttribute("Name")}
+- speed: Speed of the speech. Must be an integer number between -10 and 10 (default is 0)
+- log: Path of the game log file to parse. It should point to a valid ClientLog.txt
+- redirectOutput: Redirects the audio output to the "CABLE Input (VB-Audio Virtual Cable)" channel. Used together with the discord bot.
+- trace: Verbose output of in-game events
+- rewind: Disable voice and re-parse the whole ClientLog.txt for debugging purposes
+
+Example:
+".\New York Raid Elite 10 Bot.exe" "redirectOutput" "voice=Microsoft David Desktop" "speed=8" "log=C:\logs\01.txt" "trace" "rewind"
+
+
+
+
