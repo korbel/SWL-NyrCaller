@@ -61,6 +61,7 @@ def reset_game_state():
 
         'lurker_became_targetable_at': None,
         'start_time': None,
+        'start_of_dps_calc': None,
         'last_pod': None,
         'last_filth': None,
         'last_shadow': None,
@@ -181,11 +182,15 @@ def event_stat_changed(character_id, stat_id, value):
         if stat_id == '27':
             new_hp = int(value)
 
-            if not game_state['dps'] and new_hp < 30000000:
-                damage = lurker_max_hp - new_hp
-                seconds = (last_date - game_state['start_time']).total_seconds()
-                game_state['dps'] = damage / seconds
-                debug(f'DPS calculated in {seconds} seconds: ' + str(game_state['dps']))
+            if not game_state['dps'] and new_hp < 33500000:
+                if not game_state['start_of_dps_calc']:
+                    game_state['start_of_dps_calc'] = (last_date, new_hp)
+                if new_hp < 28500000:
+                    (calc_start_date, calc_start_hp) = game_state['start_of_dps_calc']
+                    damage = calc_start_hp - new_hp
+                    seconds = (last_date - calc_start_date).total_seconds()
+                    game_state['dps'] = damage / seconds
+                    debug(f'DPS calculated in {seconds} seconds: ' + str(game_state['dps']))
 
             if game_state['lurker_hp'] < new_hp:
                 reset_game_state()
