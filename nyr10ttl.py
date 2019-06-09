@@ -25,7 +25,7 @@ log_line_pattern = re.compile(r'\[(?P<date_string>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:
 game_state = None
 is_nyr10_active = False
 dynels = {}
-lurker_id = None
+lurker_id_stack = []
 number_of_players = 0
 
 shadow1_hp = 26369244
@@ -73,6 +73,11 @@ def reset_game_state():
         'players_died': 0,
         'dps': None
     }
+
+def get_lurker_id():
+    if not lurker_id_stack:
+        return None
+    return lurker_id_stack[-1] 
 
 def is_player(dynel_id):
     return int(dynel_id.split(':')[1]) >= 1<<24
@@ -125,7 +130,7 @@ def calculate_player_number_factor():
 def event_play_field_changed(playfield_id, playfield_name):
     global is_nyr10_active
     global dynels
-    global lurker_id
+    global lurker_id_stack
 
     if playfield_id == '5715' and not is_nyr10_active:
         reset_game_state()
@@ -136,19 +141,19 @@ def event_play_field_changed(playfield_id, playfield_name):
     elif playfield_id != '5715' and is_nyr10_active:
         is_nyr10_active = False
         dynels = {}
-        lurker_id = None
+        lurker_id_stack = []
         debug('Left NYR E10')
 
     
 def event_dynel_subscribed(character_id, character_name):
-    global lurker_id
     global number_of_players
 
     if character_name == 'The Unutterable Lurker':
-        if lurker_id and lurker_id != character_id:
+        current_lurker_id = get_lurker_id()
+        if current_lurker_id and current_lurker_id != character_id:
             reset_game_state()
-        lurker_id = character_id
-        debug('Lurker subscribed with ID ' + lurker_id)
+        lurker_id_stack.append(character_id)
+        debug('Lurker subscribed with ID ' + character_id)
 
     if character_id not in dynels:
         dynels[character_id] = {
@@ -177,8 +182,11 @@ def event_dynel_unsubscribed(character_id):
         if is_player(character_id):
             number_of_players -= 1
 
+    if character_id in lurker_id_stack:
+        lurker_id_stack.remove(character_id)
+
 def event_stat_changed(character_id, stat_id, value):
-    if character_id == lurker_id:
+    if character_id == get_lurker_id():
         if stat_id == '27':
             new_hp = int(value)
 
@@ -317,26 +325,27 @@ def event_character_alive(character_id):
         game_state['players_died'] = max(game_state['players_died'] - 1, 0)
 
 def event_buff_added(character_id, buff_id, buff_name):
-    if buff_name == 'Inevitable Doom':
-        if (last_date - game_state['last_pod']).total_seconds() > 5:
-            game_state['pod_targets'] = []
+    if get_lurker_id() == character_id:
+        if buff_name == 'Inevitable Doom':
+            if (last_date - game_state['last_pod']).total_seconds() > 5:
+                game_state['pod_targets'] = []
 
-        name = dynels[character_id]['name'] if character_id in dynels else 'an unknown person'
-        game_state['pod_targets'].append(name)
+            name = dynels[character_id]['name'] if character_id in dynels else 'an unknown person'
+            game_state['pod_targets'].append(name)
 
-        debug('Pod target found: ' + character_id, name)
-        debug('Current targets: ' + str(game_state['pod_targets']))
-        debug('Current game phase: ' + str(game_state['phase']))
+            debug('Pod target found: ' + character_id, name)
+            debug('Current targets: ' + str(game_state['pod_targets']))
+            debug('Current game phase: ' + str(game_state['phase']))
 
-        if game_state['phase'] == 1 or game_state['phase'] == 3 and len(game_state['pod_targets']) >= 2:
-            if len(game_state['pod_targets']) == 1:
-                say('Pod target is ' + game_state['pod_targets'][0])
-            else:
-                say('Pod targets are ' + ', '.join(game_state['pod_targets'][:-1]) + ' and ' + game_state['pod_targets'][-1])
-                if 'Mei Ling' in game_state['pod_targets']:
-                    pass
-                    # say('Watch out for death trap')
-            game_state['pod_targets'] = []
+            if game_state['phase'] == 1 or game_state['phase'] == 3 and len(game_state['pod_targets']) >= 2:
+                if len(game_state['pod_targets']) == 1:
+                    say('Pod target is ' + game_state['pod_targets'][0])
+                else:
+                    say('Pod targets are ' + ', '.join(game_state['pod_targets'][:-1]) + ' and ' + game_state['pod_targets'][-1])
+                    if 'Mei Ling' in game_state['pod_targets']:
+                        pass
+                        # say('Watch out for death trap')
+                game_state['pod_targets'] = []
 
 def event_buff_updated(character_id, buff_id):
     pass
@@ -353,7 +362,7 @@ def event_command_started(character_id, command_name):
 
     dynels[character_id]['command'] = (last_date, command_name)
 
-    if lurker_id == character_id:
+    if get_lurker_id() == character_id:
         debug('Lurker command started:', command_name)
 
         if command_name == 'Pure Filth':
@@ -392,12 +401,11 @@ def event_command_ended(character_id):
 
     (start_date, command_name) = dynels[character_id]['command']
 
-    if lurker_id == character_id:
+    if get_lurker_id() == character_id:
         if command_name == 'Personal Space' or command_name == 'Final Resort':
             if game_state['ps_counter'] < 4 and ps_fr_hps[game_state['ps_counter']] > game_state['lurker_hp']:
                 game_state['ps_counter'] += 1
     
-    # if lurker_id == character_id:
     #    if command_name == 'Personal Space' or command_name == 'Final Resort':
     #        if not game_state['needs_to_report_filth'] and game_state['last_filth'] and (last_date - game_state['last_filth']).total_seconds() >= 15:
     #            game_state['needs_to_report_filth'] = True
@@ -512,6 +520,7 @@ def trace(*args):
         print(last_date.isoformat(), 'TRACE', *args)
 
 def main():
+    debug("NYR E10 caller bot v4 started")
     reset_game_state()
     log_file = next((x.split('=', 1)[1] for x  in sys.argv[1:] if x.startswith('log=')), os.path.join('..', 'ClientLog.txt'))
     log = follow(log_file if os.path.isabs(log_file) else os.path.join(os.path.dirname(os.path.abspath(__file__)), log_file))
