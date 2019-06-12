@@ -325,27 +325,26 @@ def event_character_alive(character_id):
         game_state['players_died'] = max(game_state['players_died'] - 1, 0)
 
 def event_buff_added(character_id, buff_id, buff_name):
-    if get_lurker_id() == character_id:
-        if buff_name == 'Inevitable Doom':
-            if (last_date - game_state['last_pod']).total_seconds() > 5:
-                game_state['pod_targets'] = []
+    if buff_name == 'Inevitable Doom':
+        if (last_date - game_state['last_pod']).total_seconds() > 5:
+            game_state['pod_targets'] = []
 
-            name = dynels[character_id]['name'] if character_id in dynels else 'an unknown person'
-            game_state['pod_targets'].append(name)
+        name = dynels[character_id]['name'] if character_id in dynels else 'an unknown person'
+        game_state['pod_targets'].append(name)
 
-            debug('Pod target found: ' + character_id, name)
-            debug('Current targets: ' + str(game_state['pod_targets']))
-            debug('Current game phase: ' + str(game_state['phase']))
+        debug('Pod target found: ' + character_id, name)
+        debug('Current targets: ' + str(game_state['pod_targets']))
+        debug('Current game phase: ' + str(game_state['phase']))
 
-            if game_state['phase'] == 1 or game_state['phase'] == 3 and len(game_state['pod_targets']) >= 2:
-                if len(game_state['pod_targets']) == 1:
-                    say('Pod target is ' + game_state['pod_targets'][0])
-                else:
-                    say('Pod targets are ' + ', '.join(game_state['pod_targets'][:-1]) + ' and ' + game_state['pod_targets'][-1])
-                    if 'Mei Ling' in game_state['pod_targets']:
-                        pass
-                        # say('Watch out for death trap')
-                game_state['pod_targets'] = []
+        if game_state['phase'] == 1 or game_state['phase'] == 3 and len(game_state['pod_targets']) >= 2:
+            if len(game_state['pod_targets']) == 1:
+                say('Pod target is ' + game_state['pod_targets'][0])
+            else:
+                say('Pod targets are ' + ', '.join(game_state['pod_targets'][:-1]) + ' and ' + game_state['pod_targets'][-1])
+                if 'Mei Ling' in game_state['pod_targets']:
+                    pass
+                    # say('Watch out for death trap')
+            game_state['pod_targets'] = []
 
 def event_buff_updated(character_id, buff_id):
     pass
