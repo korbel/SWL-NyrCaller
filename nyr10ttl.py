@@ -220,7 +220,7 @@ def event_stat_changed(character_id, stat_id, value):
                     game_state['dps'] = damage / seconds
                     debug(f"DPS calculated in {seconds} seconds: {game_state['dps']}")
 
-            if game_state['lurker_hp'] < new_hp:
+            if game_state['lurker_hp'] < new_hp == lurker_max_hp:
                 reset_game_state()
 
             if game_state['dps'] and game_state['ps_counter'] < 4:
