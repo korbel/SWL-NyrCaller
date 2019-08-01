@@ -441,6 +441,7 @@ def process(line):
     if line:
         m = log_line_pattern.match(line.strip())
         if not m:
+            event_ping()
             return
     
         last_date = datetime.fromisoformat(m.group('date_string'))
