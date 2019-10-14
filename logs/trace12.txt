@@ -185,6 +185,7 @@
 2019-05-02T19:53:05 TRACE PlayFieldChanged ['5040', 'The Polaris']
 2019-05-02T19:56:54 TRACE PlayFieldChanged ['5060', 'Agartha']
 2019-05-02T20:09:56 TRACE DynelSubscribed ['50000:54822', 'The Unutterable Lurker']
+2019-05-02T20:09:56 DEBUG Reset
 2019-05-02T20:09:56 DEBUG Lurker subscribed with ID 50000:54822
 2019-05-02T20:09:56 TRACE DynelSubscribed ['50000:54825', 'Alex']
 2019-05-02T20:09:56 TRACE DynelSubscribed ['50000:54826', 'Mei Ling']
@@ -220,6 +221,7 @@
 2019-05-02T20:14:50 TRACE PlayFieldChanged ['5060', 'Agartha']
 2019-05-02T20:14:50 DEBUG Left NYR E10
 2019-05-02T20:17:28 TRACE DynelSubscribed ['50000:24933', 'The Unutterable Lurker']
+2019-05-02T20:17:28 DEBUG Reset
 2019-05-02T20:17:28 DEBUG Lurker subscribed with ID 50000:24933
 2019-05-02T20:17:28 TRACE DynelSubscribed ['50000:24936', 'Alex']
 2019-05-02T20:17:28 TRACE DynelSubscribed ['50000:24937', 'Mei Ling']

@@ -1,5 +1,6 @@
 0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
 0001-01-01T00:00:00 DEBUG Reset
+2019-03-21T21:12:50 DEBUG Reset
 2019-03-21T21:12:50 DEBUG Lurker subscribed with ID 50000:493820
 2019-03-21T21:12:50 DEBUG Reset
 2019-03-21T21:12:50 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -83,8 +84,8 @@
 2019-03-21T21:22:49 DEBUG Current game phase: 3
 2019-03-21T21:22:51 ANNOUNCEMENT Pod targets are Jill and Rose
 2019-03-21T21:23:04 DEBUG Lurker command started: Pure Filth
-2019-03-21T21:23:07 DEBUG Reset
 2019-03-21T21:23:07 DEBUG Lurker subscribed with ID 50000:493935
+2019-03-21T21:23:07 DEBUG Reset
 2019-03-21T21:23:07 DEBUG Lurker became untargetable
 2019-03-21T21:23:07 DEBUG Lurker became targetable
 2019-03-21T21:23:14 DEBUG Lurker subscribed with ID 50000:493935
@@ -112,8 +113,8 @@
 2019-03-21T21:27:36 ANNOUNCEMENT 2
 2019-03-21T21:27:54 DEBUG Lurker became targetable
 2019-03-21T21:27:54 DEBUG P3 started at 2019-03-21T21:27:54 (0 seconds ago)
-2019-03-21T21:27:59 DEBUG Reset
 2019-03-21T21:27:59 DEBUG Lurker subscribed with ID 50000:493976
+2019-03-21T21:27:59 DEBUG Reset
 2019-03-21T21:27:59 DEBUG Lurker became untargetable
 2019-03-21T21:27:59 DEBUG Lurker became targetable
 2019-03-21T21:28:08 DEBUG Lurker subscribed with ID 50000:493976
@@ -178,12 +179,12 @@
 2019-03-21T21:34:01 ANNOUNCEMENT Pod targets are ilpopi and Rose
 2019-03-21T21:34:15 DEBUG Lurker command started: Personal Space
 2019-03-21T21:34:27 DEBUG Lurker subscribed with ID 50000:493976
-2019-03-21T21:34:30 DEBUG Reset
 2019-03-21T21:34:30 DEBUG Lurker subscribed with ID 50000:494048
+2019-03-21T21:34:30 DEBUG Reset
 2019-03-21T21:34:30 DEBUG Lurker became untargetable
 2019-03-21T21:34:30 DEBUG Lurker became targetable
-2019-03-21T21:34:35 DEBUG Reset
 2019-03-21T21:34:35 DEBUG Lurker subscribed with ID 50000:494050
+2019-03-21T21:34:35 DEBUG Reset
 2019-03-21T21:34:36 DEBUG Lurker became untargetable
 2019-03-21T21:34:36 DEBUG Lurker became targetable
 2019-03-21T21:35:39 DEBUG Lurker command started: Pure Filth

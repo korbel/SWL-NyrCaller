@@ -1,5 +1,6 @@
 0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
 0001-01-01T00:00:00 DEBUG Reset
+2019-03-11T21:15:03 DEBUG Reset
 2019-03-11T21:15:03 DEBUG Lurker subscribed with ID 50000:149610
 2019-03-11T21:15:03 DEBUG Reset
 2019-03-11T21:15:03 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -80,8 +81,8 @@
 2019-03-11T21:24:00 ANNOUNCEMENT Pod targets are Jill and Alex
 2019-03-11T21:24:05 ANNOUNCEMENT Hulk is dead
 2019-03-11T21:24:13 DEBUG Lurker command started: Pure Filth
-2019-03-11T21:24:22 DEBUG Reset
 2019-03-11T21:24:22 DEBUG Lurker subscribed with ID 50000:149699
+2019-03-11T21:24:22 DEBUG Reset
 2019-03-11T21:24:22 DEBUG Lurker became untargetable
 2019-03-11T21:24:22 DEBUG Lurker became targetable
 2019-03-11T21:24:28 DEBUG Lurker subscribed with ID 50000:149699
@@ -163,8 +164,8 @@
 2019-03-11T21:31:32 DEBUG Current targets: ['Wolffspider', 'Mei Ling']
 2019-03-11T21:31:32 DEBUG Current game phase: 3
 2019-03-11T21:31:34 ANNOUNCEMENT Pod targets are Wolffspider and Mei Ling
-2019-03-11T21:31:36 DEBUG Reset
 2019-03-11T21:31:36 DEBUG Lurker subscribed with ID 50000:149777
+2019-03-11T21:31:36 DEBUG Reset
 2019-03-11T21:31:36 DEBUG Lurker became untargetable
 2019-03-11T21:31:36 DEBUG Lurker became targetable
 2019-03-11T21:31:41 DEBUG Lurker subscribed with ID 50000:149777
@@ -188,8 +189,8 @@
 2019-03-11T21:33:37 DEBUG Lurker became untargetable
 2019-03-11T21:33:49 DEBUG Bird count since last reset: 1
 2019-03-11T21:33:54 DEBUG Lurker subscribed with ID 50000:149777
-2019-03-11T21:34:17 DEBUG Reset
 2019-03-11T21:34:17 DEBUG Lurker subscribed with ID 50000:149804
+2019-03-11T21:34:17 DEBUG Reset
 2019-03-11T21:34:17 DEBUG Lurker became untargetable
 2019-03-11T21:34:18 DEBUG Lurker became targetable
 2019-03-11T21:36:10 DEBUG Lurker command started: Pure Filth

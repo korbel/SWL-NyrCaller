@@ -102,6 +102,7 @@
 2019-02-28T20:22:15 TRACE PlayFieldChanged ['1200', 'Seoul']
 2019-02-28T20:23:05 TRACE PlayFieldChanged ['5060', 'Agartha']
 2019-02-28T21:11:59 TRACE DynelSubscribed ['50000:407296', 'The Unutterable Lurker']
+2019-02-28T21:11:59 DEBUG Reset
 2019-02-28T21:11:59 DEBUG Lurker subscribed with ID 50000:407296
 2019-02-28T21:11:59 TRACE DynelSubscribed ['50000:407299', 'Alex']
 2019-02-28T21:11:59 TRACE DynelSubscribed ['50000:407300', 'Mei Ling']

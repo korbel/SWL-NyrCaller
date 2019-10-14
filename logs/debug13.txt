@@ -1,5 +1,6 @@
 0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
 0001-01-01T00:00:00 DEBUG Reset
+2019-05-16T20:14:40 DEBUG Reset
 2019-05-16T20:14:40 DEBUG Lurker subscribed with ID 50000:49411
 2019-05-16T20:14:40 DEBUG Reset
 2019-05-16T20:14:40 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -52,8 +53,8 @@
 2019-05-16T20:22:30 DEBUG Lurker command started: Pure Filth
 2019-05-16T20:22:42 DEBUG Lurker command started: Shadow Out Of Time
 2019-05-16T20:22:42 ANNOUNCEMENT Shadow out of time
-2019-05-16T20:22:52 DEBUG Reset
 2019-05-16T20:22:52 DEBUG Lurker subscribed with ID 50000:49466
+2019-05-16T20:22:52 DEBUG Reset
 2019-05-16T20:22:52 DEBUG Lurker became untargetable
 2019-05-16T20:22:52 DEBUG Lurker became targetable
 2019-05-16T20:22:58 DEBUG Lurker subscribed with ID 50000:49466
@@ -85,8 +86,8 @@
 2019-05-16T20:27:34 DEBUG P3 started at 2019-05-16T20:27:34 (0 seconds ago)
 2019-05-16T20:27:40 DEBUG Lurker command started: Pure Filth
 2019-05-16T20:27:40 ANNOUNCEMENT Filth is out
-2019-05-16T20:27:44 DEBUG Reset
 2019-05-16T20:27:44 DEBUG Lurker subscribed with ID 50000:49507
+2019-05-16T20:27:44 DEBUG Reset
 2019-05-16T20:27:44 DEBUG Lurker became untargetable
 2019-05-16T20:27:44 DEBUG Lurker became targetable
 2019-05-16T20:27:48 DEBUG Lurker subscribed with ID 50000:49507
@@ -126,8 +127,8 @@
 2019-05-16T20:32:45 ANNOUNCEMENT Personal space soon!
 2019-05-16T20:32:45 DEBUG next_ps_fr 0.8568327051456124 phase_started 36.0
 2019-05-16T20:32:46 DEBUG PS1 HP reached
-2019-05-16T20:32:48 DEBUG Reset
 2019-05-16T20:32:48 DEBUG Lurker subscribed with ID 50000:49560
+2019-05-16T20:32:48 DEBUG Reset
 2019-05-16T20:32:48 DEBUG Lurker became untargetable
 2019-05-16T20:32:48 DEBUG Lurker became targetable
 2019-05-16T20:33:53 DEBUG Lurker command started: Pure Filth
@@ -205,8 +206,8 @@
 2019-05-16T20:39:29 DEBUG Current game phase: 3
 2019-05-16T20:39:31 DEBUG Lurker command started: Personal Space
 2019-05-16T20:39:31 ANNOUNCEMENT Pod targets are Wolffspider and Alex
-2019-05-16T20:39:37 DEBUG Reset
 2019-05-16T20:39:37 DEBUG Lurker subscribed with ID 50000:49632
+2019-05-16T20:39:37 DEBUG Reset
 2019-05-16T20:39:37 DEBUG Lurker became untargetable
 2019-05-16T20:39:37 DEBUG Lurker became targetable
 2019-05-16T20:39:48 DEBUG Lurker subscribed with ID 50000:49632

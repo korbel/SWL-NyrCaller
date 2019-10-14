@@ -1,5 +1,6 @@
 0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
 0001-01-01T00:00:00 DEBUG Reset
+2019-02-17T21:17:35 DEBUG Reset
 2019-02-17T21:17:35 DEBUG Lurker subscribed with ID 50000:65053
 2019-02-17T21:17:35 DEBUG Reset
 2019-02-17T21:17:35 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -106,8 +107,8 @@
 2019-02-17T21:28:42 DEBUG Lurker command started: Personal Space
 2019-02-17T21:28:47 DEBUG Lurker command started: From Beneath You, It Devours
 2019-02-17T21:28:47 ANNOUNCEMENT Pod
-2019-02-17T21:28:48 DEBUG Reset
 2019-02-17T21:28:48 DEBUG Lurker subscribed with ID 50000:65161
+2019-02-17T21:28:48 DEBUG Reset
 2019-02-17T21:28:48 DEBUG Lurker became untargetable
 2019-02-17T21:28:48 DEBUG Lurker became targetable
 2019-02-17T21:28:52 DEBUG Lurker subscribed with ID 50000:65161

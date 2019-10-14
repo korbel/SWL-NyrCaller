@@ -1,5 +1,6 @@
 0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
 0001-01-01T00:00:00 DEBUG Reset
+2019-07-23T21:09:10 DEBUG Reset
 2019-07-23T21:09:10 DEBUG Lurker subscribed with ID 50000:153034
 2019-07-23T21:09:10 DEBUG Reset
 2019-07-23T21:09:10 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -91,6 +92,7 @@
 2019-07-23T21:17:51 DEBUG Current game phase: 3
 2019-07-23T21:17:52 ANNOUNCEMENT Pod targets are Izzy-girl and TheJames
 2019-07-23T21:19:22 DEBUG Left NYR E10
+2019-07-25T20:09:09 DEBUG Reset
 2019-07-25T20:09:09 DEBUG Lurker subscribed with ID 50000:219144
 2019-07-25T20:09:09 DEBUG Reset
 2019-07-25T20:09:09 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -99,8 +101,8 @@
 2019-07-25T20:12:22 DEBUG Start time: 2019-07-25T20:12:21
 2019-07-25T20:12:22 ANNOUNCEMENT Filth is out
 2019-07-25T20:12:40 DEBUG Lurker command started: Pure Filth
-2019-07-25T20:12:46 DEBUG Reset
 2019-07-25T20:12:46 DEBUG Lurker subscribed with ID 50000:219152
+2019-07-25T20:12:46 DEBUG Reset
 2019-07-25T20:12:46 DEBUG Lurker became untargetable
 2019-07-25T20:12:46 DEBUG Lurker became targetable
 2019-07-25T20:12:50 DEBUG Lurker subscribed with ID 50000:219152
@@ -152,8 +154,8 @@
 2019-07-25T20:17:53 DEBUG Lurker command started: Pure Filth
 2019-07-25T20:18:05 DEBUG Lurker command started: Shadow Out Of Time
 2019-07-25T20:18:05 ANNOUNCEMENT Shadow out of time
-2019-07-25T20:18:10 DEBUG Reset
 2019-07-25T20:18:10 DEBUG Lurker subscribed with ID 50000:219202
+2019-07-25T20:18:10 DEBUG Reset
 2019-07-25T20:18:10 DEBUG Lurker became untargetable
 2019-07-25T20:18:11 DEBUG Lurker became targetable
 2019-07-25T20:18:17 DEBUG Lurker subscribed with ID 50000:219202
@@ -218,8 +220,8 @@
 2019-07-25T20:23:52 DEBUG Current targets: ['Cartier', 'Rose']
 2019-07-25T20:23:52 DEBUG Current game phase: 3
 2019-07-25T20:23:54 ANNOUNCEMENT Pod targets are Cartier and Rose
-2019-07-25T20:23:58 DEBUG Reset
 2019-07-25T20:23:58 DEBUG Lurker subscribed with ID 50000:219266
+2019-07-25T20:23:59 DEBUG Reset
 2019-07-25T20:23:59 DEBUG Lurker became untargetable
 2019-07-25T20:23:59 DEBUG Lurker became targetable
 2019-07-25T20:24:06 DEBUG Lurker subscribed with ID 50000:219266
@@ -334,8 +336,8 @@
 2019-07-25T20:32:11 ANNOUNCEMENT Final resort soon!
 2019-07-25T20:32:11 DEBUG FR HP reached
 2019-07-25T20:32:13 DEBUG Lurker command started: Final Resort
-2019-07-25T20:32:27 DEBUG Reset
 2019-07-25T20:32:27 DEBUG Lurker subscribed with ID 50000:219380
+2019-07-25T20:32:27 DEBUG Reset
 2019-07-25T20:32:27 DEBUG Lurker became untargetable
 2019-07-25T20:32:27 DEBUG Lurker became targetable
 2019-07-25T20:33:10 DEBUG Lurker command started: Pure Filth
@@ -370,8 +372,8 @@
 2019-07-25T20:36:50 DEBUG next_ps_fr 0.9615178921001517 phase_started 8.0
 2019-07-25T20:36:53 DEBUG PS1 HP reached
 2019-07-25T20:36:53 DEBUG Lurker command started: Personal Space
-2019-07-25T20:37:08 DEBUG Reset
 2019-07-25T20:37:08 DEBUG Lurker subscribed with ID 50000:219422
+2019-07-25T20:37:08 DEBUG Reset
 2019-07-25T20:37:08 DEBUG Lurker became untargetable
 2019-07-25T20:37:08 DEBUG Lurker became targetable
 2019-07-25T20:37:16 DEBUG Lurker subscribed with ID 50000:219422
@@ -482,8 +484,8 @@
 2019-07-25T20:45:46 DEBUG Pod target found: 50000:16980411 Kittividual
 2019-07-25T20:45:46 DEBUG Current targets: ['Cry-stal', 'Kittividual']
 2019-07-25T20:45:46 DEBUG Current game phase: 3
-2019-07-25T20:45:47 DEBUG Reset
 2019-07-25T20:45:47 DEBUG Lurker subscribed with ID 50000:219531
+2019-07-25T20:45:47 DEBUG Reset
 2019-07-25T20:45:47 DEBUG Lurker became untargetable
 2019-07-25T20:45:47 DEBUG Lurker became targetable
 2019-07-25T20:46:11 DEBUG Lurker subscribed with ID 50000:219531
@@ -599,8 +601,8 @@
 2019-07-25T20:55:00 DEBUG Current game phase: 3
 2019-07-25T20:55:02 ANNOUNCEMENT Pod targets are Cry-stal and Rose
 2019-07-25T20:55:04 ANNOUNCEMENT Final resort soon!
-2019-07-25T20:55:08 DEBUG Reset
 2019-07-25T20:55:08 DEBUG Lurker subscribed with ID 50000:219637
+2019-07-25T20:55:08 DEBUG Reset
 2019-07-25T20:55:08 DEBUG Lurker became untargetable
 2019-07-25T20:55:08 DEBUG Lurker became targetable
 2019-07-25T20:55:49 DEBUG Lurker command started: Pure Filth
@@ -687,8 +689,8 @@
 2019-07-25T21:02:17 DEBUG Current targets: ['Jill', 'Mei Ling']
 2019-07-25T21:02:17 DEBUG Current game phase: 3
 2019-07-25T21:02:19 ANNOUNCEMENT Pod targets are Jill and Mei Ling
-2019-07-25T21:02:27 DEBUG Reset
 2019-07-25T21:02:27 DEBUG Lurker subscribed with ID 50000:219723
+2019-07-25T21:02:27 DEBUG Reset
 2019-07-25T21:02:27 DEBUG Lurker became untargetable
 2019-07-25T21:02:28 DEBUG Lurker became targetable
 2019-07-25T21:02:36 DEBUG Lurker subscribed with ID 50000:219723
@@ -724,8 +726,8 @@
 2019-07-25T21:07:02 DEBUG next_ps_fr 0.6480934116517783 phase_started 7.0
 2019-07-25T21:07:03 DEBUG PS1 HP reached
 2019-07-25T21:07:06 DEBUG Lurker command started: Personal Space
-2019-07-25T21:07:21 DEBUG Reset
 2019-07-25T21:07:21 DEBUG Lurker subscribed with ID 50000:219765
+2019-07-25T21:07:21 DEBUG Reset
 2019-07-25T21:07:21 DEBUG Lurker became untargetable
 2019-07-25T21:07:21 DEBUG Lurker became targetable
 2019-07-25T21:07:46 DEBUG Lurker subscribed with ID 50000:219765
@@ -740,8 +742,8 @@
 2019-07-25T21:13:04 DEBUG Lurker command started: Shadow Out Of Time
 2019-07-25T21:13:12 DEBUG Lurker became untargetable
 2019-07-25T21:13:24 DEBUG Bird count since last reset: 1
-2019-07-25T21:13:30 DEBUG Reset
 2019-07-25T21:13:30 DEBUG Lurker subscribed with ID 50000:219785
+2019-07-25T21:13:30 DEBUG Reset
 2019-07-25T21:13:30 DEBUG Lurker became untargetable
 2019-07-25T21:13:30 DEBUG Lurker became targetable
 2019-07-25T21:13:36 DEBUG Lurker subscribed with ID 50000:219785
@@ -756,9 +758,9 @@
 2019-07-25T21:14:44 DEBUG Lurker command started: Shadow Out Of Time
 2019-07-25T21:14:52 DEBUG Lurker became untargetable
 2019-07-25T21:15:04 DEBUG Bird count since last reset: 1
-2019-07-25T21:15:24 DEBUG Reset
 2019-07-25T21:15:24 DEBUG Lurker subscribed with ID 50000:219805
 2019-07-25T21:15:24 DEBUG Lurker became untargetable
+2019-07-25T21:15:24 DEBUG Reset
 2019-07-25T21:15:24 DEBUG Lurker became targetable
 2019-07-25T21:15:32 DEBUG Lurker subscribed with ID 50000:219805
 2019-07-25T21:16:37 DEBUG Lurker command started: Pure Filth
@@ -807,9 +809,9 @@
 2019-07-25T21:20:53 DEBUG PS2 HP reached
 2019-07-25T21:20:58 DEBUG Lurker command started: Personal Space
 2019-07-25T21:21:02 DEBUG Lurker command started: Pure Filth
-2019-07-25T21:21:11 DEBUG Reset
 2019-07-25T21:21:11 DEBUG Lurker subscribed with ID 50000:219857
 2019-07-25T21:21:12 DEBUG Lurker became untargetable
+2019-07-25T21:21:12 DEBUG Reset
 2019-07-25T21:21:12 DEBUG Lurker became targetable
 2019-07-25T21:21:23 DEBUG Lurker subscribed with ID 50000:219857
 2019-07-25T21:22:03 DEBUG Lurker command started: Pure Filth
@@ -826,8 +828,8 @@
 2019-07-25T21:23:15 DEBUG Lurker command started: Shadow Out Of Time
 2019-07-25T21:23:37 DEBUG Bird count since last reset: 2
 2019-07-25T21:24:01 DEBUG Lurker command started: Shadow Out Of Time
-2019-07-25T21:24:23 DEBUG Reset
 2019-07-25T21:24:23 DEBUG Lurker subscribed with ID 50000:219892
+2019-07-25T21:24:23 DEBUG Reset
 2019-07-25T21:24:23 DEBUG Lurker became untargetable
 2019-07-25T21:24:23 DEBUG Lurker became targetable
 2019-07-25T21:24:29 DEBUG Lurker subscribed with ID 50000:219892
@@ -844,8 +846,8 @@
 2019-07-25T21:25:42 DEBUG Lurker became untargetable
 2019-07-25T21:25:54 DEBUG Bird count since last reset: 1
 2019-07-25T21:26:11 DEBUG Lurker command started: Shadow Out Of Time
-2019-07-25T21:26:22 DEBUG Reset
 2019-07-25T21:26:22 DEBUG Lurker subscribed with ID 50000:219912
+2019-07-25T21:26:22 DEBUG Reset
 2019-07-25T21:26:22 DEBUG Lurker became untargetable
 2019-07-25T21:26:22 DEBUG Lurker became targetable
 2019-07-25T21:26:33 DEBUG Lurker subscribed with ID 50000:219912

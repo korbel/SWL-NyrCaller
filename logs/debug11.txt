@@ -1,5 +1,6 @@
 0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
 0001-01-01T00:00:00 DEBUG Reset
+2019-04-07T20:10:22 DEBUG Reset
 2019-04-07T20:10:22 DEBUG Lurker subscribed with ID 50000:144405
 2019-04-07T20:10:22 DEBUG Reset
 2019-04-07T20:10:22 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -129,8 +130,8 @@
 2019-04-07T20:23:47 DEBUG Current targets: ['Cry-stal', 'Rose']
 2019-04-07T20:23:47 DEBUG Current game phase: 3
 2019-04-07T20:23:49 ANNOUNCEMENT Pod targets are Cry-stal and Rose
-2019-04-07T20:23:53 DEBUG Reset
 2019-04-07T20:23:53 DEBUG Lurker subscribed with ID 50000:144530
+2019-04-07T20:23:53 DEBUG Reset
 2019-04-07T20:23:54 DEBUG Lurker became untargetable
 2019-04-07T20:23:54 DEBUG Lurker became targetable
 2019-04-07T20:24:06 DEBUG Lurker subscribed with ID 50000:144530
@@ -202,8 +203,8 @@
 2019-04-07T20:30:06 ANNOUNCEMENT Pod targets are Wolffspider and Alex
 2019-04-07T20:30:18 DEBUG Lurker command started: Pure Filth
 2019-04-07T20:30:23 DEBUG Lurker subscribed with ID 50000:144530
-2019-04-07T20:30:23 DEBUG Reset
 2019-04-07T20:30:23 DEBUG Lurker subscribed with ID 50000:144603
+2019-04-07T20:30:23 DEBUG Reset
 2019-04-07T20:32:38 DEBUG Lurker command started: Pure Filth
 2019-04-07T20:32:38 DEBUG Start time: 2019-04-07T20:32:37
 2019-04-07T20:32:38 ANNOUNCEMENT Filth is out
@@ -224,8 +225,8 @@
 2019-04-07T20:34:03 DEBUG Lurker became untargetable
 2019-04-07T20:34:15 DEBUG Bird count since last reset: 1
 2019-04-07T20:34:19 DEBUG Lurker subscribed with ID 50000:144603
-2019-04-07T20:34:33 DEBUG Reset
 2019-04-07T20:34:33 DEBUG Lurker subscribed with ID 50000:144631
+2019-04-07T20:34:33 DEBUG Reset
 2019-04-07T20:34:33 DEBUG Lurker became untargetable
 2019-04-07T20:34:33 DEBUG Lurker became targetable
 2019-04-07T20:36:16 DEBUG Lurker command started: Pure Filth
@@ -347,8 +348,8 @@
 2019-04-07T20:44:23 DEBUG Current game phase: 3
 2019-04-07T20:44:25 ANNOUNCEMENT Pod target is Izzy-girl
 2019-04-07T20:44:38 DEBUG Lurker command started: Personal Space
-2019-04-07T20:44:42 DEBUG Reset
 2019-04-07T20:44:42 DEBUG Lurker subscribed with ID 50000:144756
+2019-04-07T20:44:42 DEBUG Reset
 2019-04-07T20:44:42 DEBUG Lurker became untargetable
 2019-04-07T20:44:42 DEBUG Lurker became targetable
 2019-04-07T20:44:47 DEBUG Lurker subscribed with ID 50000:144756
@@ -373,8 +374,8 @@
 2019-04-07T20:48:54 DEBUG Lurker became untargetable
 2019-04-07T20:49:01 DEBUG Lurker subscribed with ID 50000:144756
 2019-04-07T20:49:06 DEBUG Bird count since last reset: 1
-2019-04-07T20:49:12 DEBUG Reset
 2019-04-07T20:49:12 DEBUG Lurker subscribed with ID 50000:144782
+2019-04-07T20:49:12 DEBUG Reset
 2019-04-07T20:49:12 DEBUG Lurker became untargetable
 2019-04-07T20:49:12 DEBUG Lurker became targetable
 2019-04-07T20:51:09 DEBUG Lurker command started: Pure Filth
@@ -466,8 +467,8 @@
 2019-04-07T20:57:38 DEBUG Current game phase: 3
 2019-04-07T20:57:40 ANNOUNCEMENT Pod targets are Cartier and Rose
 2019-04-07T20:58:02 DEBUG Lurker subscribed with ID 50000:144782
-2019-04-07T20:58:02 DEBUG Reset
 2019-04-07T20:58:02 DEBUG Lurker subscribed with ID 50000:144875
+2019-04-07T20:58:03 DEBUG Reset
 2019-04-07T20:59:15 DEBUG Lurker command started: Pure Filth
 2019-04-07T20:59:15 DEBUG Start time: 2019-04-07T20:59:14
 2019-04-07T20:59:15 ANNOUNCEMENT Filth is out
@@ -548,9 +549,9 @@
 2019-04-07T21:05:14 DEBUG Current targets: ['MorionR', 'Rose']
 2019-04-07T21:05:14 DEBUG Current game phase: 3
 2019-04-07T21:05:16 ANNOUNCEMENT Pod targets are MorionR and Rose
-2019-04-07T21:05:22 DEBUG Reset
 2019-04-07T21:05:22 DEBUG Lurker subscribed with ID 50000:144956
 2019-04-07T21:05:22 DEBUG Lurker became untargetable
+2019-04-07T21:05:22 DEBUG Reset
 2019-04-07T21:05:23 DEBUG Lurker became targetable
 2019-04-07T21:05:28 DEBUG Lurker subscribed with ID 50000:144956
 2019-04-07T21:06:41 DEBUG Lurker command started: Pure Filth
@@ -672,8 +673,8 @@
 2019-04-07T21:14:25 DEBUG Current game phase: 3
 2019-04-07T21:14:27 ANNOUNCEMENT Pod targets are Jill and Mei Ling
 2019-04-07T21:14:27 DEBUG Lurker command started: Final Resort
-2019-04-07T21:14:54 DEBUG Reset
 2019-04-07T21:14:54 DEBUG Lurker subscribed with ID 50000:145074
+2019-04-07T21:14:54 DEBUG Reset
 2019-04-07T21:14:54 DEBUG Lurker became untargetable
 2019-04-07T21:14:54 DEBUG Lurker became targetable
 2019-04-07T21:15:02 DEBUG Lurker subscribed with ID 50000:145074

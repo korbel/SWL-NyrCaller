@@ -26,6 +26,7 @@ game_state = None
 is_nyr10_active = False
 dynels = {}
 lurker_id_stack = []
+last_lurker_id = None
 number_of_players = 0
 
 shadow1_hp = 26369244
@@ -169,7 +170,7 @@ def event_dynel_subscribed(character_id, character_name):
 
     if character_name == 'The Unutterable Lurker':
         current_lurker_id = get_lurker_id()
-        if current_lurker_id and current_lurker_id != character_id:
+        if not current_lurker_id and last_lurker_id != character_id:
             reset_game_state()
         lurker_id_stack.append(character_id)
         debug("Lurker subscribed with ID", character_id)
@@ -196,6 +197,7 @@ def event_dynel_subscribed(character_id, character_name):
 
 def event_dynel_unsubscribed(character_id):
     global number_of_players
+    global last_lurker_id
 
     if character_id in dynels:
         del dynels[character_id]
@@ -203,7 +205,11 @@ def event_dynel_unsubscribed(character_id):
             number_of_players -= 1
 
     if character_id in lurker_id_stack:
+        current_lurker_id = get_lurker_id()
+        if current_lurker_id != character_id:
+            reset_game_state()
         lurker_id_stack.remove(character_id)
+        last_lurker_id = character_id
 
 def event_stat_changed(character_id, stat_id, value):
     if character_id == get_lurker_id():
@@ -212,6 +218,8 @@ def event_stat_changed(character_id, stat_id, value):
 
             if not game_state['dps'] and new_hp < 33500000:
                 if not game_state['start_of_dps_calc']:
+                    if game_state['lurker_hp'] == lurker_max_hp:
+                        return
                     game_state['start_of_dps_calc'] = (last_date, new_hp)
                 if new_hp < 28500000:
                     (calc_start_date, calc_start_hp) = game_state['start_of_dps_calc']
@@ -220,8 +228,8 @@ def event_stat_changed(character_id, stat_id, value):
                     game_state['dps'] = damage / seconds
                     debug(f"DPS calculated in {seconds} seconds: {game_state['dps']}")
 
-            if game_state['lurker_hp'] < new_hp == lurker_max_hp:
-                reset_game_state()
+            # if game_state['lurker_hp'] < new_hp == lurker_max_hp:
+            #     reset_game_state()
 
             if game_state['dps'] and game_state['ps_counter'] < 4:
                 dps = get_normalized_dps()

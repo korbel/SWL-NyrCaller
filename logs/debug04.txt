@@ -1,5 +1,6 @@
 0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
 0001-01-01T00:00:00 DEBUG Reset
+2019-02-24T21:09:03 DEBUG Reset
 2019-02-24T21:09:03 DEBUG Lurker subscribed with ID 50000:257233
 2019-02-24T21:09:03 DEBUG Reset
 2019-02-24T21:09:03 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -8,8 +9,8 @@
 2019-02-24T21:12:40 DEBUG Start time: 2019-02-24T21:12:39
 2019-02-24T21:12:40 ANNOUNCEMENT Filth is out
 2019-02-24T21:12:58 DEBUG Lurker command started: Pure Filth
-2019-02-24T21:13:04 DEBUG Reset
 2019-02-24T21:13:04 DEBUG Lurker subscribed with ID 50000:257242
+2019-02-24T21:13:04 DEBUG Reset
 2019-02-24T21:13:04 DEBUG Lurker became untargetable
 2019-02-24T21:13:04 DEBUG Lurker became targetable
 2019-02-24T21:13:08 DEBUG Lurker subscribed with ID 50000:257242
@@ -110,8 +111,8 @@
 2019-02-24T21:20:17 ANNOUNCEMENT Final resort soon!
 2019-02-24T21:20:19 DEBUG FR HP reached
 2019-02-24T21:20:23 DEBUG Lurker command started: Final Resort
-2019-02-24T21:20:50 DEBUG Reset
 2019-02-24T21:20:50 DEBUG Lurker subscribed with ID 50000:257371
+2019-02-24T21:20:50 DEBUG Reset
 2019-02-24T21:20:50 DEBUG Lurker became untargetable
 2019-02-24T21:20:50 DEBUG Lurker became targetable
 2019-02-24T21:21:49 DEBUG Lurker command started: Pure Filth

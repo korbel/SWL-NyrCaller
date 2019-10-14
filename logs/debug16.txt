@@ -1,5 +1,6 @@
 0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
 0001-01-01T00:00:00 DEBUG Reset
+2019-07-02T18:33:55 DEBUG Reset
 2019-07-02T18:33:55 DEBUG Lurker subscribed with ID 50000:6600
 2019-07-02T18:33:55 DEBUG Reset
 2019-07-02T18:33:55 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -7,8 +8,8 @@
 2019-07-02T18:42:18 DEBUG Lurker command started: Pure Filth
 2019-07-02T18:42:18 DEBUG Start time: 2019-07-02T18:42:17
 2019-07-02T18:42:18 ANNOUNCEMENT Filth is out
-2019-07-02T18:42:28 DEBUG Reset
 2019-07-02T18:42:28 DEBUG Lurker subscribed with ID 50000:6608
+2019-07-02T18:42:28 DEBUG Reset
 2019-07-02T18:42:28 DEBUG Lurker became untargetable
 2019-07-02T18:42:29 DEBUG Lurker became targetable
 2019-07-02T18:42:32 DEBUG Lurker subscribed with ID 50000:6608
@@ -26,8 +27,8 @@
 2019-07-02T18:44:51 ANNOUNCEMENT Pod target is Xinda
 2019-07-02T18:44:58 DEBUG Lurker command started: Personal Space
 2019-07-02T18:45:05 DEBUG Lurker subscribed with ID 50000:6608
-2019-07-02T18:45:12 DEBUG Reset
 2019-07-02T18:45:12 DEBUG Lurker subscribed with ID 50000:6622
+2019-07-02T18:45:12 DEBUG Reset
 2019-07-02T18:45:12 DEBUG Lurker became untargetable
 2019-07-02T18:45:12 DEBUG Lurker became targetable
 2019-07-02T18:45:59 DEBUG Lurker command started: Pure Filth
@@ -93,15 +94,15 @@
 2019-07-02T18:51:34 DEBUG Current game phase: 3
 2019-07-02T18:51:36 ANNOUNCEMENT Pod targets are Durendal and Mei Ling
 2019-07-02T18:51:48 DEBUG Lurker command started: Pure Filth
-2019-07-02T18:51:50 DEBUG Reset
 2019-07-02T18:51:50 DEBUG Lurker subscribed with ID 50000:6703
+2019-07-02T18:51:50 DEBUG Reset
 2019-07-02T18:51:50 DEBUG Lurker became untargetable
 2019-07-02T18:51:50 DEBUG Lurker became targetable
 2019-07-02T18:53:58 DEBUG Lurker command started: Pure Filth
 2019-07-02T18:53:58 DEBUG Start time: 2019-07-02T18:53:57
 2019-07-02T18:53:58 ANNOUNCEMENT Filth is out
-2019-07-02T18:54:15 DEBUG Reset
 2019-07-02T18:54:15 DEBUG Lurker subscribed with ID 50000:6707
+2019-07-02T18:54:15 DEBUG Reset
 2019-07-02T18:54:15 DEBUG Lurker became untargetable
 2019-07-02T18:54:15 DEBUG Lurker became targetable
 2019-07-02T18:54:19 DEBUG Lurker subscribed with ID 50000:6707
@@ -109,8 +110,8 @@
 2019-07-02T18:54:49 DEBUG Start time: 2019-07-02T18:54:48
 2019-07-02T18:54:49 ANNOUNCEMENT Filth is out
 2019-07-02T18:55:02 DEBUG Lurker subscribed with ID 50000:6707
-2019-07-02T18:55:02 DEBUG Reset
 2019-07-02T18:55:02 DEBUG Lurker subscribed with ID 50000:6710
+2019-07-02T18:55:02 DEBUG Reset
 2019-07-02T18:55:49 DEBUG Lurker command started: Pure Filth
 2019-07-02T18:55:49 DEBUG Start time: 2019-07-02T18:55:48
 2019-07-02T18:55:49 ANNOUNCEMENT Filth is out
@@ -186,8 +187,8 @@
 2019-07-02T19:01:30 DEBUG Current game phase: 3
 2019-07-02T19:01:32 ANNOUNCEMENT Pod targets are DigitalWraith and Mei Ling
 2019-07-02T19:01:46 DEBUG Lurker subscribed with ID 50000:6710
-2019-07-02T19:01:51 DEBUG Reset
 2019-07-02T19:01:51 DEBUG Lurker subscribed with ID 50000:6791
+2019-07-02T19:01:51 DEBUG Reset
 2019-07-02T19:01:51 DEBUG Lurker became untargetable
 2019-07-02T19:01:51 DEBUG Lurker became targetable
 2019-07-02T19:03:13 DEBUG Lurker command started: Pure Filth
@@ -208,8 +209,8 @@
 2019-07-02T19:04:24 DEBUG Shadow1 HP reached
 2019-07-02T19:04:30 DEBUG Lurker command started: Shadow Out Of Time
 2019-07-02T19:04:38 DEBUG Lurker became untargetable
-2019-07-02T19:04:53 DEBUG Lurker subscribed with ID 50000:6819
 2019-07-02T19:04:53 DEBUG Reset
+2019-07-02T19:04:53 DEBUG Lurker subscribed with ID 50000:6819
 2019-07-02T19:04:53 DEBUG Lurker subscribed with ID 50000:6791
 2019-07-02T19:04:53 DEBUG Lurker became untargetable
 2019-07-02T19:04:53 DEBUG Lurker became targetable
@@ -263,8 +264,8 @@
 2019-07-02T19:09:57 ANNOUNCEMENT Pod targets are teg and Alex
 2019-07-02T19:10:09 DEBUG Lurker command started: Pure Filth
 2019-07-02T19:10:23 DEBUG Lurker subscribed with ID 50000:6819
-2019-07-02T19:10:25 DEBUG Reset
 2019-07-02T19:10:25 DEBUG Lurker subscribed with ID 50000:6877
+2019-07-02T19:10:25 DEBUG Reset
 2019-07-02T19:10:25 DEBUG Lurker became untargetable
 2019-07-02T19:10:25 DEBUG Lurker became targetable
 2019-07-02T19:11:03 DEBUG Lurker subscribed with ID 50000:6877
@@ -318,8 +319,8 @@
 2019-07-02T19:17:15 ANNOUNCEMENT Pod targets are DigitalWraith and Mei Ling
 2019-07-02T19:17:27 DEBUG Lurker command started: Pure Filth
 2019-07-02T19:17:31 DEBUG Lurker subscribed with ID 50000:6877
-2019-07-02T19:17:33 DEBUG Reset
 2019-07-02T19:17:33 DEBUG Lurker subscribed with ID 50000:6944
+2019-07-02T19:17:34 DEBUG Reset
 2019-07-02T19:17:34 DEBUG Lurker became untargetable
 2019-07-02T19:17:34 DEBUG Lurker became targetable
 2019-07-02T19:18:09 DEBUG Lurker command started: Pure Filth
@@ -392,15 +393,15 @@
 2019-07-02T19:24:12 DEBUG PS2 HP reached
 2019-07-02T19:24:17 DEBUG Lurker command started: Personal Space
 2019-07-02T19:24:23 DEBUG Lurker subscribed with ID 50000:6944
-2019-07-02T19:24:23 DEBUG Reset
 2019-07-02T19:24:23 DEBUG Lurker subscribed with ID 50000:7025
+2019-07-02T19:24:23 DEBUG Reset
 2019-07-02T19:25:58 DEBUG Lurker command started: Pure Filth
 2019-07-02T19:25:58 DEBUG Start time: 2019-07-02T19:25:57
 2019-07-02T19:25:58 ANNOUNCEMENT Filth is out
 2019-07-02T19:26:17 DEBUG Lurker command started: Personal Space
 2019-07-02T19:26:28 DEBUG Lurker subscribed with ID 50000:7025
-2019-07-02T19:26:28 DEBUG Reset
 2019-07-02T19:26:28 DEBUG Lurker subscribed with ID 50000:7030
+2019-07-02T19:26:29 DEBUG Reset
 2019-07-02T19:27:33 DEBUG Lurker command started: Pure Filth
 2019-07-02T19:27:33 DEBUG Start time: 2019-07-02T19:27:32
 2019-07-02T19:27:33 ANNOUNCEMENT Filth is out
@@ -432,8 +433,8 @@
 2019-07-02T19:31:06 ANNOUNCEMENT Shadow out of time
 2019-07-02T19:31:22 DEBUG Downfall count: 3
 2019-07-02T19:31:22 ANNOUNCEMENT Kill it
-2019-07-02T19:31:29 DEBUG Lurker subscribed with ID 50000:7076
 2019-07-02T19:31:29 DEBUG Reset
+2019-07-02T19:31:29 DEBUG Lurker subscribed with ID 50000:7076
 2019-07-02T19:31:29 DEBUG Lurker subscribed with ID 50000:7030
 2019-07-02T19:31:29 DEBUG Lurker became untargetable
 2019-07-02T19:31:29 DEBUG Lurker became targetable

@@ -1,5 +1,6 @@
 0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
 0001-01-01T00:00:00 DEBUG Reset
+2019-02-14T21:09:14 DEBUG Reset
 2019-02-14T21:09:14 DEBUG Lurker subscribed with ID 50000:7470
 2019-02-14T21:09:14 DEBUG Reset
 2019-02-14T21:09:14 ANNOUNCEMENT Welcome to New York raid E 10!
@@ -54,8 +55,8 @@
 2019-02-14T21:18:08 DEBUG Current game phase: 3
 2019-02-14T21:18:10 ANNOUNCEMENT Pod targets are Luqs and Mei Ling
 2019-02-14T21:18:24 DEBUG Lurker subscribed with ID 50000:7470
-2019-02-14T21:18:26 DEBUG Reset
 2019-02-14T21:18:26 DEBUG Lurker subscribed with ID 50000:7553
+2019-02-14T21:18:26 DEBUG Reset
 2019-02-14T21:18:26 DEBUG Lurker became untargetable
 2019-02-14T21:18:26 DEBUG Lurker became targetable
 2019-02-14T21:19:30 DEBUG Lurker command started: Pure Filth
@@ -73,9 +74,9 @@
 2019-02-14T21:20:21 DEBUG Current game phase: 1
 2019-02-14T21:20:23 ANNOUNCEMENT Pod target is MorionR
 2019-02-14T21:20:29 DEBUG Lurker command started: Pure Filth
-2019-02-14T21:20:37 DEBUG Reset
 2019-02-14T21:20:37 DEBUG Lurker subscribed with ID 50000:7570
 2019-02-14T21:20:37 DEBUG Lurker became untargetable
+2019-02-14T21:20:37 DEBUG Reset
 2019-02-14T21:20:37 DEBUG Lurker became targetable
 2019-02-14T21:20:45 DEBUG Lurker subscribed with ID 50000:7570
 2019-02-14T21:21:37 DEBUG Lurker command started: Pure Filth
@@ -186,8 +187,8 @@
 2019-02-14T21:28:55 DEBUG FR HP reached
 2019-02-14T21:28:55 DEBUG Lurker command started: Final Resort
 2019-02-14T21:28:59 DEBUG Lurker command started: Final Resort
-2019-02-14T21:29:06 DEBUG Reset
 2019-02-14T21:29:06 DEBUG Lurker subscribed with ID 50000:7675
+2019-02-14T21:29:06 DEBUG Reset
 2019-02-14T21:29:06 DEBUG Lurker became untargetable
 2019-02-14T21:29:06 DEBUG Lurker became targetable
 2019-02-14T21:29:21 DEBUG Lurker subscribed with ID 50000:7675
@@ -277,8 +278,8 @@
 2019-02-14T21:38:54 DEBUG Lurker command started: Personal Space
 2019-02-14T21:38:59 DEBUG Lurker command started: Pure Filth
 2019-02-14T21:39:05 DEBUG Lurker subscribed with ID 50000:7675
-2019-02-14T21:39:05 DEBUG Reset
 2019-02-14T21:39:05 DEBUG Lurker subscribed with ID 50000:7755
+2019-02-14T21:39:06 DEBUG Reset
 2019-02-14T21:40:25 DEBUG Lurker command started: Pure Filth
 2019-02-14T21:40:25 DEBUG Start time: 2019-02-14T21:40:24
 2019-02-14T21:40:25 ANNOUNCEMENT Filth is out
