@@ -169,7 +169,7 @@ def event_dynel_subscribed(character_id, character_name):
 
     if character_name == 'The Unutterable Lurker':
         current_lurker_id = get_lurker_id()
-        if current_lurker_id and current_lurker_id != character_id:
+        if current_lurker_id != character_id:
             reset_game_state()
         lurker_id_stack.append(character_id)
         debug("Lurker subscribed with ID", character_id)
