@@ -18,7 +18,7 @@ Setting it up as a Discord bot:
 - To run it as a Discord bot, first you must install VBCable driver (it can be found in the "New York Raid Elite 10 Bot\VBCABLE_Driver_Pack43" directory), it will give the ability to the bot to connect its voice to a discord bot.
 - Next you must set up a discord bot. If you already have a discord bot set up, you can skip this step and manually edit the bot token in the config.json. To set up a bot, run "New York Raid Elite 10 Bot\Discord Audio Stream Bot\Discord Audio Stream Bot.exe" and follow the instructions. The admin of the target discord server must give access to the bot. This will generate you a config.json in the "Discord Audio Stream Bot" directory.
 - You may need to adjust the audio options (audioType, bitRate, bufferMillis). BitRate changes quality (the higher the better), but requires more buffer and network speed. The bigger the buffer is, the smoother the sound will be, but it will increase latency which may not be ideal for a caller bot.
-- It's recommended to set autoJoinVoiceChannels and proper userPermissions, most more details and troubleshooting visit https://github.com/BinkanSalaryman/Discord-Audio-Stream-Bot
+- It's recommended to set autoJoinVoiceChannels and proper userPermissions, for more details and troubleshooting visit https://github.com/BinkanSalaryman/Discord-Audio-Stream-Bot
 
 A common issue is:
 "If you get the error "NotSupportedException: An attempt was made to load an assembly from a network location which would have caused the assembly to be sandboxed in previous versions of the .NET Framework...", right click Commands.dll, go to properties>security and check the box to grant access. No worries the DLL is safe, it contains the command implementations for use in discord text chat."
@@ -74,7 +74,7 @@ To run it locally navigate to the "<SWL directory>\New York Raid Elite 10 Bot" d
 IMPORTANT!
 The bot must be running when you enter NYR E10. Upon entering NYR you should hear the bot saying "Welcome to New York raid E10!" indicating that everything is set up and working correctly.
 If you forgot to start the bot then type /reset into the chat or press Ctrl + Shift + F1 (which is equivalent to /reset) before starting the fight. It will re-register all the raid participants and should say "Welcome to New York raid E10!" if it hasn't done so already.
-The bot is listening to in-game events so upon the unfortunate event of the game crashing, it may loose track of the fight and say weird things for the rest of the fight. Beware.
+The bot is listening to in-game events so upon the unfortunate event of the game crashing, it may lose track of the fight and say weird things for the rest of the fight. Beware.
 
 
 If you set the Discord got up, run "New York Raid Elite 10 Bot\start.bat", it will both start the discord bot and the caller app.
