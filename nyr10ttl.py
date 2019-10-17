@@ -561,7 +561,7 @@ def trace(*args):
         print(last_date.isoformat(), 'TRACE', *args)
 
 def main():
-    debug("Agnitio NYR E10 caller bot v5 started")
+    debug("Agnitio NYR E10 caller bot v6 started")
     reset_game_state()
     log_file = next((x.split('=', 1)[1] for x  in sys.argv[1:] if x.startswith('log=')), os.path.join('..', 'ClientLog.txt'))
     log = follow(log_file if os.path.isabs(log_file) else os.path.join(os.path.dirname(os.path.abspath(__file__)), log_file))
