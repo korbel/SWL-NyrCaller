@@ -1,4 +1,4 @@
-0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v5 started
+0001-01-01T00:00:00 DEBUG Agnitio NYR E10 caller bot v6 started
 0001-01-01T00:00:00 DEBUG Reset
 2019-02-17T21:17:35 DEBUG Reset
 2019-02-17T21:17:35 DEBUG Lurker subscribed with ID 50000:65053
