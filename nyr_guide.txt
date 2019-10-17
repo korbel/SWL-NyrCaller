@@ -1,14 +1,3 @@
-While I was working on the TS-14 NYR caller bot I had to analyze many NYR E10 fights to understand how Lurker exactly works/thinks, how to predict what move he will do, what are the basic mechanics of the fight and what's the most efficient way to win the fight. Here are some of my notes and realizations that I thought would be useful for others too. This is not intended to be a guide, it just helps to understand the mechanics better. In many cases I left out details to keep this writing clean.
-
-The attacks of the lurker can be categorized into two groups: regular attacks and special attacks.
-
-[u][b]Special attacks:[/b][/u]
-Special attacks are those which are cast if a condition gets fulfilled, like Lurker's HP reaches a certain threshold:
-[list]
-[*] Shadow Out Of Time in P1 and phase change to P2: 26369244 75%
-[*] Personal Space 1 in P3: 23732320 67.5%
-[*] Personal Space 2 in P3: 15821546 45%While I was working on the TS-14 NYR caller bot I had to analyze many NYR E10 fights to understand how Lurker exactly works/thinks, how to predict what move he will do, what are the basic mechanics of the fight and what's the most efficient way to win the fight. Here are some of my notes and realizations that I thought would be useful for others too. This is not intended to be a guide, it just helps to understand the mechanics better. In many cases I left out details to keep this writing clean.
-
 The attacks of the lurker can be categorized into two groups: regular attacks and special attacks.
 
 [u][b]Special attacks:[/b][/u]
@@ -70,79 +59,7 @@ Aggro swapping rules:
 [/list]
 
 If shadow was cast before final resort, one tank should take hulk on so DPS can focus on finishing Lurker off.
-The one who has stacks last in P1 will get stacks first in P3, so I recommend the one with stacks last in P1 always taking hulks in P2.
-
-[u][b]Hard to predict events:[/b][/u]
-[list]
-[*] In P3 it's recommended to stop DPS before personal space if shadow is about to be cast (usually around 60-62 seconds after start of P3). However if both pod and shadow is up, it's random which one Lurker will choose, and shadow can be delayed by as much as 30 seconds! In the case of this scenario just carry on with your DPS and don't wait for shadow as shadow won't be cast for at least 20 seconds after pod cast.
-[/list]
-
-[u][b]Phase 2 mechanics:[/b][/u]
-In this section are my conjectures about P2 mechanics, as I could not find any information on it and I could not test the theories written below!
-
-P2 always takes the same amount of time as the birds spawns at fixed intervals regardless of DPS. If you kill birds faster, you have to wait longer till the next bird.
-The timings are like so:
-
-[code]P2 -> B1 -> B2 -> B3 -> | DF3
--------------------------------
-00:00 00:12 00:51 01:56 | ~02:35
-0     +12   +39   +65   | ~+39[/code]
-
-The developers probably put a safety guard into this phase that prevents the scenario where a shadow is cast when a bird is alive (which is a sure way to wipe a group as flappy won't wait for the shadow to pass while you are hiding behind a rock). That means in theory that you can skip all shadows and hulks if you wait 39 seconds after each bird spawn before killing it or practically you can control where hulk should spawn in P3.
-[*] Personal Space 3 in P3: 8789478 25%
-[*] Final Resort in P3: 1757950 5%
-[/list]
-(for completeness 100% HP is 35158992 and HP cap before final resort is 1% or 351589)
-
-[u][b]Regular attacks:[/b][/u]
-Regular attacks work the same way the players use their abilities: imagine lurker has a skill bar and he can use the following skills:
-[list]
-[*] Fist: basic attack, no cooldown, takes 3 sec to perform
-[*] Pure filth: 18 sec CD, 3 sec cast time
-[*] From Beneath You, It Devours: pod for short, 32 sec CD, 3 sec cast time
-[*] Shadow Out Of Time: 100 sec CD, 8 sec cast time, and it always spawns a hulk
-[/list]
-(for reference Personal Space and Final Resort both take 4 seconds to cast)
-
-[u][b]Rules of attack patterns:[/b][/u]
-If any of the regular attack abilities are off cooldown, Lurker will cast them, otherwise it will use the fist basic attack. If multiple skills are off CD at the same time, Lurker will randomly choose one, and depending which one it chooses, the fight may get more interesting. However there are a few rules Lurker follows to make the fight more fair and easier:
-[list]
-[*] Lurker don't use regular attacks in P2 (obviously)
-[*] Pod cannot be cast in the first 48 sec of P1 and in the first 32 sec in P3
-[*] Shadow cannot be cast in P1 at all as a regular attack and only after 60 sec in P3
-[*] Filth cannot be cast immediately after pod, it has a 10 seconds long grace period, which is just enough for the player to get podded and not to get filth and pod at the same time (of course the further you are the more time it takes to get podded, for instance Mei Ling gets podded in 12 sec)
-[*] Shadow (regular attack) cannot be cast immediately after pod, it has a 20 seconds long grace period which is just enough time to get podded and to break the pod after
-[*] There's a GCD which is always 2 or 3 sec long in P1 and is between 1 sec and 4 sec in P3, which seems to be random (not confirmed)
-[/list]
-
-This all means Lurker will always have the same rotation in P1:
-filth, fist, fist, filth, fist, fist, filth, fist, pod, fist, filth, fist, fist, filth ...
-In P3 there are much more variables, and even 1 second difference can make big changes.
-
-[u][b]Reason to stop DPS:[/b][/u]
-The main reason to stop DPS is not to trigger a special attack (shadow in P1, personal spaces, final resort) when it's not convenient:
-[list]
-[*] Shadow in P1 when pod is cast
-[*] Personal space in P3 when shadow was cast and hulk (and typically a pod) is coming
-[*] Final resort when someone is podded
-[/list]
-
-[u][b]Things to watch out for tanks:[/b][/u]
-Aggro swapping rules:
-[list]
-[*] Stacks are getting reduced at the pace of 2 stacks each seconds
-[*] Shadow ability cast takes 8 seconds (16 stacks) (+2 sec to wait shadow to get past and start running in) so when shadow cast starts:
-[list]
-[*] if you have aggro with less than 18-20 stacks, hide otherwise stay (shadow can't hurt you if you have stacks)
-[*] if you don't have aggro but the other tank has less than 25 stacks, swap aggro, otherwise hide
-[/list]
-[*] Personal space / final resort cast takes 4 seconds (8 stacks) +3 sec to secure aggro before and run back after so if it's about to be cast and the other tank has less than 20 stacks, grab aggro. You should do 2 hits to safely secure aggro but sometimes only 1 hit will do.
-[*] When Lurker's HP reaches 26369244 (P1 shadow, transition to P2) or 1757950 (Final resort) you can't switch aggro anymore, but the tank with stacks can still die if he or she runs out of stacks. Don't let your partner's stacks go below 15 stacks before P1 shadow (shadow can come as late as 6 seconds after reaching the HP threshold), or 25 stacks before final resort. (Actual worst case can be getting shadow right before final resort (8 sec), +4 sec GCD, +4 sec final resort which is 32 stacks but it's extremely rare. I always swap right before final resort just to be safe)
-[*] Taunt skills don't generate aggro just forces the target to attack you. It has only 5 second long effect, so you must secure aggro in that time frame. Don't use it too early if Lurker is not within reach.
-[/list]
-
-If shadow was cast before final resort, one tank should take hulk on so DPS can focus on finishing Lurker off.
-The one who has stacks last in P1 will get stacks first in P3, so I recommend the one with stacks last in P1 always taking hulks in P2.
+The one who has stacks last in P1 will get stacks first in P3 if no-one touched lurker in the mean time.
 
 [u][b]Hard to predict events:[/b][/u]
 [list]
