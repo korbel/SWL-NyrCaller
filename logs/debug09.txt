@@ -39,7 +39,6 @@
 2019-03-11T21:22:08 DEBUG Lurker command started: Pure Filth
 2019-03-11T21:22:08 ANNOUNCEMENT Filth is out
 2019-03-11T21:22:15 ANNOUNCEMENT Personal space soon!
-2019-03-11T21:22:15 DEBUG next_ps_fr 0.9355782946877901 phase_started 13.0
 2019-03-11T21:22:16 DEBUG PS1 HP reached
 2019-03-11T21:22:20 DEBUG Lurker command started: Personal Space
 2019-03-11T21:22:31 DEBUG Lurker command started: Pure Filth
@@ -52,9 +51,12 @@
 2019-03-11T21:22:40 DEBUG Current targets: ['TS-13', 'Alex']
 2019-03-11T21:22:40 DEBUG Current game phase: 3
 2019-03-11T21:22:42 ANNOUNCEMENT Pod targets are TS-13 and Alex
+2019-03-11T21:22:52 ANNOUNCEMENT Stop DPS
+2019-03-11T21:22:52 DEBUG last_shadow 140.0 next_shadow 10.0 next_ps_fr 5.216599404819992
 2019-03-11T21:22:54 DEBUG Lurker command started: Pure Filth
 2019-03-11T21:23:05 DEBUG Lurker command started: Shadow Out Of Time
 2019-03-11T21:23:05 ANNOUNCEMENT Shadow out of time
+2019-03-11T21:23:05 ANNOUNCEMENT Focus on hulk
 2019-03-11T21:23:05 ANNOUNCEMENT Personal space soon!
 2019-03-11T21:23:07 DEBUG PS2 HP reached
 2019-03-11T21:23:16 DEBUG Lurker command started: Personal Space
@@ -123,7 +125,6 @@
 2019-03-11T21:29:42 DEBUG Lurker command started: Pure Filth
 2019-03-11T21:29:42 ANNOUNCEMENT Filth is out
 2019-03-11T21:29:43 ANNOUNCEMENT Personal space soon!
-2019-03-11T21:29:43 DEBUG next_ps_fr 0.8454724931427723 phase_started 7.0
 2019-03-11T21:29:44 DEBUG PS1 HP reached
 2019-03-11T21:29:48 DEBUG Lurker command started: Personal Space
 2019-03-11T21:30:05 DEBUG Lurker command started: Pure Filth
@@ -222,7 +223,6 @@
 2019-03-11T21:39:55 DEBUG Lurker command started: Pure Filth
 2019-03-11T21:39:55 ANNOUNCEMENT Filth is out
 2019-03-11T21:40:02 ANNOUNCEMENT Personal space soon!
-2019-03-11T21:40:02 DEBUG next_ps_fr 0.9873867659723773 phase_started 13.0
 2019-03-11T21:40:04 DEBUG PS1 HP reached
 2019-03-11T21:40:07 DEBUG Lurker command started: Personal Space
 2019-03-11T21:40:19 DEBUG Lurker command started: Pure Filth
@@ -235,6 +235,8 @@
 2019-03-11T21:40:27 DEBUG Current targets: ['Cry-stal', 'Rose']
 2019-03-11T21:40:27 DEBUG Current game phase: 3
 2019-03-11T21:40:29 ANNOUNCEMENT Pod targets are Cry-stal and Rose
+2019-03-11T21:40:38 ANNOUNCEMENT Stop DPS
+2019-03-11T21:40:38 DEBUG last_shadow 142.0 next_shadow 11.0 next_ps_fr 5.7445516091990685
 2019-03-11T21:40:41 DEBUG Lurker command started: Pure Filth
 2019-03-11T21:40:47 ANNOUNCEMENT Personal space soon!
 2019-03-11T21:40:48 DEBUG PS2 HP reached
@@ -253,6 +255,7 @@
 2019-03-11T21:41:18 DEBUG last_shadow 182.0 next_shadow 0.0 next_ps_fr 8.956430382222049
 2019-03-11T21:41:20 DEBUG Lurker command started: Shadow Out Of Time
 2019-03-11T21:41:20 ANNOUNCEMENT Shadow out of time
+2019-03-11T21:41:28 ANNOUNCEMENT Focus on hulk
 2019-03-11T21:41:31 DEBUG Lurker command started: Pure Filth
 2019-03-11T21:41:34 ANNOUNCEMENT Hulk has spawned
 2019-03-11T21:41:36 DEBUG Lurker command started: From Beneath You, It Devours

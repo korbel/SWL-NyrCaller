@@ -41,7 +41,6 @@
 2019-02-14T21:17:37 DEBUG Lurker command started: Pure Filth
 2019-02-14T21:17:37 ANNOUNCEMENT Filth is out
 2019-02-14T21:17:42 ANNOUNCEMENT Personal space soon!
-2019-02-14T21:17:42 DEBUG next_ps_fr 0.9713064397639248 phase_started 11.0
 2019-02-14T21:17:43 DEBUG PS1 HP reached
 2019-02-14T21:17:48 DEBUG Lurker command started: Personal Space
 2019-02-14T21:18:00 DEBUG Lurker command started: Pure Filth
@@ -54,6 +53,8 @@
 2019-02-14T21:18:08 DEBUG Current targets: ['Luqs', 'Mei Ling']
 2019-02-14T21:18:08 DEBUG Current game phase: 3
 2019-02-14T21:18:10 ANNOUNCEMENT Pod targets are Luqs and Mei Ling
+2019-02-14T21:18:19 ANNOUNCEMENT Stop DPS
+2019-02-14T21:18:19 DEBUG last_shadow 147.0 next_shadow 12.0 next_ps_fr 6.090192938287303
 2019-02-14T21:18:24 DEBUG Lurker subscribed with ID 50000:7470
 2019-02-14T21:18:26 DEBUG Lurker subscribed with ID 50000:7553
 2019-02-14T21:18:26 DEBUG Reset
@@ -114,7 +115,6 @@
 2019-02-14T21:25:39 DEBUG Lurker command started: Pure Filth
 2019-02-14T21:25:39 ANNOUNCEMENT Filth is out
 2019-02-14T21:25:43 ANNOUNCEMENT Personal space soon!
-2019-02-14T21:25:43 DEBUG next_ps_fr 0.9329737501361507 phase_started 10.0
 2019-02-14T21:25:45 DEBUG PS1 HP reached
 2019-02-14T21:25:51 DEBUG Lurker command started: Personal Space
 2019-02-14T21:26:02 DEBUG Lurker command started: Pure Filth
@@ -230,7 +230,6 @@
 2019-02-14T21:37:02 DEBUG Lurker command started: Pure Filth
 2019-02-14T21:37:02 ANNOUNCEMENT Filth is out
 2019-02-14T21:37:04 ANNOUNCEMENT Personal space soon!
-2019-02-14T21:37:04 DEBUG next_ps_fr 0.9741106817320621 phase_started 8.0
 2019-02-14T21:37:07 DEBUG PS1 HP reached
 2019-02-14T21:37:14 DEBUG Lurker command started: Personal Space
 2019-02-14T21:37:25 DEBUG Lurker command started: Pure Filth
@@ -249,8 +248,6 @@
 2019-02-14T21:37:53 DEBUG Lurker command started: Personal Space
 2019-02-14T21:37:58 DEBUG Lurker command started: Shadow Out Of Time
 2019-02-14T21:37:58 ANNOUNCEMENT Shadow out of time
-2019-02-14T21:38:00 ANNOUNCEMENT Stop DPS
-2019-02-14T21:38:00 DEBUG last_shadow 2.0 next_shadow 98.0 next_ps_fr 8.959985114741201
 2019-02-14T21:38:08 DEBUG Lurker command started: Pure Filth
 2019-02-14T21:38:12 ANNOUNCEMENT Hulk has spawned
 2019-02-14T21:38:13 DEBUG Lurker command started: From Beneath You, It Devours
@@ -308,7 +305,6 @@
 2019-02-14T21:44:14 DEBUG Lurker command started: Pure Filth
 2019-02-14T21:44:14 ANNOUNCEMENT Filth is out
 2019-02-14T21:44:22 ANNOUNCEMENT Personal space soon!
-2019-02-14T21:44:22 DEBUG next_ps_fr 0.8847171327826078 phase_started 14.0
 2019-02-14T21:44:23 DEBUG PS1 HP reached
 2019-02-14T21:44:26 DEBUG Lurker command started: Personal Space
 2019-02-14T21:44:37 DEBUG Lurker command started: Pure Filth

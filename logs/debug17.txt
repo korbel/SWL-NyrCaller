@@ -32,7 +32,6 @@
 2019-07-23T21:15:21 DEBUG Lurker command started: Pure Filth
 2019-07-23T21:15:21 ANNOUNCEMENT Filth is out
 2019-07-23T21:15:27 ANNOUNCEMENT Personal space soon!
-2019-07-23T21:15:27 DEBUG next_ps_fr 0.8638500746603494 phase_started 12.0
 2019-07-23T21:15:28 DEBUG PS1 HP reached
 2019-07-23T21:15:33 DEBUG Lurker command started: Personal Space
 2019-07-23T21:15:44 DEBUG Lurker command started: Pure Filth
@@ -63,6 +62,7 @@
 2019-07-23T21:16:36 DEBUG Current game phase: 3
 2019-07-23T21:16:36 ANNOUNCEMENT Hulk has spawned
 2019-07-23T21:16:38 ANNOUNCEMENT Pod targets are theDonald-2020 and Alex
+2019-07-23T21:16:43 ANNOUNCEMENT Focus on hulk
 2019-07-23T21:16:44 DEBUG Lurker command started: Pure Filth
 2019-07-23T21:16:52 ANNOUNCEMENT Hulk is dead
 2019-07-23T21:16:58 ANNOUNCEMENT Personal space soon!
@@ -135,7 +135,6 @@
 2019-07-25T20:17:09 DEBUG Lurker command started: Pure Filth
 2019-07-25T20:17:09 ANNOUNCEMENT Filth is out
 2019-07-25T20:17:09 ANNOUNCEMENT Personal space soon!
-2019-07-25T20:17:09 DEBUG next_ps_fr 0.5974762590515431 phase_started 6.0
 2019-07-25T20:17:11 DEBUG PS1 HP reached
 2019-07-25T20:17:14 DEBUG Lurker command started: Personal Space
 2019-07-25T20:17:32 DEBUG Lurker command started: Pure Filth
@@ -188,7 +187,6 @@
 2019-07-25T20:22:37 DEBUG Lurker command started: Pure Filth
 2019-07-25T20:22:37 ANNOUNCEMENT Filth is out
 2019-07-25T20:22:38 ANNOUNCEMENT Personal space soon!
-2019-07-25T20:22:38 DEBUG next_ps_fr 0.7930951928132727 phase_started 7.0
 2019-07-25T20:22:40 DEBUG PS1 HP reached
 2019-07-25T20:22:43 DEBUG Lurker command started: Personal Space
 2019-07-25T20:23:00 DEBUG Lurker command started: Pure Filth
@@ -253,7 +251,6 @@
 2019-07-25T20:28:34 DEBUG Lurker command started: Pure Filth
 2019-07-25T20:28:34 ANNOUNCEMENT Filth is out
 2019-07-25T20:28:39 ANNOUNCEMENT Personal space soon!
-2019-07-25T20:28:39 DEBUG next_ps_fr 0.9587477001259054 phase_started 11.0
 2019-07-25T20:28:41 DEBUG PS1 HP reached
 2019-07-25T20:28:46 DEBUG Lurker command started: Personal Space
 2019-07-25T20:28:57 DEBUG Lurker command started: Pure Filth
@@ -369,7 +366,6 @@
 2019-07-25T20:36:48 DEBUG Lurker command started: Pure Filth
 2019-07-25T20:36:48 ANNOUNCEMENT Filth is out
 2019-07-25T20:36:50 ANNOUNCEMENT Personal space soon!
-2019-07-25T20:36:50 DEBUG next_ps_fr 0.9615178921001517 phase_started 8.0
 2019-07-25T20:36:53 DEBUG PS1 HP reached
 2019-07-25T20:36:53 DEBUG Lurker command started: Personal Space
 2019-07-25T20:37:08 DEBUG Lurker subscribed with ID 50000:219422
@@ -404,7 +400,6 @@
 2019-07-25T20:42:05 DEBUG Lurker became targetable
 2019-07-25T20:42:05 DEBUG P3 started at 2019-07-25T20:42:05 (0 seconds ago)
 2019-07-25T20:42:10 ANNOUNCEMENT Personal space soon!
-2019-07-25T20:42:10 DEBUG next_ps_fr 0.8467666036561948 phase_started 5.0
 2019-07-25T20:42:11 DEBUG Lurker command started: Pure Filth
 2019-07-25T20:42:11 ANNOUNCEMENT Filth is out
 2019-07-25T20:42:11 DEBUG PS1 HP reached
@@ -516,7 +511,6 @@
 2019-07-25T20:51:18 DEBUG Lurker became targetable
 2019-07-25T20:51:18 DEBUG P3 started at 2019-07-25T20:51:18 (0 seconds ago)
 2019-07-25T20:51:24 ANNOUNCEMENT Personal space soon!
-2019-07-25T20:51:24 DEBUG next_ps_fr 0.9999842986303388 phase_started 6.0
 2019-07-25T20:51:24 DEBUG Lurker command started: Pure Filth
 2019-07-25T20:51:24 ANNOUNCEMENT Filth is out
 2019-07-25T20:51:26 DEBUG PS1 HP reached
@@ -638,7 +632,7 @@
 2019-07-25T20:59:33 DEBUG Lurker became targetable
 2019-07-25T20:59:33 DEBUG P3 started at 2019-07-25T20:59:33 (0 seconds ago)
 2019-07-25T20:59:38 ANNOUNCEMENT Personal space soon!
-2019-07-25T20:59:38 DEBUG next_ps_fr -2.0560367076602715 phase_started 5.0
+2019-07-25T20:59:38 ANNOUNCEMENT Focus on hulk
 2019-07-25T20:59:39 DEBUG Lurker command started: Pure Filth
 2019-07-25T20:59:39 ANNOUNCEMENT Filth is out
 2019-07-25T20:59:48 ANNOUNCEMENT Hulk is dead
@@ -723,7 +717,6 @@
 2019-07-25T21:07:01 DEBUG Lurker command started: Pure Filth
 2019-07-25T21:07:01 ANNOUNCEMENT Filth is out
 2019-07-25T21:07:02 ANNOUNCEMENT Personal space soon!
-2019-07-25T21:07:02 DEBUG next_ps_fr 0.6480934116517783 phase_started 7.0
 2019-07-25T21:07:03 DEBUG PS1 HP reached
 2019-07-25T21:07:06 DEBUG Lurker command started: Personal Space
 2019-07-25T21:07:21 DEBUG Lurker subscribed with ID 50000:219765
@@ -792,7 +785,6 @@
 2019-07-25T21:20:18 DEBUG Lurker command started: Pure Filth
 2019-07-25T21:20:18 ANNOUNCEMENT Filth is out
 2019-07-25T21:20:20 ANNOUNCEMENT Personal space soon!
-2019-07-25T21:20:20 DEBUG next_ps_fr 0.8323829559326613 phase_started 8.0
 2019-07-25T21:20:21 DEBUG PS1 HP reached
 2019-07-25T21:20:23 DEBUG Lurker command started: Personal Space
 2019-07-25T21:20:41 DEBUG Lurker command started: Pure Filth
@@ -880,7 +872,6 @@
 2019-07-25T21:30:53 DEBUG Lurker command started: Pure Filth
 2019-07-25T21:30:53 ANNOUNCEMENT Filth is out
 2019-07-25T21:30:56 ANNOUNCEMENT Personal space soon!
-2019-07-25T21:30:56 DEBUG next_ps_fr 0.995341605164743 phase_started 9.0
 2019-07-25T21:30:57 DEBUG PS1 HP reached
 2019-07-25T21:30:58 DEBUG Lurker command started: Personal Space
 2019-07-25T21:31:16 DEBUG Lurker command started: Pure Filth
@@ -896,10 +887,13 @@
 2019-07-25T21:31:25 DEBUG PS2 HP reached
 2019-07-25T21:31:26 ANNOUNCEMENT Pod targets are Cry-stal and Mei Ling
 2019-07-25T21:31:32 DEBUG Lurker command started: Personal Space
+2019-07-25T21:31:36 ANNOUNCEMENT Stop DPS
+2019-07-25T21:31:36 DEBUG last_shadow 150.0 next_shadow 11.0 next_ps_fr 8.60930731887045
 2019-07-25T21:31:37 DEBUG Lurker command started: Pure Filth
 2019-07-25T21:31:48 DEBUG Lurker command started: Shadow Out Of Time
 2019-07-25T21:31:48 ANNOUNCEMENT Shadow out of time
 2019-07-25T21:31:59 DEBUG Lurker command started: Pure Filth
+2019-07-25T21:32:00 ANNOUNCEMENT Focus on hulk
 2019-07-25T21:32:02 ANNOUNCEMENT Hulk has spawned
 2019-07-25T21:32:04 DEBUG Lurker command started: From Beneath You, It Devours
 2019-07-25T21:32:04 ANNOUNCEMENT Pod

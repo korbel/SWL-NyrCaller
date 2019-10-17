@@ -62,7 +62,6 @@
 2019-05-31T00:06:14 DEBUG Lurker command started: Pure Filth
 2019-05-31T00:06:14 ANNOUNCEMENT Filth is out
 2019-05-31T00:06:22 ANNOUNCEMENT Personal space soon!
-2019-05-31T00:06:22 DEBUG next_ps_fr 0.9846470930000599 phase_started 14.0
 2019-05-31T00:06:23 DEBUG PS1 HP reached
 2019-05-31T00:06:26 DEBUG Lurker command started: Personal Space
 2019-05-31T00:06:37 DEBUG Lurker command started: Pure Filth
@@ -202,7 +201,6 @@
 2019-05-31T00:20:05 DEBUG Lurker command started: Pure Filth
 2019-05-31T00:20:05 ANNOUNCEMENT Filth is out
 2019-05-31T00:20:13 ANNOUNCEMENT Personal space soon!
-2019-05-31T00:20:13 DEBUG next_ps_fr 0.9948726870078961 phase_started 14.0
 2019-05-31T00:20:15 DEBUG PS1 HP reached
 2019-05-31T00:20:17 DEBUG Lurker command started: Personal Space
 2019-05-31T00:20:28 DEBUG Lurker command started: Pure Filth
@@ -215,6 +213,8 @@
 2019-05-31T00:20:36 DEBUG Current targets: ['ChaosSpark', 'Mei Ling']
 2019-05-31T00:20:36 DEBUG Current game phase: 3
 2019-05-31T00:20:38 ANNOUNCEMENT Pod targets are ChaosSpark and Mei Ling
+2019-05-31T00:20:47 ANNOUNCEMENT Stop DPS
+2019-05-31T00:20:47 DEBUG last_shadow 147.0 next_shadow 12.0 next_ps_fr 6.031729354234062
 2019-05-31T00:20:51 DEBUG Lurker command started: Pure Filth
 2019-05-31T00:21:02 DEBUG Lurker subscribed with ID 50000:94370
 2019-05-31T00:21:03 DEBUG Lurker command started: Shadow Out Of Time
@@ -270,7 +270,6 @@
 2019-05-31T00:27:21 DEBUG Lurker command started: Pure Filth
 2019-05-31T00:27:21 ANNOUNCEMENT Filth is out
 2019-05-31T00:27:30 ANNOUNCEMENT Personal space soon!
-2019-05-31T00:27:30 DEBUG next_ps_fr 0.9098559379159826 phase_started 15.0
 2019-05-31T00:27:31 DEBUG PS1 HP reached
 2019-05-31T00:27:33 DEBUG Lurker command started: Personal Space
 2019-05-31T00:27:44 DEBUG Lurker command started: Pure Filth
@@ -283,6 +282,8 @@
 2019-05-31T00:27:53 DEBUG Current targets: ['Furnabulax', 'Alex']
 2019-05-31T00:27:53 DEBUG Current game phase: 3
 2019-05-31T00:27:54 ANNOUNCEMENT Pod targets are Furnabulax and Alex
+2019-05-31T00:28:04 ANNOUNCEMENT Stop DPS
+2019-05-31T00:28:04 DEBUG last_shadow 183.0 next_shadow 11.0 next_ps_fr 5.000401006020699
 2019-05-31T00:28:07 DEBUG Lurker command started: Pure Filth
 2019-05-31T00:28:13 ANNOUNCEMENT Personal space soon!
 2019-05-31T00:28:14 DEBUG PS2 HP reached
@@ -532,7 +533,6 @@
 2019-06-04T19:01:51 DEBUG Lurker command started: Pure Filth
 2019-06-04T19:01:51 ANNOUNCEMENT Filth is out
 2019-06-04T19:02:03 ANNOUNCEMENT Personal space soon!
-2019-06-04T19:02:03 DEBUG next_ps_fr 0.8837772988962722 phase_started 18.0
 2019-06-04T19:02:04 DEBUG PS1 HP reached
 2019-06-04T19:02:10 DEBUG Lurker command started: Personal Space
 2019-06-04T19:02:14 DEBUG Lurker command started: Pure Filth
@@ -692,7 +692,6 @@
 2019-06-04T19:20:26 DEBUG Lurker command started: Pure Filth
 2019-06-04T19:20:26 ANNOUNCEMENT Filth is out
 2019-06-04T19:20:40 ANNOUNCEMENT Personal space soon!
-2019-06-04T19:20:40 DEBUG next_ps_fr 0.9829232180384013 phase_started 20.0
 2019-06-04T19:20:41 DEBUG PS1 HP reached
 2019-06-04T19:20:44 DEBUG Lurker command started: Personal Space
 2019-06-04T19:20:49 DEBUG Lurker command started: Pure Filth
@@ -932,7 +931,6 @@
 2019-06-04T19:57:18 DEBUG Lurker command started: Pure Filth
 2019-06-04T19:57:18 ANNOUNCEMENT Filth is out
 2019-06-04T19:57:27 ANNOUNCEMENT Personal space soon!
-2019-06-04T19:57:27 DEBUG next_ps_fr 0.9710302044916057 phase_started 15.0
 2019-06-04T19:57:29 DEBUG PS1 HP reached
 2019-06-04T19:57:30 DEBUG Lurker command started: Personal Space
 2019-06-04T19:57:41 DEBUG Lurker command started: Pure Filth
@@ -945,6 +943,8 @@
 2019-06-04T19:57:50 DEBUG Current targets: ['Nexus6', 'Alex']
 2019-06-04T19:57:50 DEBUG Current game phase: 3
 2019-06-04T19:57:52 ANNOUNCEMENT Pod targets are Nexus6 and Alex
+2019-06-04T19:58:01 ANNOUNCEMENT Stop DPS
+2019-06-04T19:58:01 DEBUG last_shadow 143.0 next_shadow 11.0 next_ps_fr 5.809257456957187
 2019-06-04T19:58:04 DEBUG Lurker command started: Pure Filth
 2019-06-04T19:58:10 ANNOUNCEMENT Personal space soon!
 2019-06-04T19:58:11 DEBUG PS2 HP reached
@@ -1105,7 +1105,6 @@
 2019-06-04T20:14:26 DEBUG Lurker command started: Pure Filth
 2019-06-04T20:14:26 ANNOUNCEMENT Filth is out
 2019-06-04T20:14:32 ANNOUNCEMENT Personal space soon!
-2019-06-04T20:14:32 DEBUG next_ps_fr 0.9305670517215443 phase_started 12.0
 2019-06-04T20:14:34 DEBUG PS1 HP reached
 2019-06-04T20:14:37 DEBUG Lurker command started: Personal Space
 2019-06-04T20:14:49 DEBUG Lurker command started: Pure Filth
@@ -1149,6 +1148,7 @@
 2019-06-04T20:16:35 DEBUG Lurker command started: Pure Filth
 2019-06-04T20:16:40 DEBUG Lurker command started: From Beneath You, It Devours
 2019-06-04T20:16:40 ANNOUNCEMENT Pod
+2019-06-04T20:16:40 ANNOUNCEMENT Focus on hulk
 2019-06-04T20:16:43 DEBUG Pod target found: 50000:16783950 Nexus6
 2019-06-04T20:16:43 DEBUG Current targets: ['Nexus6']
 2019-06-04T20:16:43 DEBUG Current game phase: 3
@@ -1191,7 +1191,6 @@
 2019-06-04T20:23:12 DEBUG Lurker command started: Pure Filth
 2019-06-04T20:23:12 ANNOUNCEMENT Filth is out
 2019-06-04T20:23:20 ANNOUNCEMENT Personal space soon!
-2019-06-04T20:23:20 DEBUG next_ps_fr 0.9945358949005729 phase_started 14.0
 2019-06-04T20:23:20 DEBUG PS1 HP reached
 2019-06-04T20:23:24 DEBUG Lurker command started: Personal Space
 2019-06-04T20:23:35 DEBUG Lurker command started: Pure Filth

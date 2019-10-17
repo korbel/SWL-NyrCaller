@@ -32,7 +32,6 @@
 2019-03-21T21:20:37 DEBUG Lurker command started: Pure Filth
 2019-03-21T21:20:37 ANNOUNCEMENT Filth is out
 2019-03-21T21:20:42 ANNOUNCEMENT Personal space soon!
-2019-03-21T21:20:42 DEBUG next_ps_fr 0.9047351777403299 phase_started 11.0
 2019-03-21T21:20:42 DEBUG PS1 HP reached
 2019-03-21T21:20:49 DEBUG Lurker command started: Personal Space
 2019-03-21T21:21:00 DEBUG Lurker command started: Pure Filth
@@ -45,6 +44,8 @@
 2019-03-21T21:21:08 DEBUG Current targets: ['ilpopi', 'Mei Ling']
 2019-03-21T21:21:08 DEBUG Current game phase: 3
 2019-03-21T21:21:10 ANNOUNCEMENT Pod targets are ilpopi and Mei Ling
+2019-03-21T21:21:18 ANNOUNCEMENT Stop DPS
+2019-03-21T21:21:18 DEBUG last_shadow 145.0 next_shadow 13.0 next_ps_fr 7.195353103110298
 2019-03-21T21:21:22 DEBUG Lurker command started: Pure Filth
 2019-03-21T21:21:31 ANNOUNCEMENT Personal space soon!
 2019-03-21T21:21:33 DEBUG PS2 HP reached
@@ -147,7 +148,6 @@
 2019-03-21T21:32:38 DEBUG Lurker command started: Pure Filth
 2019-03-21T21:32:38 ANNOUNCEMENT Filth is out
 2019-03-21T21:32:41 ANNOUNCEMENT Personal space soon!
-2019-03-21T21:32:41 DEBUG next_ps_fr 0.9608366811551867 phase_started 9.0
 2019-03-21T21:32:44 DEBUG PS1 HP reached
 2019-03-21T21:32:50 DEBUG Lurker command started: Personal Space
 2019-03-21T21:33:01 DEBUG Lurker command started: Pure Filth
@@ -216,7 +216,6 @@
 2019-03-21T21:39:27 DEBUG Lurker command started: Pure Filth
 2019-03-21T21:39:27 ANNOUNCEMENT Filth is out
 2019-03-21T21:39:32 ANNOUNCEMENT Personal space soon!
-2019-03-21T21:39:32 DEBUG next_ps_fr 0.9952158225952412 phase_started 11.0
 2019-03-21T21:39:32 DEBUG PS1 HP reached
 2019-03-21T21:39:39 DEBUG Lurker command started: Personal Space
 2019-03-21T21:39:50 DEBUG Lurker command started: Pure Filth

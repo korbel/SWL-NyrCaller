@@ -40,7 +40,6 @@
 2019-05-02T20:24:02 DEBUG Lurker command started: Pure Filth
 2019-05-02T20:24:02 ANNOUNCEMENT Filth is out
 2019-05-02T20:24:07 ANNOUNCEMENT Personal space soon!
-2019-05-02T20:24:07 DEBUG next_ps_fr 0.989076904251942 phase_started 11.0
 2019-05-02T20:24:09 DEBUG PS1 HP reached
 2019-05-02T20:24:13 DEBUG Lurker command started: Personal Space
 2019-05-02T20:24:25 DEBUG Lurker command started: Pure Filth

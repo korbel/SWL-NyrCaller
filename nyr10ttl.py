@@ -71,6 +71,7 @@ def reset_game_state():
         'needs_to_report_filth': True,
 
         'hulk_spawned': False,
+        'hulk_focus_warn': False,
 
         'players_died': 0,
         'dps': None
@@ -250,24 +251,25 @@ def event_stat_changed(character_id, stat_id, value):
                     next_ps_fr = get_hp_eta(ps_fr_hps[game_state['ps_counter']])
                     # next_filth = max(18 - last_filth if last_filth < phase_started else phase_started, 10 - last_pod)
 
-                    if next_ps_fr < stop_dps_call_timing + 2:
-                        should_call = game_state['ps_counter'] < 3 and (next_shadow < stop_dps_call_timing + 4 or last_shadow < 4)
-
+                    if stop_dps_call_timing - 2 < next_ps_fr < stop_dps_call_timing + 2:
+                        shadow_ps_diff = next_shadow - next_ps_fr
+                        should_call = game_state['ps_counter'] < 3 and -10 < shadow_ps_diff < 6
+                        
                         if not game_state['ps1_stop_dps_call'] and game_state['ps_counter'] == 0:
                             if should_call:
                                 say("Stop DPS", True)
                                 debug("last_shadow", last_shadow, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
-                            game_state['ps1_stop_dps_call'] = True
+                                game_state['ps1_stop_dps_call'] = True
                         if not game_state['ps2_stop_dps_call'] and game_state['ps_counter'] == 1:
                             if should_call:
                                 say("Stop DPS", True)
                                 debug("last_shadow", last_shadow, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
-                            game_state['ps2_stop_dps_call'] = True
+                                game_state['ps2_stop_dps_call'] = True
                         if not game_state['ps3_stop_dps_call'] and game_state['ps_counter'] == 2:
                             if should_call:
                                 say("Stop DPS", True)
                                 debug("last_shadow", last_shadow, "next_shadow", next_shadow, "next_ps_fr", next_ps_fr)
-                            game_state['ps3_stop_dps_call'] = True
+                                game_state['ps3_stop_dps_call'] = True
 
                     if not game_state['fr_stop_dps_call'] and game_state['ps_counter'] == 3 and next_ps_fr < stop_dps_call_timing:
                         if next_pod < stop_dps_call_timing + 2:
@@ -279,7 +281,6 @@ def event_stat_changed(character_id, stat_id, value):
                         if not game_state['ps1_call'] and game_state['ps_counter'] == 0: 
                             game_state['ps1_call'] = True
                             say("Personal space soon!", True)
-                            debug("next_ps_fr", next_ps_fr, "phase_started", phase_started)
                         if not game_state['ps2_call'] and game_state['ps_counter'] == 1:
                             game_state['ps2_call'] = True
                             say("Personal space soon!", True)
@@ -290,6 +291,9 @@ def event_stat_changed(character_id, stat_id, value):
                             game_state['fr_call'] = True
                             say("Final resort soon!", True)
 
+                    if not game_state['hulk_focus_warn'] and next_ps_fr < 4 and game_state['ps_counter'] < 3 and (last_shadow < 14 or game_state['hulk_spawned']):
+                        say("Focus on hulk", True)
+                        game_state['hulk_focus_warn'] = True
 
                 if not game_state['shadow1_stop_dps_call'] and game_state['start_time']:
                     last_pod = game_state['last_pod'] if game_state['last_pod'] else game_state['start_time'] + timedelta(seconds=16)
@@ -338,9 +342,11 @@ def event_character_died(character_id):
         if len(game_state['birds']) == 3 and dynels[character_id]['name'] == 'Eldritch Guardian' and game_state['early_ps'] and not game_state['early_ps_call']:
             game_state['early_ps_call'] = True
             say("Personal space will be early")
-        if game_state['phase'] == 3 and dynels[character_id]['name'] == 'Zero-Point Titan' and game_state['ps_counter'] < 4:
-            say("Hulk is dead")
-
+        if dynels[character_id]['name'] == 'Zero-Point Titan' and game_state['ps_counter'] < 4:
+            game_state['hulk_spawned'] = False
+            game_state['hulk_focus_warn'] = False
+            if game_state['phase'] == 3:
+                say("Hulk is dead")
 
 def event_character_alive(character_id):
     if not game_state['start_time']:
@@ -396,7 +402,6 @@ def event_command_started(character_id, command_name):
                 game_state['phase'] = 2
             if game_state['phase'] == 3 or game_state['phase'] == 2 and len(game_state['birds']) == 3:
                 say("Shadow out of time")
-            game_state['hulk_spawned'] = False
             game_state['last_shadow'] = last_date
         elif command_name.startswith('From Beneath'):
             say("Pod")

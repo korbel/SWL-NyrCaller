@@ -34,7 +34,6 @@
 2019-05-16T20:21:46 DEBUG Lurker command started: Pure Filth
 2019-05-16T20:21:46 ANNOUNCEMENT Filth is out
 2019-05-16T20:21:48 ANNOUNCEMENT Personal space soon!
-2019-05-16T20:21:48 DEBUG next_ps_fr 0.7307040211866959 phase_started 8.0
 2019-05-16T20:21:48 DEBUG PS1 HP reached
 2019-05-16T20:21:51 DEBUG Lurker command started: Personal Space
 2019-05-16T20:22:09 DEBUG Lurker command started: Pure Filth
@@ -119,13 +118,13 @@
 2019-05-16T20:32:13 ANNOUNCEMENT Hulk has spawned
 2019-05-16T20:32:15 DEBUG Lurker command started: Pure Filth
 2019-05-16T20:32:15 ANNOUNCEMENT Filth is out
+2019-05-16T20:32:17 ANNOUNCEMENT Focus on hulk
 2019-05-16T20:32:33 DEBUG Lurker command started: Pure Filth
 2019-05-16T20:32:36 ANNOUNCEMENT Hulk is dead
 2019-05-16T20:32:44 DEBUG Lurker subscribed with ID 50000:49507
 2019-05-16T20:32:45 DEBUG Lurker command started: From Beneath You, It Devours
 2019-05-16T20:32:45 ANNOUNCEMENT Pod
 2019-05-16T20:32:45 ANNOUNCEMENT Personal space soon!
-2019-05-16T20:32:45 DEBUG next_ps_fr 0.8568327051456124 phase_started 36.0
 2019-05-16T20:32:46 DEBUG PS1 HP reached
 2019-05-16T20:32:48 DEBUG Lurker subscribed with ID 50000:49560
 2019-05-16T20:32:48 DEBUG Reset
@@ -159,7 +158,6 @@
 2019-05-16T20:37:34 DEBUG Lurker command started: Pure Filth
 2019-05-16T20:37:34 ANNOUNCEMENT Filth is out
 2019-05-16T20:37:39 ANNOUNCEMENT Personal space soon!
-2019-05-16T20:37:39 DEBUG next_ps_fr 0.9970938592558828 phase_started 11.0
 2019-05-16T20:37:40 DEBUG PS1 HP reached
 2019-05-16T20:37:45 DEBUG Lurker command started: Personal Space
 2019-05-16T20:37:57 DEBUG Lurker command started: Pure Filth
@@ -239,7 +237,6 @@
 2019-05-16T20:44:10 DEBUG Lurker command started: Pure Filth
 2019-05-16T20:44:10 ANNOUNCEMENT Filth is out
 2019-05-16T20:44:14 ANNOUNCEMENT Personal space soon!
-2019-05-16T20:44:14 DEBUG next_ps_fr 0.6056251941491336 phase_started 10.0
 2019-05-16T20:44:16 DEBUG PS1 HP reached
 2019-05-16T20:44:22 DEBUG Lurker command started: Personal Space
 2019-05-16T20:44:33 DEBUG Lurker command started: Pure Filth
