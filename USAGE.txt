@@ -16,52 +16,16 @@ You can use it locally or as a discord bot. If you want to use it as a discord b
 Setting it up as a Discord bot:
 
 - To run it as a Discord bot, first you must install VBCable driver (it can be found in the "New York Raid Elite 10 Bot\VBCABLE_Driver_Pack43" directory), it will give the NYR bot the ability to connect its voice to a discord bot.
-- Next you must set up a discord bot. If you already have a discord bot set up, you can skip this step and manually edit the bot token in the config.json. To set a bot up, run the "New York Raid Elite 10 Bot\Discord Audio Stream Bot\Discord Audio Stream Bot.exe" file and follow the instructions there. The admin of the target discord server must give access to the bot. This will generate you a config.json in the "Discord Audio Stream Bot" directory.
-- You may need to adjust the audio options (audioType, bitRate, bufferMillis). BitRate changes quality (the higher the better), but requires more buffer and network speed. The bigger the buffer is, the smoother the sound will be, but it will increase latency which may not be ideal for a caller bot.
-- It's recommended to set autoJoinVoiceChannels and proper userPermissions, for more details and troubleshooting visit https://github.com/BinkanSalaryman/Discord-Audio-Stream-Bot
-
-Common issues:
-- If you get the error "NotSupportedException: An attempt was made to load an assembly from a network location which would have caused the assembly to be sandboxed in previous versions of the .NET Framework...", right click Commands.dll, go to properties->security and check the box to grant access."
-
-An example of the config.json should look like this:
-
-{
-  "general": {
-    "botToken": "NZc0MTc0MDE5OGM5NDY3MjY0.XM1jjw.MOhlYfxas3BhwyTpScnNqjA8J21"
-  },
-  "voice": {
-    "speak": {
-      "enabled": true,
-      "recordingDevice": "CABLE Output (VB-Audio Virtual Cable)",
-      "audioType": "Mixed",
-      "bitRate": 16000,
-      "bufferMillis": 100
-    },
-    "listen": {
-      "enabled": false,
-      "playbackDevice": null
-    },
-    "autoJoinVoiceChannels": {
-      "325693912386413077": 525441916123972106
-    }
-  },
-  "text": {
-    "commands": {
-      "botAgent": "tomoko",
-      "permissions": {
-        "defaultPermissions": "!bot.stop() !guild.leave() help.commands(path) !permissions.assign(user_or_role,permissions) utils.ping(host)",
-        "userPermissions": {
-          "246995195607455233": "*",
-          "310774568670490624": "*"
-        },
-        "rolePermissions": {}
-      }
-    }
-  }
-}
+- Next you must set up a discord bot. If you already have a bot token and SERVER MEMBERS INTENT is enabled for the bot you can skip this the next step.
+- To set a bot up, you must create a bot user first. To do that, visit the Discord Developer Portal (https://discordapp.com/developers/applications). After you created a bot user, make sure you enable SERVER MEMBERS INTENT in the bot settings.
+- Enter the "Discord Audio Stream Bot" directory and start "run win32.bat" (you can try the win64 version first, but it might fail to start). You must have Java (JRE) installed.
+- Go to the Settings tab of the Discord Audio Stream Bot application, and enter your bot token you received. Unmute audio input and select "CABLE Output (VB-Audio Virtual Cable)".
+- On the Home tab start the bot. After it started, you can invite you bot to you service on the Maintenance tab. Make sure the bot has the correct permissions to enter and talk in the voice channels.
+- Send the "help" command by direct message or by @mention to see how to use the bot. If you want the bot to follow you when you join a voice channel you can send a mention on your guild discord: @Bot_name follow-voice set @Your_name
+- Further info and troubleshooting here: https://github.com/BinkanSalaryman/Discord-Audio-Stream-Bot
 
 IMPORTANT!
-Don't distribute the config.json as it contains the secret key to control your bot!
+Don't distribute your "Discord Audio Stream Bot" directory with the config.json as it contains the secret key to control your bot!
 To change the secret key (bot token) go to https://discordapp.com/developers/applications/
 
 
@@ -69,7 +33,7 @@ To change the secret key (bot token) go to https://discordapp.com/developers/app
 ## Usage ##
 ###########
 
-If you set the Discord got up, run "New York Raid Elite 10 Bot\start.bat", it will both start the discord bot and the caller app.
+If you set the Discord got up, run "New York Raid Elite 10 Bot\start.bat", it will both start the discord bot (in win32 mode) and the caller app. On the Discord Audio Stream Bot window click the start button.
 To run it locally without the discord bot, navigate to the "<SWL directory>\New York Raid Elite 10 Bot" directory and run the start_locally.bat executable instead.
 
 IMPORTANT!
