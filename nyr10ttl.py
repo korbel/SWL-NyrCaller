@@ -29,9 +29,11 @@ lurker_id_stack = []
 last_lurker_id = None
 number_of_players = 0
 
-shadow1_hp = 26369244
-ps_fr_hps = [23732320, 15821546, 8789478, 1757950]
-lurker_max_hp = 35158992
+lurker_max_hp = 43199824
+shadow1_hp = int(round(lurker_max_hp * 0.75))
+ps_fr_hps = list(map(lambda percentage: int(round(lurker_max_hp * percentage)), (0.675, 0.45, 0.25, 0.05)))
+start_dps_calc_hp = int(round(lurker_max_hp * 0.95))
+stop_dps_calc_hp = int(round(lurker_max_hp * 0.81))
 stop_dps_call_timing = 7
 call_timing = 1
 
@@ -217,12 +219,12 @@ def event_stat_changed(character_id, stat_id, value):
         if stat_id == '27':
             new_hp = int(value)
 
-            if not game_state['dps'] and new_hp < 33500000:
+            if not game_state['dps'] and new_hp < start_dps_calc_hp:
                 if not game_state['start_of_dps_calc']:
                     if game_state['lurker_hp'] == lurker_max_hp:
                         return
                     game_state['start_of_dps_calc'] = (last_date, new_hp)
-                if new_hp < 28500000:
+                if new_hp < stop_dps_calc_hp:
                     (calc_start_date, calc_start_hp) = game_state['start_of_dps_calc']
                     damage = calc_start_hp - new_hp
                     seconds = (last_date - calc_start_date).total_seconds()
@@ -561,7 +563,7 @@ def trace(*args):
         print(last_date.isoformat(), 'TRACE', *args)
 
 def main():
-    debug("Agnitio NYR E10 caller bot v6 started")
+    debug("Agnitio NYR E10 caller bot v7 started")
     reset_game_state()
     log_file = next((x.split('=', 1)[1] for x  in sys.argv[1:] if x.startswith('log=')), os.path.join('..', 'ClientLog.txt'))
     log = follow(log_file if os.path.isabs(log_file) else os.path.join(os.path.dirname(os.path.abspath(__file__)), log_file))
