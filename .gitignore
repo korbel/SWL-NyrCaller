@@ -1,5 +1,2 @@
-dist/
-build/
-__pycache__/
-.vscode
-New York Raid Elite 10 Bot.zip
+/dist/
+/.vscode
