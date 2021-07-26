@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 pywin32 = "*"
+pyinstaller = "*"
 
 [dev-packages]
-pyinstaller = "*"
 
 [requires]
 python_version = "3.9"
