@@ -88,4 +88,35 @@ Example:
 
 ## Development guide
 
-TODO
+The caller consists of 2 individual parts. One is an SWL mod which sends the in-game events into the ClientLog, and the other one is a Python app which reads and analyses the ClientLog and calls using Microsoft's Text-to-Speech engine when it deems necessary.
+
+The source code can be found at <https://github.com/korbel/SWL-NyrCaller>.
+
+### The SWL mod
+
+Set up a development environment by downloading FlashDevelop and setting it up by following [this guide](https://docs.google.com/document/d/17c5wV2a7Z--KpEWTobFtoWXO-oHSKT43h_94_TRrG-M/edit) or if you don't want to use FlashDevelop you can check out the [SWL-BuildScripts repository](https://github.com/korbel/SWL-BuildScripts) and follow its [README.md](https://github.com/korbel/SWL-BuildScripts/blob/main/README.md).
+
+The .as2proj project file can be found in the `\src\as2` directory.
+
+### The Python app
+
+Install the following requirements first to build the app:
+
+- [Python >3.6](https://www.python.org/)
+- [Pipenv](https://pipenv.pypa.io/en/latest/)
+
+Running `src\python\build.bat` should download the dependencies and build the python app into a standalone `.exe` and place it into the `dist` output directory. The builder expects to find the `py.exe` on the `PATH`.
+
+### Testing and debugging the Python app
+
+To test changes or debug issues, you can put your ClientLog file into the `src\python\logs` directory and run the `test.bat` executable. It will generate the debug and trace logs into the `src\python\logs\debug` and `src\python\logs\trace` directories respectively to help you test, analyse and debug NYR runs.
+
+By default it will (re)generate all the debug and trace files for all the logs it can find in the `logs` directory, however it can be slow at times. To only test a single log, you can pass in the name of the log as the first parameter of the `test.bat`, e.g.:
+
+    .\test.bat ClientLog20190412002700.txt
+
+### Packaging the app
+
+To package the caller, you must follow the instructions in the `external\README.md` file first and download the external tools required for deploying the final product.
+
+After both the SWL mod and the Python app got built, run the `package.bat` executable, it will create the required directory structure in the `dist` folder, then it will copy the appropriate files in their corresponding directory, and finally create the `dist\NyrCaller.zip` archive which can be directly shipped and extracted in the user's game directory.
