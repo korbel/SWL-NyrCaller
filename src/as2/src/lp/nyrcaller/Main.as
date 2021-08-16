@@ -15,6 +15,7 @@ class lp.nyrcaller.Main {
     private static var s_app:Main;
 
     private static var NYR10_PLAYFIELD_ID:Number = 5715;
+    private static var LURKER_NAME = "The Unutterable Lurker"; // TODO: make these compatible with non-english clients
     private static var WATCHED_ENEMY_NPCS:Array = ["Zero-Point Titan", "Eldritch Guardian", "Mouths of Montauk"]
     private static var WATCHED_ALLY_NPCS = ["Alex", "Mei Ling", "Rose"]
 
@@ -108,7 +109,7 @@ class lp.nyrcaller.Main {
         } else if (dynel.GetID().IsPlayer()) {
             m_dynels.push(dynel);
             CharacterSubscription.Add(dynel, false, [], [8907521, 9125195, 8907522]); // Inevitable Doom, Whisper of Darkness, Rumblings Below
-        } else if (name == "The Unutterable Lurker" && dynel.GetStat(421)) { // stat(421) == 27 No idea what this stat is but it seems to be specific to "real" lurker
+        } else if (name == LURKER_NAME && dynel.GetStat(421)) { // stat(421) == 27 No idea what this stat is but it seems to be specific to "real" lurker
             m_dynels.push(dynel);
             CharacterSubscription.Add(dynel, true);
         }
