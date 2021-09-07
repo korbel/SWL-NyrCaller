@@ -1,2 +1,5 @@
 /env
 /python.zip
+/__pycache__
+/nyr_caller.pyc
+/get-pip.py

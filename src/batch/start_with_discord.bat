@@ -2,7 +2,7 @@
 
 where java >nul 2>nul
 if errorlevel 1 (
-    echo Java not found!
+    echo Java cannot be found. Please download and install Java.
     pause
     exit /b 1
 )
@@ -14,4 +14,4 @@ if errorlevel 1 (
     start  /d ".\Discord Audio Stream Bot" "" ".\run win64.bat"
 )
 
-.\env\python.exe nyr_caller.py "redirectOutput" "voice=Microsoft Zira Desktop" "speed=1"
+.\env\python.exe nyr_caller.pyc "redirectOutput" "voice=Microsoft Zira Desktop" "speed=1"

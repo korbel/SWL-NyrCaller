@@ -100,9 +100,9 @@ The .as2proj project file can be found in the `\src\as2` directory.
 ### The Python app
 
 Run `src\python\install.bat` to download and set up a local installation of Python.
-It should download python, extract it to the `env` directory, add `pip` to the installation and install the dependencies.
+The script should download python, extract it to the `env` directory, add `pip` to the installation, install the dependencies and compile the `nyr_caller.py`.
 
-When packaging the application the `env` directory will be shipped alongside the script.
+When packaging the application the `env` directory will be shipped alongside the compiled `nyr_caller.pyc` file.
 
 To add new dependencies, you must edit `install.bat`. You can manually install a dependency by running `env\Scripts\pip.exe install <module_name>`.
 
