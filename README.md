@@ -36,7 +36,7 @@ Restart the game.
 
 ## Usage
 
-To run it locally without setting up a discord bot, navigate to the `<SWL directory>\NyrCaller` directory and start the `start_locally.bat` executable. You should now see a console with the following message:
+To run it locally without setting up a discord bot, navigate to the `<SWL directory>\NyrCaller` directory and start the `start.bat` executable. You should now see a console with the following message:
 
 > Agnitio NYR Caller bot started
 
@@ -47,12 +47,12 @@ The bot is listening to in-game events so upon the unfortunate event of the game
 
 ## Setting it up as a Discord bot
 
-To broadcast the voice of the caller application to discord, other than running the caller app, you need to set up a discord bot and have some means to transfer the voice of the caller bot to the discord bot. Here are the steps how to do that:
+To broadcast the voice of the caller application on discord, other than running the caller app, you need to set up a discord bot and have some means to transfer the voice of the caller bot to the discord bot. Here are the steps how to do that:
 
 - First you must install VBCable driver. It can be found in the `NyrCaller\VBCABLE_Driver_Pack43` directory, it will give you the ability to connect the voice of NYR caller bot a discord bot.
 - Next you will have to register the bot on Discord's website and acquire a bot token. If you've already got a token and `SERVER MEMBERS INTENT` is enabled for the bot you can skip the following step.
 - To acquire a bot token, you must create a bot user first. To do that, visit the [Discord Developer Portal](https://discordapp.com/developers/applications). After you created a bot user, make sure you enable `SERVER MEMBERS INTENT` in the bot settings.
-- Now start either the `Discord Audio Stream Bot\run win32.bat` or  `Discord Audio Stream Bot\run win64.bat`  depending on what java you have installed. One of them will exit with an error, the other will start an application. If both fails, you probably don't have a Java runtime installed, in which case go, download and install one. I recommend the [AdoptOpenJDK](https://adoptopenjdk.net/) LTS builds, but you can install it from <https://java.com/> too.
+- Now start the `Discord Audio Stream Bot\start_with_discord.bat` executable. You must have java installed on your system and it must be added the PATH environment variable. I recommend the [AdoptOpenJDK](https://adoptopenjdk.net/) LTS builds, but you can install Java from <https://java.com/> too.
 - Go to the Settings tab of the Discord Audio Stream Bot application, and enter your bot token you received. Unmute the audio input and select "CABLE Output (VB-Audio Virtual Cable)".
 - On the Home tab start the bot. After it started, you can invite you bot to your server on the Maintenance tab if it hasn't already invited. Make sure the bot has the correct permissions to be able to enter and talk in the voice channels.
 - Send the "help" command by directly messaging the bot or by @mention to see how to use the bot. If you want the bot to follow you when you join a voice channel you can send a mention on your guild discord: @Bot_name follow-voice set @Your_name
@@ -60,7 +60,6 @@ To broadcast the voice of the caller application to discord, other than running 
 
 **IMPORTANT!** Don't distribute your "Discord Audio Stream Bot" directory with the `config.json` as it contains the secret key to control your bot! To change the secret key (the bot token) go to <https://discordapp.com/developers/applications/>
 
-Anytime you want to start the caller bot along with the Discord bot, you must run the `start_win32.bat` or `start_win64.bat` instead of the `start_locally.bat`, depending on your Java installation (see above).
 
 ## Advanced settings and troubleshooting
 
@@ -70,7 +69,7 @@ To test different voices and settings press `Windows Key + R` and run the follow
 
     rundll32.exe shell32.dll,Control_RunDLL C:\WINDOWS\system32\speech\speechux\sapi.cpl
 
-You can also edit `start_locally.bat`, `start_win32.bat` and `start_win64.bat` to change the default settings. The following arguments can be set:
+You can also edit `start.bat` and `start_with_discord.bat` to change the default settings. The following arguments can be set:
 - **voice**: Name of the voice to be used. Run the following command in powershell to find other voices:
     
         (New-Object -ComObject SAPI.SPVoice).GetVoices() | % {$_.GetAttribute("Name")}
@@ -100,16 +99,16 @@ The .as2proj project file can be found in the `\src\as2` directory.
 
 ### The Python app
 
-Install the following requirements first to build the app:
+Run `src\python\install.bat` to download and set up a local installation of Python.
+It should download python, extract it to the `env` directory, add `pip` to the installation and install the dependencies.
 
-- [Python >3.6](https://www.python.org/)
-- [Pipenv](https://pipenv.pypa.io/en/latest/)
+When packaging the application the `env` directory will be shipped alongside the script.
 
-Running `src\python\build.bat` should download the dependencies and build the python app into a standalone `.exe` and place it into the `dist` output directory. The builder expects to find the `py.exe` on the `PATH`.
+To add new dependencies, you must edit `install.bat`. You can manually install a dependency by running `env\Scripts\pip.exe install <module_name>`.
 
 ### Testing and debugging the Python app
 
-To test changes or debug issues, you can put your ClientLog file into the `src\python\logs` directory and run the `test.bat` executable. It will generate the debug and trace logs into the `src\python\logs\debug` and `src\python\logs\trace` directories respectively to help you test, analyse and debug NYR runs.
+To test changes or debug issues, you can put your ClientLog file into the `src\python\logs` directory and run the `test.bat` executable. It will generate the debug and trace logs into the `src\python\logs\debug` and `src\python\logs\trace` directories respectively to help you test, analyze and debug NYR runs.
 
 By default it will (re)generate all the debug and trace files for all the logs it can find in the `logs` directory, however it can be slow at times. To only test a single log, you can pass in the name of the log as the first parameter of the `test.bat`, e.g.:
 
@@ -117,6 +116,6 @@ By default it will (re)generate all the debug and trace files for all the logs i
 
 ### Packaging the app
 
-To package the caller, you must follow the instructions in the `external\README.md` file first and download the external tools required for deploying the final product.
+To package the app, you must follow the instructions in the `external\README.md` file first and download the external tools required for deploying the final product.
 
-After both the SWL mod and the Python app got built, run the `package.bat` executable, it will create the required directory structure in the `dist` folder, then it will copy the appropriate files in their corresponding directory, and finally create the `dist\NyrCaller.zip` archive which can be directly shipped and extracted in the user's game directory.
+After both the SWL mod and the Python app got built, run the `package.bat` executable, it will create the required directory structure in the `dist` folder, then it will copy the appropriate files in their corresponding directory, and finally create the `dist\NyrCaller.zip` archive which can be directly shipped and extracted into the user's game directory.
