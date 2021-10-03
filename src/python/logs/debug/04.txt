@@ -1,0 +1,160 @@
+0001-01-01T00:00:00 DEBUG Agnitio NYR Caller bot started
+0001-01-01T00:00:00 DEBUG Reset
+2021-10-03T17:09:57 DEBUG Reset
+2021-10-03T17:09:57 DEBUG Lurker subscribed with ID 50000:311848
+2021-10-03T17:09:57 DEBUG Reset
+2021-10-03T17:09:57 ANNOUNCEMENT Welcome to New York raid E 10!
+2021-10-03T17:09:57 DEBUG Entered NYR E10
+2021-10-03T17:16:26 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:16:26 DEBUG Start time: 2021-10-03T17:16:25
+2021-10-03T17:16:26 ANNOUNCEMENT Filth is out
+2021-10-03T17:16:45 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:17:03 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:17:14 DEBUG Lurker command started: From Beneath You, It Devours
+2021-10-03T17:17:14 ANNOUNCEMENT Pod
+2021-10-03T17:17:14 DEBUG DPS calculated in 34.0 seconds: 178214.5
+2021-10-03T17:17:17 DEBUG Pod target found: 50000:167914222 LadyPhoenix
+2021-10-03T17:17:17 DEBUG Current targets: ['LadyPhoenix']
+2021-10-03T17:17:17 DEBUG Current game phase: 1
+2021-10-03T17:17:19 ANNOUNCEMENT Pod target is LadyPhoenix
+2021-10-03T17:17:22 DEBUG seconds_till_next_pod 24.0 get_hp_eta(shadow1_hp) 6.86503623442537
+2021-10-03T17:17:25 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:17:32 ANNOUNCEMENT Shadow out of time soon!
+2021-10-03T17:17:33 DEBUG Shadow1 HP reached
+2021-10-03T17:17:37 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:17:45 DEBUG Lurker became untargetable
+2021-10-03T17:17:57 DEBUG Bird count since last reset: 1
+2021-10-03T17:18:17 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:18:35 DEBUG Bird count since last reset: 2
+2021-10-03T17:18:55 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:19:40 DEBUG Bird count since last reset: 3
+2021-10-03T17:19:40 ANNOUNCEMENT Third bird
+2021-10-03T17:19:50 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:19:50 ANNOUNCEMENT Shadow out of time
+2021-10-03T17:20:15 DEBUG Lurker became targetable
+2021-10-03T17:20:15 DEBUG P3 started at 2021-10-03T17:20:15 (0 seconds ago)
+2021-10-03T17:20:21 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:20:21 ANNOUNCEMENT Filth is out
+2021-10-03T17:20:30 ANNOUNCEMENT Personal space soon!
+2021-10-03T17:20:32 DEBUG PS1 HP reached
+2021-10-03T17:20:39 DEBUG Lurker command started: Personal Space
+2021-10-03T17:20:44 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:20:49 DEBUG Lurker command started: From Beneath You, It Devours
+2021-10-03T17:20:49 ANNOUNCEMENT Pod
+2021-10-03T17:20:52 DEBUG Pod target found: 50000:311981 Rose
+2021-10-03T17:20:52 DEBUG Current targets: ['Rose']
+2021-10-03T17:20:52 DEBUG Current game phase: 3
+2021-10-03T17:20:54 ANNOUNCEMENT Pod target is Rose
+2021-10-03T17:20:58 DEBUG Lurker subscribed with ID 50000:311848
+2021-10-03T17:20:59 DEBUG Lurker subscribed with ID 50000:312001
+2021-10-03T17:21:00 DEBUG Reset
+2021-10-03T17:21:00 DEBUG Lurker became untargetable
+2021-10-03T17:21:00 DEBUG Lurker became targetable
+2021-10-03T17:24:20 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:24:20 DEBUG Start time: 2021-10-03T17:24:19
+2021-10-03T17:24:20 ANNOUNCEMENT Filth is out
+2021-10-03T17:24:38 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:24:56 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:25:08 DEBUG Lurker command started: From Beneath You, It Devours
+2021-10-03T17:25:08 ANNOUNCEMENT Pod
+2021-10-03T17:25:10 DEBUG DPS calculated in 35.0 seconds: 172810.65714285715
+2021-10-03T17:25:11 DEBUG Pod target found: 50000:17250432 Pickled-Tink
+2021-10-03T17:25:11 DEBUG Current targets: ['Pickled-Tink']
+2021-10-03T17:25:11 DEBUG Current game phase: 1
+2021-10-03T17:25:13 ANNOUNCEMENT Pod target is Pickled-Tink
+2021-10-03T17:25:18 DEBUG seconds_till_next_pod 22.0 get_hp_eta(shadow1_hp) 6.7354642314553015
+2021-10-03T17:25:19 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:25:28 ANNOUNCEMENT Shadow out of time soon!
+2021-10-03T17:25:29 DEBUG Shadow1 HP reached
+2021-10-03T17:25:31 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:25:39 DEBUG Lurker became untargetable
+2021-10-03T17:25:51 DEBUG Bird count since last reset: 1
+2021-10-03T17:26:04 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:26:29 DEBUG Bird count since last reset: 2
+2021-10-03T17:26:40 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:27:34 DEBUG Bird count since last reset: 3
+2021-10-03T17:27:34 ANNOUNCEMENT Third bird
+2021-10-03T17:27:46 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:27:46 ANNOUNCEMENT Shadow out of time
+2021-10-03T17:28:09 DEBUG Lurker became targetable
+2021-10-03T17:28:09 DEBUG P3 started at 2021-10-03T17:28:09 (0 seconds ago)
+2021-10-03T17:28:11 ANNOUNCEMENT Hulk is dead
+2021-10-03T17:28:15 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:28:15 ANNOUNCEMENT Filth is out
+2021-10-03T17:28:29 ANNOUNCEMENT Personal space soon!
+2021-10-03T17:28:29 DEBUG PS1 HP reached
+2021-10-03T17:28:33 DEBUG Lurker command started: Personal Space
+2021-10-03T17:28:38 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:28:43 DEBUG Lurker command started: From Beneath You, It Devours
+2021-10-03T17:28:43 ANNOUNCEMENT Pod
+2021-10-03T17:28:46 DEBUG Pod target found: 50000:16803172 Meouth
+2021-10-03T17:28:46 DEBUG Current targets: ['Meouth']
+2021-10-03T17:28:46 DEBUG Current game phase: 3
+2021-10-03T17:28:46 DEBUG Pod target found: 50000:312124 Mei Ling
+2021-10-03T17:28:46 DEBUG Current targets: ['Meouth', 'Mei Ling']
+2021-10-03T17:28:46 DEBUG Current game phase: 3
+2021-10-03T17:28:48 ANNOUNCEMENT Pod targets are Meouth and Mei Ling
+2021-10-03T17:29:00 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:29:04 ANNOUNCEMENT Stop DPS
+2021-10-03T17:29:04 DEBUG last_shadow 78.0 next_shadow 5.0 next_ps_fr 8.988571215643505
+2021-10-03T17:29:12 ANNOUNCEMENT Personal space soon!
+2021-10-03T17:29:12 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:29:12 ANNOUNCEMENT Shadow out of time
+2021-10-03T17:29:12 ANNOUNCEMENT Focus on hulk
+2021-10-03T17:29:13 DEBUG PS2 HP reached
+2021-10-03T17:29:25 DEBUG Lurker command started: Personal Space
+2021-10-03T17:29:26 ANNOUNCEMENT Hulk has spawned
+2021-10-03T17:29:36 DEBUG Lurker command started: From Beneath You, It Devours
+2021-10-03T17:29:36 ANNOUNCEMENT Pod
+2021-10-03T17:29:40 DEBUG Pod target found: 50000:17641347 MathGirl
+2021-10-03T17:29:40 DEBUG Current targets: ['MathGirl']
+2021-10-03T17:29:40 DEBUG Current game phase: 3
+2021-10-03T17:29:40 DEBUG Pod target found: 50000:312125 Alex
+2021-10-03T17:29:40 DEBUG Current targets: ['MathGirl', 'Alex']
+2021-10-03T17:29:40 DEBUG Current game phase: 3
+2021-10-03T17:29:42 ANNOUNCEMENT Pod targets are MathGirl and Alex
+2021-10-03T17:29:47 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:29:49 ANNOUNCEMENT Hulk is dead
+2021-10-03T17:30:05 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:30:10 DEBUG Lurker command started: From Beneath You, It Devours
+2021-10-03T17:30:10 ANNOUNCEMENT Pod
+2021-10-03T17:30:14 DEBUG Pod target found: 50000:17250432 Pickled-Tink
+2021-10-03T17:30:14 DEBUG Current targets: ['Pickled-Tink']
+2021-10-03T17:30:14 DEBUG Current game phase: 3
+2021-10-03T17:30:14 DEBUG Pod target found: 50000:312126 Rose
+2021-10-03T17:30:14 DEBUG Current targets: ['Pickled-Tink', 'Rose']
+2021-10-03T17:30:14 DEBUG Current game phase: 3
+2021-10-03T17:30:16 ANNOUNCEMENT Pod targets are Pickled-Tink and Rose
+2021-10-03T17:30:28 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:30:31 ANNOUNCEMENT Personal space soon!
+2021-10-03T17:30:32 DEBUG PS3 HP reached
+2021-10-03T17:30:33 DEBUG Lurker command started: Personal Space
+2021-10-03T17:30:45 DEBUG Lurker command started: From Beneath You, It Devours
+2021-10-03T17:30:45 ANNOUNCEMENT Pod
+2021-10-03T17:30:48 DEBUG Pod target found: 50000:16778046 teg
+2021-10-03T17:30:48 DEBUG Current targets: ['teg']
+2021-10-03T17:30:48 DEBUG Current game phase: 3
+2021-10-03T17:30:48 DEBUG Pod target found: 50000:312126 Rose
+2021-10-03T17:30:48 DEBUG Current targets: ['teg', 'Rose']
+2021-10-03T17:30:48 DEBUG Current game phase: 3
+2021-10-03T17:30:50 ANNOUNCEMENT Pod targets are teg and Rose
+2021-10-03T17:30:56 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:31:07 DEBUG Lurker command started: Shadow Out Of Time
+2021-10-03T17:31:07 ANNOUNCEMENT Shadow out of time
+2021-10-03T17:31:21 ANNOUNCEMENT Hulk has spawned
+2021-10-03T17:31:29 DEBUG next_pod -12.0 next_ps_fr 6.9996446193751165
+2021-10-03T17:31:33 DEBUG Lurker command started: From Beneath You, It Devours
+2021-10-03T17:31:33 ANNOUNCEMENT Pod
+2021-10-03T17:31:36 DEBUG Pod target found: 50000:17315613 MBiohazard
+2021-10-03T17:31:36 DEBUG Current targets: ['MBiohazard']
+2021-10-03T17:31:36 DEBUG Current game phase: 3
+2021-10-03T17:31:36 DEBUG Pod target found: 50000:312126 Rose
+2021-10-03T17:31:36 DEBUG Current targets: ['MBiohazard', 'Rose']
+2021-10-03T17:31:36 DEBUG Current game phase: 3
+2021-10-03T17:31:37 ANNOUNCEMENT Hulk is dead
+2021-10-03T17:31:38 ANNOUNCEMENT Pod targets are MBiohazard and Rose
+2021-10-03T17:31:44 DEBUG Lurker command started: Pure Filth
+2021-10-03T17:31:54 ANNOUNCEMENT Final resort soon!
+2021-10-03T17:31:54 DEBUG FR HP reached
+2021-10-03T17:31:56 DEBUG Lurker command started: Final Resort
+2021-10-03T17:33:30 DEBUG Left NYR E10
